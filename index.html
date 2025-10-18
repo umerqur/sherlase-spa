@@ -10,22 +10,16 @@
   <meta property="og:title" content="Sherlase Clinic & Spa – Premium Spa in Markham">
   <meta property="og:description" content="High-end spa treatments without downtown prices. RMT massage, facials, waxing. 25+ years serving Markham.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://sherlase-clinic-and-spa.mailchimpsites.com/">
+  <meta property="og:url" content="https://sherlase-spa.vercel.app/">
   <meta property="og:image" content="https://dim.mcusercontent.com/cs/35e85065fcf74b057adb42c24/images/ebb7f863-88bb-1e3a-10ce-2b5f5012384a.png">
   
-  <!-- Google Analytics 4 - REPLACE G-XXXXXXXXXX WITH YOUR GA4 ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-  
-  <!-- Google Ads Conversion Tracking - REPLACE AW-XXXXXXXXX -->
-  <script>
-    gtag('config', 'AW-XXXXXXXXX');
-  </script>
+  <!-- Google Tag Manager - REPLACE GTM-XXXXXXX WITH YOUR GTM ID -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- End Google Tag Manager -->
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +45,6 @@
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
     .row{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     
-    /* Logo - with fallback */
     .logo-container{display:flex;align-items:center}
     .logo-img{height:50px;width:auto;max-width:250px}
     .logo-text{font-size:1.5rem;font-weight:700;color:var(--brand);letter-spacing:-0.5px;display:none}
@@ -98,14 +91,41 @@
     .testimonial .verified{color:var(--muted);font-size:0.85rem;margin-top:4px}
     .stars{color:#fbbf24;margin-bottom:8px;font-size:1.1rem}
     
-    .faq-item{background:#fff;border:1px solid #eee;border-radius:12px;padding:20px;margin-bottom:12px}
+    .faq-item{background:#fff;border:1px solid #eee;border-radius:12px;padding:20px;margin-bottom:12px;cursor:pointer;transition:all 0.2s}
+    .faq-item:hover{box-shadow:0 4px 12px rgba(0,0,0,0.08)}
     .faq-item h4{color:var(--brand);margin-bottom:8px;font-size:1.05rem}
     
     footer{background:#1b1b1b;color:#f5f5f5;padding:32px 0;margin-top:0}
     footer a{color:#f5f5f5;text-decoration:underline}
     
     .urgent-banner{background:linear-gradient(90deg, #7b1d3b 0%, #a13a5a 100%);color:#fff;text-align:center;padding:12px 20px;font-weight:500;font-size:0.95rem}
-    .urgent-banner span{background:rgba(255,255,255,0.2);padding:4px 12px;border-radius:20px;margin-left:8px;font-size:0.9rem}
+    
+    /* LEAD FORM STYLES */
+    .lead-form{background:#fff;border:2px solid var(--brand);border-radius:16px;padding:32px;max-width:600px;margin:0 auto}
+    .form-group{margin-bottom:20px}
+    .form-group label{display:block;font-weight:600;color:var(--text);margin-bottom:8px;font-size:0.95rem}
+    .form-group input,
+    .form-group select,
+    .form-group textarea{width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:8px;font-size:1rem;font-family:inherit;transition:border-color 0.2s}
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(123,29,59,0.1)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .submit-btn{background:var(--brand);color:#fff;padding:16px 32px;border-radius:999px;font-weight:600;font-size:1.05rem;border:none;cursor:pointer;width:100%;transition:all 0.2s}
+    .submit-btn:hover{background:#6a1933;transform:translateY(-1px);box-shadow:0 4px 12px rgba(123,29,59,0.3)}
+    .submit-btn:disabled{background:#ccc;cursor:not-allowed;transform:none}
+    .form-success{background:#d4edda;border:1px solid #c3e6cb;color:#155724;padding:16px;border-radius:8px;margin-top:20px;display:none}
+    .form-error{background:#f8d7da;border:1px solid #f5c6cb;color:#721c24;padding:16px;border-radius:8px;margin-top:20px;display:none}
+    
+    /* MODAL STYLES */
+    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;padding:20px}
+    .modal.active{display:flex}
+    .modal-content{background:#fff;border-radius:16px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+    .modal-header{background:var(--brand);color:#fff;padding:24px;border-radius:16px 16px 0 0}
+    .modal-header h3{color:#fff;margin:0}
+    .modal-body{padding:32px}
+    .modal-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.2);border:none;color:#fff;font-size:1.5rem;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+    .modal-close:hover{background:rgba(255,255,255,0.3)}
     
     @media (min-width:768px){
       .hero{padding:64px 0 48px}
@@ -114,18 +134,22 @@
       .features{grid-template-columns:repeat(2,1fr);gap:20px}
       .features.three-col{grid-template-columns:repeat(3,1fr)}
       section{padding:64px 0}
-      section[style*="background:linear-gradient(135deg, #7b1d3b"] > .container > div > div{
-        grid-template-columns:repeat(2,1fr) !important;
-      }
     }
     
     @media (max-width:767px){
       .cta-btn{width:100%;text-align:center;display:block;margin:8px 0}
       .row{flex-direction:column;gap:12px;text-align:center}
+      .form-row{grid-template-columns:1fr}
+      .modal-body{padding:24px}
     }
   </style>
 </head>
 <body>
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   
   <div class="urgent-banner">
     Premium Spa Treatments in Markham | Free Parking | Insurance Accepted
@@ -139,7 +163,7 @@
           SHERLASE<span>Clinic & Spa</span>
         </div>
       </div>
-      <a href="tel:+19052018005" class="cta-btn">Call (905) 201-8005</a>
+      <a href="tel:+19052018005" class="cta-btn" data-event="phone_click" data-location="header">Call (905) 201-8005</a>
     </div>
   </header>
   
@@ -160,7 +184,7 @@
         <span style="color:var(--muted)">Receipts issued for insurance reimbursement</span>
       </div>
       
-      <div class="video-wrap">
+      <div class="video-wrap" data-video-container>
         <iframe src="https://www.youtube.com/embed/DAWRjUeX2KY" title="Inside Sherlase Clinic & Spa" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </div>
@@ -173,57 +197,54 @@
     </div>
   </section>
   
-  <section style="background:#fffbfb">
+  <section style="background:#fffbfb" itemscope itemtype="https://schema.org/Product">
     <div class="container">
       <h2>Special Introductory Offers</h2>
       
       <div class="features three-col">
-        <div class="card offer">
+        <div class="card offer" data-service="facial" data-price="89">
           <div class="badge">NEW CLIENT SPECIAL</div>
-          <h3>Sherlase Signature Facial</h3>
-          <p class="price">$89</p>
+          <h3 itemprop="name">Sherlase Signature Facial</h3>
+          <p class="price" itemprop="price" content="89">$89</p>
+          <meta itemprop="priceCurrency" content="CAD">
           <p>A luxurious 50-minute anti-aging facial using premium products. Address your skin concerns, relax, and be pampered with a treatment you won't want to end.</p>
           <p style="font-size:0.9rem;color:#6b6b6b;margin-top:12px">*Some conditions apply. One per person. Taxes & gratuities not included.</p>
           <div style="margin-top:auto;padding-top:16px">
-            <a href="tel:+19052018005" class="cta-btn" style="display:block;margin-bottom:12px">Call to Book and Pay</a>
+            <a href="tel:+19052018005" class="cta-btn" data-event="phone_click" data-service="facial" style="display:block;margin-bottom:12px">Call to Book and Pay</a>
             <p style="font-size:0.9rem;color:var(--muted);margin:12px 0 8px;text-align:center">or</p>
-            <a href="#stripe-facial" class="cta-btn-secondary" style="display:block">Pay Now Book Later</a>
+            <button class="cta-btn-secondary book-now-btn" data-service="Sherlase Signature Facial" data-price="89" style="display:block;width:100%;border:2px solid var(--brand)">Book Appointment</button>
           </div>
         </div>
         
-        <div class="card offer">
+        <div class="card offer" data-service="rmt" data-price="99">
           <div class="badge">NEW CLIENT SPECIAL</div>
-          <h3>RMT Massage (60 min)</h3>
-          <p class="price">$99</p>
+          <h3 itemprop="name">RMT Massage (60 min)</h3>
+          <p class="price" itemprop="price" content="99">$99</p>
+          <meta itemprop="priceCurrency" content="CAD">
           <p>Release tightness, aches and pains to restore the body's natural flow of energy. Female RMT therapists available. Specialized massage beds designed for women's comfort.</p>
           <p style="font-size:0.9rem;color:#6b6b6b;margin-top:12px">*New clients only. One per person. Taxes & gratuities not included.</p>
           <div style="margin-top:auto;padding-top:16px">
-            <a href="tel:+19052018005" class="cta-btn" style="display:block;margin-bottom:12px">Call to Book and Pay</a>
+            <a href="tel:+19052018005" class="cta-btn" data-event="phone_click" data-service="rmt" style="display:block;margin-bottom:12px">Call to Book and Pay</a>
             <p style="font-size:0.9rem;color:var(--muted);margin:12px 0 8px;text-align:center">or</p>
-            <a href="#stripe-rmt" class="cta-btn-secondary" style="display:block">Pay Now Book Later</a>
+            <button class="cta-btn-secondary book-now-btn" data-service="RMT Massage (60 min)" data-price="99" style="display:block;width:100%;border:2px solid var(--brand)">Book Appointment</button>
           </div>
         </div>
         
-        <div class="card offer">
+        <div class="card offer" data-service="waxing" data-price="25">
           <div class="badge">SMOOTH RESULTS</div>
-          <h3>Waxing and Threading</h3>
-          <p class="price">$25</p>
+          <h3 itemprop="name">Waxing and Threading</h3>
+          <p class="price" itemprop="price" content="25">$25</p>
+          <meta itemprop="priceCurrency" content="CAD">
           <p style="font-size:1.1rem;margin:8px 0"><strong>for any 3 areas</strong></p>
           <p>Professional waxing services with experienced esthetician. Smooth, long-lasting results in a beautiful hygienic environment.</p>
           <p style="font-size:0.95rem;color:#7b1d3b;font-weight:600;margin-top:12px;background:#fff7f7;padding:8px;border-radius:6px">New clients only. One special per person.</p>
           <p style="font-size:0.9rem;color:#6b6b6b;margin-top:8px">*Some conditions apply. Taxes & gratuities extra.</p>
           <div style="margin-top:auto;padding-top:16px">
-            <a href="tel:+19052018005" class="cta-btn" style="display:block;margin-bottom:12px">Call to Book and Pay</a>
+            <a href="tel:+19052018005" class="cta-btn" data-event="phone_click" data-service="waxing" style="display:block;margin-bottom:12px">Call to Book and Pay</a>
             <p style="font-size:0.9rem;color:var(--muted);margin:12px 0 8px;text-align:center">or</p>
-            <a href="#stripe-waxing" class="cta-btn-secondary" style="display:block">Pay Now Book Later</a>
+            <button class="cta-btn-secondary book-now-btn" data-service="Waxing and Threading" data-price="25" style="display:block;width:100%;border:2px solid var(--brand)">Book Appointment</button>
           </div>
         </div>
-      </div>
-      
-      <div style="background:var(--cream);border:2px solid var(--brand);border-radius:16px;padding:32px;margin-top:32px;text-align:center">
-        <h3 style="color:var(--brand);margin-bottom:16px">Prefer to Pay Online First?</h3>
-        <p style="font-size:1.05rem;line-height:1.8;margin-bottom:20px">Pay now and we'll contact you to schedule your appointment.</p>
-        <a href="#stripe-general" class="cta-btn" style="font-size:1.05rem">Pay Deposit & Book</a>
       </div>
     </div>
   </section>
@@ -286,32 +307,32 @@
       <h2>Frequently Asked Questions</h2>
       
       <div style="max-width:800px;margin:24px auto 0">
-        <div class="faq-item">
+        <div class="faq-item" data-faq="walk-ins">
           <h4>Do you accept walk-ins?</h4>
           <p>We recommend booking in advance to guarantee your preferred time, but we'll do our best to accommodate walk-ins based on availability.</p>
         </div>
         
-        <div class="faq-item">
+        <div class="faq-item" data-faq="parking">
           <h4>Is parking really free?</h4>
           <p>Yes! We have ample free parking right at our location. No meters, no stress—just park and relax.</p>
         </div>
         
-        <div class="faq-item">
+        <div class="faq-item" data-faq="payment">
           <h4>What payment methods do you accept?</h4>
-          <p>We accept cash, debit, Visa, Mastercard, and American Express. A credit card deposit is required when booking introductory offers.</p>
+          <p>We accept cash, debit, Visa, Mastercard, and American Express.</p>
         </div>
         
-        <div class="faq-item">
+        <div class="faq-item" data-faq="cancellation">
           <h4>What's your cancellation policy?</h4>
-          <p>We require 24 hours notice for cancellations or rescheduling. Late cancellations may forfeit the deposit.</p>
+          <p>We require 24 hours notice for cancellations or rescheduling.</p>
         </div>
         
-        <div class="faq-item">
+        <div class="faq-item" data-faq="insurance">
           <h4>Do you provide direct billing for insurance?</h4>
           <p>We provide official RMT receipts that you can submit to your insurance company. Many clients get reimbursed quickly through their extended health benefits.</p>
         </div>
         
-        <div class="faq-item">
+        <div class="faq-item" data-faq="multiple-services">
           <h4>Can I book multiple services in one visit?</h4>
           <p>Absolutely! Many clients combine treatments like a facial and massage. Call us at (905) 201-8005 and we'll create a custom spa package for you.</p>
         </div>
@@ -328,8 +349,8 @@
         <div style="display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:32px">
           <div style="background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,0.2)">
             <h3 style="color:#fff;margin-bottom:12px;font-size:1.1rem">Contact Us</h3>
-            <p style="margin:8px 0"><strong>Phone:</strong> <a href="tel:+19052018005" style="color:#fff;text-decoration:underline">(905) 201-8005</a></p>
-            <p style="margin:8px 0"><strong>Email:</strong> <a href="mailto:info@sherlaseclinic.com" style="color:#fff;text-decoration:underline">info@sherlaseclinic.com</a></p>
+            <p style="margin:8px 0"><strong>Phone:</strong> <a href="tel:+19052018005" data-event="phone_click" data-location="footer" style="color:#fff;text-decoration:underline">(905) 201-8005</a></p>
+            <p style="margin:8px 0"><strong>Email:</strong> <a href="mailto:info@sherlaseclinic.com" data-event="email_click" style="color:#fff;text-decoration:underline">info@sherlaseclinic.com</a></p>
             <p style="margin:8px 0"><strong>Address:</strong> 7030 Woodbine Avenue, Suite 500<br>Markham, ON L3R 6G2</p>
           </div>
           
@@ -342,7 +363,7 @@
         </div>
         
         <div style="text-align:center;margin:32px 0">
-          <a href="tel:+19052018005" class="cta-btn" style="background:#fff;color:#7b1d3b;font-size:1.2rem;padding:18px 48px;display:inline-block">
+          <a href="tel:+19052018005" class="cta-btn" data-event="phone_click" data-location="cta_section" style="background:#fff;color:#7b1d3b;font-size:1.2rem;padding:18px 48px;display:inline-block">
             Call (905) 201-8005
           </a>
         </div>
@@ -362,99 +383,305 @@
     </div>
   </footer>
   
+  <!-- BOOKING MODAL -->
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Book Your Appointment</h3>
+        <button class="modal-close" onclick="closeBookingModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form class="lead-form" id="bookingForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(905) 123-4567">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="service">Select Service *</label>
+            <select id="service" name="service" required>
+              <option value="">Choose a service...</option>
+              <option value="Sherlase Signature Facial - $89">Sherlase Signature Facial - $89</option>
+              <option value="RMT Massage (60 min) - $99">RMT Massage (60 min) - $99</option>
+              <option value="Waxing and Threading - $25">Waxing and Threading - $25</option>
+            </select>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="preferredDate">Preferred Date</label>
+              <input type="date" id="preferredDate" name="preferredDate">
+            </div>
+            <div class="form-group">
+              <label for="preferredTime">Preferred Time</label>
+              <select id="preferredTime" name="preferredTime">
+                <option value="">Select time...</option>
+                <option value="9:00 AM">9:00 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="2:00 PM">2:00 PM</option>
+                <option value="3:00 PM">3:00 PM</option>
+                <option value="4:00 PM">4:00 PM</option>
+                <option value="5:00 PM">5:00 PM</option>
+                <option value="6:00 PM">6:00 PM</option>
+                <option value="7:00 PM">7:00 PM</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Special Requests (Optional)</label>
+            <textarea id="message" name="message" rows="3" placeholder="Any specific concerns or preferences?"></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Submit Booking Request</button>
+          
+          <div class="form-success" id="formSuccess">
+            <strong>✓ Booking request received!</strong><br>
+            We'll contact you within 24 hours to confirm your appointment.
+          </div>
+          
+          <div class="form-error" id="formError">
+            <strong>✗ Something went wrong.</strong><br>
+            Please call us at (905) 201-8005 to book directly.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     
-    function trackConversion(eventName, buttonId) {
-      if (typeof gtag !== 'undefined') {
-        gtag('event', eventName, {
-          'event_category': 'engagement',
-          'event_label': buttonId,
-          'value': 1
-        });
-        gtag('event', 'conversion', {
-          'send_to': 'AW-XXXXXXXXX/PHONE_CONVERSION_LABEL',
-          'value': 1.0,
-          'currency': 'CAD'
-        });
-      }
-      if (typeof _mc !== 'undefined') {
-        _mc.trackEvent(eventName, {button: buttonId});
-      }
-      console.log('Conversion tracked:', eventName, buttonId);
+    // DataLayer push helper
+    function pushToDataLayer(eventData) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(eventData);
+      console.log('DataLayer Event:', eventData);
     }
     
-    document.addEventListener('DOMContentLoaded', function() {
-      const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-      phoneLinks.forEach(function(link, index) {
-        link.addEventListener('click', function() {
-          trackConversion('click_to_call', 'phone_cta_' + index);
-        });
-      });
-      
-      const stripeLinks = document.querySelectorAll('a[href*="stripe"]');
-      stripeLinks.forEach(function(link, index) {
-        link.addEventListener('click', function() {
-          trackConversion('stripe_click', 'stripe_cta_' + index);
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'conversion', {
-              'send_to': 'AW-XXXXXXXXX/STRIPE_CONVERSION_LABEL',
-              'value': 89.0,
-              'currency': 'CAD'
-            });
-          }
-        });
-      });
-      
-      const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
-      emailLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-          trackConversion('email_click', 'email_cta');
+    // Track phone clicks
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        const service = this.getAttribute('data-service') || 'general';
+        const location = this.getAttribute('data-location') || 'unknown';
+        
+        pushToDataLayer({
+          'event': 'phone_click',
+          'event_category': 'engagement',
+          'event_label': service,
+          'click_location': location,
+          'phone_number': '+19052018005'
         });
       });
     });
     
+    // Track email clicks
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        pushToDataLayer({
+          'event': 'email_click',
+          'event_category': 'engagement',
+          'event_label': 'contact_email'
+        });
+      });
+    });
+    
+    // Track service card views
+    const serviceCards = document.querySelectorAll('.offer');
+    const cardObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          const service = entry.target.getAttribute('data-service');
+          const price = entry.target.getAttribute('data-price');
+          
+          pushToDataLayer({
+            'event': 'view_item',
+            'event_category': 'ecommerce',
+            'event_label': service,
+            'value': parseFloat(price),
+            'currency': 'CAD',
+            'items': [{
+              'item_name': service,
+              'price': parseFloat(price),
+              'currency': 'CAD'
+            }]
+          });
+          
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    serviceCards.forEach(function(card) {
+      cardObserver.observe(card);
+    });
+    
+    // Track FAQ clicks
+    document.querySelectorAll('.faq-item').forEach(function(item) {
+      item.addEventListener('click', function() {
+        const question = this.getAttribute('data-faq');
+        pushToDataLayer({
+          'event': 'faq_click',
+          'event_category': 'engagement',
+          'event_label': question
+        });
+      });
+    });
+    
+    // Track scroll depth
     let scrollMilestones = {25: false, 50: false, 75: false, 100: false};
     window.addEventListener('scroll', function() {
       const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
       Object.keys(scrollMilestones).forEach(function(milestone) {
         if (scrollPercent >= milestone && !scrollMilestones[milestone]) {
           scrollMilestones[milestone] = true;
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'scroll_depth', {
-              'event_category': 'engagement',
-              'event_label': milestone + '%',
-              'value': parseInt(milestone)
-            });
-          }
+          pushToDataLayer({
+            'event': 'scroll_depth',
+            'event_category': 'engagement',
+            'event_label': milestone + '%',
+            'value': parseInt(milestone)
+          });
         }
       });
     });
     
-    window.addEventListener('load', function() {
-      const video = document.querySelector('iframe[src*="youtube"]');
-      if (video) {
-        const observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting && typeof gtag !== 'undefined') {
-              gtag('event', 'video_section_viewed', {
-                'event_category': 'engagement',
-                'event_label': 'youtube_video',
-                'value': 1
-              });
-              observer.disconnect();
-            }
-          });
-        }, { threshold: 0.5 });
-        observer.observe(video);
+    // Track video interaction
+    const videoContainer = document.querySelector('[data-video-container]');
+    if (videoContainer) {
+      const videoObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            pushToDataLayer({
+              'event': 'video_view',
+              'event_category': 'engagement',
+              'event_label': 'youtube_intro_video'
+            });
+            videoObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.5 });
+      videoObserver.observe(videoContainer);
+    }
+    
+    // BOOKING MODAL FUNCTIONS
+    function openBookingModal(serviceName, price) {
+      const modal = document.getElementById('bookingModal');
+      const serviceSelect = document.getElementById('service');
+      
+      if (serviceName && price) {
+        const optionValue = serviceName + ' -  + price;
+        serviceSelect.value = optionValue;
+      }
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      pushToDataLayer({
+        'event': 'booking_modal_open',
+        'event_category': 'engagement',
+        'event_label': serviceName || 'general',
+        'value': parseFloat(price) || 0,
+        'currency': 'CAD'
+      });
+    }
+    
+    function closeBookingModal() {
+      const modal = document.getElementById('bookingModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    // Book Now button clicks
+    document.querySelectorAll('.book-now-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const service = this.getAttribute('data-service');
+        const price = this.getAttribute('data-price');
+        openBookingModal(service, price);
+      });
+    });
+    
+    // Close modal on outside click
+    document.getElementById('bookingModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeBookingModal();
       }
     });
     
+    // Form submission
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+      
+      // Track form submission
+      pushToDataLayer({
+        'event': 'generate_lead',
+        'event_category': 'conversion',
+        'event_label': data.service,
+        'service_selected': data.service,
+        'value': parseFloat(data.service.match(/\$(\d+)/)?.[1] || 0),
+        'currency': 'CAD'
+      });
+      
+      // Simulate form submission (replace with actual endpoint)
+      const submitBtn = this.querySelector('.submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      
+      // Simulate API call
+      setTimeout(function() {
+        document.getElementById('formSuccess').style.display = 'block';
+        submitBtn.style.display = 'none';
+        
+        // Track successful conversion
+        pushToDataLayer({
+          'event': 'conversion',
+          'event_category': 'conversion',
+          'event_label': 'booking_form_submit',
+          'value': parseFloat(data.service.match(/\$(\d+)/)?.[1] || 0),
+          'currency': 'CAD'
+        });
+        
+        // Close modal after 3 seconds
+        setTimeout(function() {
+          closeBookingModal();
+          document.getElementById('bookingForm').reset();
+          document.getElementById('formSuccess').style.display = 'none';
+          submitBtn.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Booking Request';
+        }, 3000);
+      }, 1500);
+    });
+    
+    // Track time on page
     let timeOnPage = 0;
     setInterval(function() {
       timeOnPage += 30;
-      if (timeOnPage % 60 === 0 && typeof gtag !== 'undefined') {
-        gtag('event', 'time_on_page', {
+      if (timeOnPage % 60 === 0) {
+        pushToDataLayer({
+          'event': 'time_on_page',
           'event_category': 'engagement',
           'event_label': (timeOnPage / 60) + '_minutes',
           'value': timeOnPage
