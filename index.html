@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sherlase Clinic & Spa – Markham's Premier Spa for Women | RMT Massage & Facials</title>
+  <meta name="description" content="Luxury spa treatments in Markham without downtown prices. RMT massage (insurance accepted), custom facials. 25+ years serving Markham women. Book today!">
+  
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content="Sherlase Clinic & Spa – Premium Spa in Markham">
+  <meta property="og:description" content="High-end spa treatments without downtown prices. RMT massage, facials, waxing. 25+ years serving Markham.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sherlase-clinic-and-spa.mailchimpsites.com/">
+  <meta property="og:image" content="https://dim.mcusercontent.com/cs/35e85065fcf74b057adb42c24/images/ebb7f863-88bb-1e3a-10ce-2b5f5012384a.png">
+  
+  <!-- Google Analytics 4 - REPLACE G-XXXXXXXXXX WITH YOUR GA4 ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  
+  <!-- Google Ads Conversion Tracking - REPLACE AW-XXXXXXXXX -->
+  <script>
+    gtag('config', 'AW-XXXXXXXXX');
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root{
+      --brand:#7b1d3b;
+      --brand-2:#a13a5a;
+      --text:#1b1b1b;
+      --muted:#6b6b6b;
+      --bg:#ffffff;
+      --cream:#fff7f7;
+      --light-cream:#fffbfb;
+      --border:#f1e9ec;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    
+    .topbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .row{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    
+    /* Logo - with fallback */
+    .logo-container{display:flex;align-items:center}
+    .logo-img{height:50px;width:auto;max-width:250px}
+    .logo-text{font-size:1.5rem;font-weight:700;color:var(--brand);letter-spacing:-0.5px;display:none}
+    .logo-text span{font-weight:400;color:var(--brand-2);font-size:0.9rem;display:block;margin-top:-4px}
+    
+    .cta-btn{background:var(--brand);color:#fff;padding:14px 28px;border-radius:999px;font-weight:600;display:inline-block;transition:all 0.2s;border:none;font-size:0.95rem;cursor:pointer}
+    .cta-btn:hover{background:#6a1933;transform:translateY(-1px);box-shadow:0 4px 12px rgba(123,29,59,0.3)}
+    
+    .hero{background:linear-gradient(180deg, var(--light-cream) 0%, var(--cream) 100%);padding:48px 0 32px}
+    .hero h1{font-size:2rem;line-height:1.2;margin:0 0 16px;color:var(--brand);font-weight:800}
+    .hero .lead{color:var(--text);font-size:1.15rem;margin-bottom:24px;font-weight:500}
+    
+    .kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}
+    .kpi{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+    .kpi strong{display:block;font-size:1.1rem;color:var(--brand);margin-bottom:4px}
+    
+    .trust-bar{background:#fff;border:2px solid var(--brand);border-radius:12px;padding:16px;margin-top:24px;text-align:center}
+    .trust-bar strong{color:var(--brand);font-size:1.1rem}
+    
+    .video-wrap{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;border:1px solid #eee;background:#000;margin-top:24px;box-shadow:0 4px 16px rgba(0,0,0,0.1)}
+    .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+    
+    section{padding:48px 0;border-top:1px solid var(--border)}
+    h2{font-size:1.8rem;margin:0 0 16px;color:var(--brand);font-weight:700}
+    h3{font-size:1.2rem;margin:0 0 8px;color:var(--text);font-weight:600}
+    .lead{color:var(--muted);font-size:1.05rem}
+    
+    .features{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
+    .card{border:1px solid #eee;border-radius:16px;padding:24px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;flex-direction:column}
+    .card h3{margin:0 0 12px}
+    .card p{margin:8px 0}
+    .card > div:last-child{margin-top:auto}
+    
+    .offer{background:linear-gradient(135deg,#fff 0%,#fff5f7 100%);border:2px solid var(--brand-2)}
+    .offer .price{font-size:2.2rem;font-weight:800;color:var(--brand);margin:12px 0;line-height:1}
+    .offer .badge{display:inline-block;background:var(--brand);color:#fff;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:600;margin-bottom:12px}
+    
+    .cta-btn-secondary{background:#fff;color:var(--brand);border:2px solid var(--brand);padding:10px 20px;border-radius:999px;font-weight:600;display:inline-block;transition:all 0.2s;font-size:0.9rem}
+    .cta-btn-secondary:hover{background:var(--cream)}
+    
+    .testimonial{background:var(--light-cream);border-left:4px solid var(--brand);padding:20px;border-radius:8px}
+    .testimonial p{font-style:italic;margin-bottom:12px;line-height:1.7;font-size:0.95rem}
+    .testimonial .author{font-weight:600;color:var(--brand);font-style:normal;font-size:0.9rem}
+    .testimonial .verified{color:var(--muted);font-size:0.85rem;margin-top:4px}
+    .stars{color:#fbbf24;margin-bottom:8px;font-size:1.1rem}
+    
+    .faq-item{background:#fff;border:1px solid #eee;border-radius:12px;padding:20px;margin-bottom:12px}
+    .faq-item h4{color:var(--brand);margin-bottom:8px;font-size:1.05rem}
+    
+    footer{background:#1b1b1b;color:#f5f5f5;padding:32px 0;margin-top:0}
+    footer a{color:#f5f5f5;text-decoration:underline}
+    
+    .urgent-banner{background:linear-gradient(90deg, #7b1d3b 0%, #a13a5a 100%);color:#fff;text-align:center;padding:12px 20px;font-weight:500;font-size:0.95rem}
+    .urgent-banner span{background:rgba(255,255,255,0.2);padding:4px 12px;border-radius:20px;margin-left:8px;font-size:0.9rem}
+    
+    @media (min-width:768px){
+      .hero{padding:64px 0 48px}
+      .hero h1{font-size:2.8rem}
+      .kpis{grid-template-columns:repeat(4,1fr);gap:16px}
+      .features{grid-template-columns:repeat(2,1fr);gap:20px}
+      .features.three-col{grid-template-columns:repeat(3,1fr)}
+      section{padding:64px 0}
+      section[style*="background:linear-gradient(135deg, #7b1d3b"] > .container > div > div{
+        grid-template-columns:repeat(2,1fr) !important;
+      }
+    }
+    
+    @media (max-width:767px){
+      .cta-btn{width:100%;text-align:center;display:block;margin:8px 0}
+      .row{flex-direction:column;gap:12px;text-align:center}
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="urgent-banner">
+    Premium Spa Treatments in Markham | Free Parking | Insurance Accepted
+  </div>
+  
+  <header class="topbar">
+    <div class="container row">
+      <div class="logo-container">
+        <img src="https://i.imgur.com/0z1AT2o.png" alt="Sherlase Clinic & Spa" class="logo-img" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'" />
+        <div class="logo-text">
+          SHERLASE<span>Clinic & Spa</span>
+        </div>
+      </div>
+      <a href="tel:+19052018005" class="cta-btn">Call (905) 201-8005</a>
+    </div>
+  </header>
+  
+  <div class="hero">
+    <div class="container">
+      <h1>Markham's Premier Spa for Women — Without the Downtown Hassle</h1>
+      <p class="lead">High-end RMT massage, custom facials, and luxurious treatments in a serene, women-focused atmosphere.</p>
+      
+      <div class="kpis">
+        <div class="kpi"><strong>25+ Years</strong><span>Trusted in Markham</span></div>
+        <div class="kpi"><strong>RMT Certified</strong><span>Licensed Therapists</span></div>
+        <div class="kpi"><strong>Women-Focused</strong><span>Safe & Welcoming</span></div>
+        <div class="kpi"><strong>Free Parking</strong><span>Easy Access</span></div>
+      </div>
+      
+      <div class="trust-bar">
+        <strong>RMT Massage Covered by Extended Health Insurance</strong><br>
+        <span style="color:var(--muted)">Receipts issued for insurance reimbursement</span>
+      </div>
+      
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/DAWRjUeX2KY" title="Inside Sherlase Clinic & Spa" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  
+  <section style="background:#7b1d3b;color:#fff">
+    <div class="container">
+      <h2 style="color:#fff">Experience you can trust</h2>
+      <p style="font-size:1.1rem;line-height:1.8">With over 25 years serving Markham and on-site cosmetic physician, Sherlase Clinic & Spa offers both relaxing spa treatments and advanced aesthetic services in a professional, welcoming environment. From custom facials and therapeutic massage to luxurious body treatments and RMT services, we focus on making every visit feel special.</p>
+    </div>
+  </section>
+  
+  <section style="background:#fffbfb">
+    <div class="container">
+      <h2>Special Introductory Offers</h2>
+      
+      <div class="features three-col">
+        <div class="card offer">
+          <div class="badge">NEW CLIENT SPECIAL</div>
+          <h3>Sherlase Signature Facial</h3>
+          <p class="price">$89</p>
+          <p>A luxurious 50-minute anti-aging facial using premium products. Address your skin concerns, relax, and be pampered with a treatment you won't want to end.</p>
+          <p style="font-size:0.9rem;color:#6b6b6b;margin-top:12px">*Some conditions apply. One per person. Taxes & gratuities not included.</p>
+          <div style="margin-top:auto;padding-top:16px">
+            <a href="tel:+19052018005" class="cta-btn" style="display:block;margin-bottom:12px">Call to Book and Pay</a>
+            <p style="font-size:0.9rem;color:var(--muted);margin:12px 0 8px;text-align:center">or</p>
+            <a href="#stripe-facial" class="cta-btn-secondary" style="display:block">Pay Now Book Later</a>
+          </div>
+        </div>
+        
+        <div class="card offer">
+          <div class="badge">NEW CLIENT SPECIAL</div>
+          <h3>RMT Massage (60 min)</h3>
+          <p class="price">$99</p>
+          <p>Release tightness, aches and pains to restore the body's natural flow of energy. Female RMT therapists available. Specialized massage beds designed for women's comfort.</p>
+          <p style="font-size:0.9rem;color:#6b6b6b;margin-top:12px">*New clients only. One per person. Taxes & gratuities not included.</p>
+          <div style="margin-top:auto;padding-top:16px">
+            <a href="tel:+19052018005" class="cta-btn" style="display:block;margin-bottom:12px">Call to Book and Pay</a>
+            <p style="font-size:0.9rem;color:var(--muted);margin:12px 0 8px;text-align:center">or</p>
+            <a href="#stripe-rmt" class="cta-btn-secondary" style="display:block">Pay Now Book Later</a>
+          </div>
+        </div>
+        
+        <div class="card offer">
+          <div class="badge">SMOOTH RESULTS</div>
+          <h3>Waxing and Threading</h3>
+          <p class="price">$25</p>
+          <p style="font-size:1.1rem;margin:8px 0"><strong>for any 3 areas</strong></p>
+          <p>Professional waxing services with experienced esthetician. Smooth, long-lasting results in a beautiful hygienic environment.</p>
+          <p style="font-size:0.95rem;color:#7b1d3b;font-weight:600;margin-top:12px;background:#fff7f7;padding:8px;border-radius:6px">New clients only. One special per person.</p>
+          <p style="font-size:0.9rem;color:#6b6b6b;margin-top:8px">*Some conditions apply. Taxes & gratuities extra.</p>
+          <div style="margin-top:auto;padding-top:16px">
+            <a href="tel:+19052018005" class="cta-btn" style="display:block;margin-bottom:12px">Call to Book and Pay</a>
+            <p style="font-size:0.9rem;color:var(--muted);margin:12px 0 8px;text-align:center">or</p>
+            <a href="#stripe-waxing" class="cta-btn-secondary" style="display:block">Pay Now Book Later</a>
+          </div>
+        </div>
+      </div>
+      
+      <div style="background:var(--cream);border:2px solid var(--brand);border-radius:16px;padding:32px;margin-top:32px;text-align:center">
+        <h3 style="color:var(--brand);margin-bottom:16px">Prefer to Pay Online First?</h3>
+        <p style="font-size:1.05rem;line-height:1.8;margin-bottom:20px">Pay now and we'll contact you to schedule your appointment.</p>
+        <a href="#stripe-general" class="cta-btn" style="font-size:1.05rem">Pay Deposit & Book</a>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <div class="container">
+      <h2>Why Markham Women Choose Sherlase</h2>
+      
+      <div class="features three-col">
+        <div class="card">
+          <h3>No More Downtown Hassles</h3>
+          <p>Skip the traffic, parking fees, and rushed appointments. Get premium spa treatments right here in Markham with free parking and a relaxing atmosphere.</p>
+        </div>
+        
+        <div class="card">
+          <h3>Certified Professionals</h3>
+          <p>Our RMT-certified therapists and experienced estheticians bring clinic-grade expertise with a spa's warmth. Every treatment is performed by trained professionals who care.</p>
+        </div>
+        
+        <div class="card">
+          <h3>Women-Centered Care</h3>
+          <p>A safe, welcoming space designed with women in mind. Experience personalized attention in an environment where you can truly relax and be yourself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section style="background:#fff7f7">
+    <div class="container">
+      <h2>What Our Clients Say</h2>
+      <p class="lead">Real reviews from Google Business</p>
+      
+      <div class="features three-col">
+        <div class="card testimonial">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"I had a very positive experience at Sherlase Clinic and Spa in Markham. From the moment I was greeted by Lisa, I knew it was going to be a good experience. The spot itself is very calming and peaceful. Alexis did my facial and she took her time and made me feel very comfortable. When I left I felt very relaxed and my face felt softer and very clean. After my treatment I had a very warming cup of tea and I was not rushed out."</p>
+          <p class="author">— Nalini Persaud</p>
+          <p class="verified">✓ Verified Google Review</p>
+        </div>
+        
+        <div class="card testimonial">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"I absolutely love this clinic! The staff is so sweet, honest and not pushy at all! The clinic is so clean and beautiful. Every single employee, including the owner, have been so welcoming and kind! Also if you are on a budget they let you know about sales they have - they are not just there to try and get your money! When I come here it feels like I am coming to visit family!"</p>
+          <p class="author">— Freada V.</p>
+          <p class="verified">✓ Verified Google Review</p>
+        </div>
+        
+        <div class="card testimonial">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Such a relaxing and beautiful experience celebrating my cousins 50th birthday at Sherlase Spa! From the moment we walked in and were greeted by the welcoming staff to the comfortable and serene seating lounge we enjoyed before our amazing massages, the entire experience made us feel so VIP! This definitely is Markham's little hidden gem!"</p>
+          <p class="author">— Gabby Cripouris</p>
+          <p class="verified">✓ Verified Google Review</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div style="max-width:800px;margin:24px auto 0">
+        <div class="faq-item">
+          <h4>Do you accept walk-ins?</h4>
+          <p>We recommend booking in advance to guarantee your preferred time, but we'll do our best to accommodate walk-ins based on availability.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>Is parking really free?</h4>
+          <p>Yes! We have ample free parking right at our location. No meters, no stress—just park and relax.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>What payment methods do you accept?</h4>
+          <p>We accept cash, debit, Visa, Mastercard, and American Express. A credit card deposit is required when booking introductory offers.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>What's your cancellation policy?</h4>
+          <p>We require 24 hours notice for cancellations or rescheduling. Late cancellations may forfeit the deposit.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>Do you provide direct billing for insurance?</h4>
+          <p>We provide official RMT receipts that you can submit to your insurance company. Many clients get reimbursed quickly through their extended health benefits.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>Can I book multiple services in one visit?</h4>
+          <p>Absolutely! Many clients combine treatments like a facial and massage. Call us at (905) 201-8005 and we'll create a custom spa package for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section style="background:linear-gradient(135deg, #7b1d3b 0%, #a13a5a 100%);color:#fff;padding:64px 0">
+    <div class="container">
+      <h2 style="color:#fff;font-size:2rem;text-align:center;margin-bottom:16px">Ready to Book Your Appointment?</h2>
+      <p style="font-size:1.15rem;text-align:center;margin-bottom:40px;color:#fff;opacity:0.95">Experience the difference at Markham's premier spa for women</p>
+      
+      <div style="max-width:900px;margin:0 auto">
+        <div style="display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:32px">
+          <div style="background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,0.2)">
+            <h3 style="color:#fff;margin-bottom:12px;font-size:1.1rem">Contact Us</h3>
+            <p style="margin:8px 0"><strong>Phone:</strong> <a href="tel:+19052018005" style="color:#fff;text-decoration:underline">(905) 201-8005</a></p>
+            <p style="margin:8px 0"><strong>Email:</strong> <a href="mailto:info@sherlaseclinic.com" style="color:#fff;text-decoration:underline">info@sherlaseclinic.com</a></p>
+            <p style="margin:8px 0"><strong>Address:</strong> 7030 Woodbine Avenue, Suite 500<br>Markham, ON L3R 6G2</p>
+          </div>
+          
+          <div style="background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,0.2)">
+            <h3 style="color:#fff;margin-bottom:12px;font-size:1.1rem">Hours of Operation</h3>
+            <p style="margin:8px 0"><strong>Monday - Friday:</strong> 9:00 AM - 8:00 PM</p>
+            <p style="margin:8px 0"><strong>Saturday:</strong> 9:00 AM - 6:00 PM</p>
+            <p style="margin:8px 0"><strong>Sunday:</strong> Closed</p>
+          </div>
+        </div>
+        
+        <div style="text-align:center;margin:32px 0">
+          <a href="tel:+19052018005" class="cta-btn" style="background:#fff;color:#7b1d3b;font-size:1.2rem;padding:18px 48px;display:inline-block">
+            Call (905) 201-8005
+          </a>
+        </div>
+        
+        <p style="text-align:center;font-size:0.9rem;opacity:0.85;margin-top:32px">
+          Proudly serving Markham, Richmond Hill, Thornhill, Unionville, Stouffville, and surrounding areas
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <footer style="background:#1b1b1b;color:#999;padding:20px 0;text-align:center">
+    <div class="container">
+      <p style="font-size:0.85rem">
+        &copy; <span id="year">2025</span> Sherlase Clinic & Spa. All rights reserved. | Premium spa & wellness services for Markham women since 1998
+      </p>
+    </div>
+  </footer>
+  
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    function trackConversion(eventName, buttonId) {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+          'event_category': 'engagement',
+          'event_label': buttonId,
+          'value': 1
+        });
+        gtag('event', 'conversion', {
+          'send_to': 'AW-XXXXXXXXX/PHONE_CONVERSION_LABEL',
+          'value': 1.0,
+          'currency': 'CAD'
+        });
+      }
+      if (typeof _mc !== 'undefined') {
+        _mc.trackEvent(eventName, {button: buttonId});
+      }
+      console.log('Conversion tracked:', eventName, buttonId);
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+      phoneLinks.forEach(function(link, index) {
+        link.addEventListener('click', function() {
+          trackConversion('click_to_call', 'phone_cta_' + index);
+        });
+      });
+      
+      const stripeLinks = document.querySelectorAll('a[href*="stripe"]');
+      stripeLinks.forEach(function(link, index) {
+        link.addEventListener('click', function() {
+          trackConversion('stripe_click', 'stripe_cta_' + index);
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-XXXXXXXXX/STRIPE_CONVERSION_LABEL',
+              'value': 89.0,
+              'currency': 'CAD'
+            });
+          }
+        });
+      });
+      
+      const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+      emailLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          trackConversion('email_click', 'email_cta');
+        });
+      });
+    });
+    
+    let scrollMilestones = {25: false, 50: false, 75: false, 100: false};
+    window.addEventListener('scroll', function() {
+      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      Object.keys(scrollMilestones).forEach(function(milestone) {
+        if (scrollPercent >= milestone && !scrollMilestones[milestone]) {
+          scrollMilestones[milestone] = true;
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'scroll_depth', {
+              'event_category': 'engagement',
+              'event_label': milestone + '%',
+              'value': parseInt(milestone)
+            });
+          }
+        }
+      });
+    });
+    
+    window.addEventListener('load', function() {
+      const video = document.querySelector('iframe[src*="youtube"]');
+      if (video) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting && typeof gtag !== 'undefined') {
+              gtag('event', 'video_section_viewed', {
+                'event_category': 'engagement',
+                'event_label': 'youtube_video',
+                'value': 1
+              });
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.5 });
+        observer.observe(video);
+      }
+    });
+    
+    let timeOnPage = 0;
+    setInterval(function() {
+      timeOnPage += 30;
+      if (timeOnPage % 60 === 0 && typeof gtag !== 'undefined') {
+        gtag('event', 'time_on_page', {
+          'event_category': 'engagement',
+          'event_label': (timeOnPage / 60) + '_minutes',
+          'value': timeOnPage
+        });
+      }
+    }, 30000);
+  </script>
+  
+</body>
+</html>
