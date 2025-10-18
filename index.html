@@ -628,7 +628,7 @@
     });
     
     // Form submission
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    document.getElementById('bookingForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       
       const formData = new FormData(this);
@@ -644,14 +644,31 @@
         'currency': 'CAD'
       });
       
-      // Simulate form submission (replace with actual endpoint)
       const submitBtn = this.querySelector('.submit-btn');
+      const successMsg = document.getElementById('formSuccess');
+      const errorMsg = document.getElementById('formError');
+      
       submitBtn.disabled = true;
       submitBtn.textContent = 'Submitting...';
+      errorMsg.style.display = 'none';
+      successMsg.style.display = 'none';
       
-      // Simulate API call
-      setTimeout(function() {
-        document.getElementById('formSuccess').style.display = 'block';
+      try {
+        // Send to Vercel serverless function
+        const response = await fetch('/api/send-booking', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to send booking request');
+        }
+        
+        // Success!
+        successMsg.style.display = 'block';
         submitBtn.style.display = 'none';
         
         // Track successful conversion
@@ -667,12 +684,18 @@
         setTimeout(function() {
           closeBookingModal();
           document.getElementById('bookingForm').reset();
-          document.getElementById('formSuccess').style.display = 'none';
+          successMsg.style.display = 'none';
           submitBtn.style.display = 'block';
           submitBtn.disabled = false;
           submitBtn.textContent = 'Submit Booking Request';
         }, 3000);
-      }, 1500);
+        
+      } catch (error) {
+        console.error('Submission error:', error);
+        errorMsg.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Booking Request';
+      }
     });
     
     // Track time on page
