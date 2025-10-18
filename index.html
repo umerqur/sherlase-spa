@@ -82,7 +82,7 @@
     .offer .price{font-size:2.2rem;font-weight:800;color:var(--brand);margin:12px 0;line-height:1}
     .offer .badge{display:inline-block;background:var(--brand);color:#fff;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:600;margin-bottom:12px}
     
-    .cta-btn-secondary{background:#fff;color:var(--brand);border:2px solid var(--brand);padding:10px 20px;border-radius:999px;font-weight:600;display:inline-block;transition:all 0.2s;font-size:0.9rem}
+    .cta-btn-secondary{background:#fff;color:var(--brand);border:2px solid var(--brand);padding:10px 20px;border-radius:999px;font-weight:600;display:inline-block;transition:all 0.2s;font-size:0.9rem;cursor:pointer}
     .cta-btn-secondary:hover{background:var(--cream)}
     
     .testimonial{background:var(--light-cream);border-left:4px solid var(--brand);padding:20px;border-radius:8px}
@@ -121,10 +121,10 @@
     .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;padding:20px}
     .modal.active{display:flex}
     .modal-content{background:#fff;border-radius:16px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
-    .modal-header{background:var(--brand);color:#fff;padding:24px;border-radius:16px 16px 0 0}
+    .modal-header{background:var(--brand);color:#fff;padding:24px;border-radius:16px 16px 0 0;position:relative}
     .modal-header h3{color:#fff;margin:0}
     .modal-body{padding:32px}
-    .modal-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.2);border:none;color:#fff;font-size:1.5rem;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+    .modal-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.2);border:none;color:#fff;font-size:1.5rem;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
     .modal-close:hover{background:rgba(255,255,255,0.3)}
     
     @media (min-width:768px){
@@ -388,7 +388,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3>Book Your Appointment</h3>
-        <button class="modal-close" onclick="closeBookingModal()">&times;</button>
+        <button class="modal-close" id="closeModalBtn">&times;</button>
       </div>
       <div class="modal-body">
         <form class="lead-form" id="bookingForm">
@@ -479,11 +479,60 @@
       console.log('DataLayer Event:', eventData);
     }
     
+    // MODAL FUNCTIONS
+    function openBookingModal(serviceName, price) {
+      var modal = document.getElementById('bookingModal');
+      var serviceSelect = document.getElementById('service');
+      
+      if (serviceName && price) {
+        var optionValue = serviceName + ' -  + price;
+        serviceSelect.value = optionValue;
+      }
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      pushToDataLayer({
+        'event': 'booking_modal_open',
+        'event_category': 'engagement',
+        'event_label': serviceName || 'general',
+        'value': parseFloat(price) || 0,
+        'currency': 'CAD'
+      });
+    }
+    
+    function closeBookingModal() {
+      var modal = document.getElementById('bookingModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    // Close button click
+    document.getElementById('closeModalBtn').addEventListener('click', closeBookingModal);
+    
+    // Close modal on outside click
+    document.getElementById('bookingModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeBookingModal();
+      }
+    });
+    
+    // Book Now button clicks
+    var bookButtons = document.querySelectorAll('.book-now-btn');
+    bookButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var service = this.getAttribute('data-service');
+        var price = this.getAttribute('data-price');
+        openBookingModal(service, price);
+      });
+    });
+    
     // Track phone clicks
-    document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+    var phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+    phoneLinks.forEach(function(link) {
       link.addEventListener('click', function(e) {
-        const service = this.getAttribute('data-service') || 'general';
-        const location = this.getAttribute('data-location') || 'unknown';
+        var service = this.getAttribute('data-service') || 'general';
+        var location = this.getAttribute('data-location') || 'unknown';
         
         pushToDataLayer({
           'event': 'phone_click',
@@ -496,7 +545,8 @@
     });
     
     // Track email clicks
-    document.querySelectorAll('a[href^="mailto:"]').forEach(function(link) {
+    var emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+    emailLinks.forEach(function(link) {
       link.addEventListener('click', function() {
         pushToDataLayer({
           'event': 'email_click',
@@ -507,12 +557,12 @@
     });
     
     // Track service card views
-    const serviceCards = document.querySelectorAll('.offer');
-    const cardObserver = new IntersectionObserver(function(entries) {
+    var serviceCards = document.querySelectorAll('.offer');
+    var cardObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          const service = entry.target.getAttribute('data-service');
-          const price = entry.target.getAttribute('data-price');
+          var service = entry.target.getAttribute('data-service');
+          var price = entry.target.getAttribute('data-price');
           
           pushToDataLayer({
             'event': 'view_item',
@@ -537,9 +587,10 @@
     });
     
     // Track FAQ clicks
-    document.querySelectorAll('.faq-item').forEach(function(item) {
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function(item) {
       item.addEventListener('click', function() {
-        const question = this.getAttribute('data-faq');
+        var question = this.getAttribute('data-faq');
         pushToDataLayer({
           'event': 'faq_click',
           'event_category': 'engagement',
@@ -549,9 +600,9 @@
     });
     
     // Track scroll depth
-    let scrollMilestones = {25: false, 50: false, 75: false, 100: false};
+    var scrollMilestones = {25: false, 50: false, 75: false, 100: false};
     window.addEventListener('scroll', function() {
-      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      var scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
       Object.keys(scrollMilestones).forEach(function(milestone) {
         if (scrollPercent >= milestone && !scrollMilestones[milestone]) {
           scrollMilestones[milestone] = true;
@@ -566,9 +617,9 @@
     });
     
     // Track video interaction
-    const videoContainer = document.querySelector('[data-video-container]');
+    var videoContainer = document.querySelector('[data-video-container]');
     if (videoContainer) {
-      const videoObserver = new IntersectionObserver(function(entries) {
+      var videoObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             pushToDataLayer({
@@ -583,56 +634,15 @@
       videoObserver.observe(videoContainer);
     }
     
-    // BOOKING MODAL FUNCTIONS
-    function openBookingModal(serviceName, price) {
-      const modal = document.getElementById('bookingModal');
-      const serviceSelect = document.getElementById('service');
-      
-      if (serviceName && price) {
-        const optionValue = serviceName + ' -  + price;
-        serviceSelect.value = optionValue;
-      }
-      
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      
-      pushToDataLayer({
-        'event': 'booking_modal_open',
-        'event_category': 'engagement',
-        'event_label': serviceName || 'general',
-        'value': parseFloat(price) || 0,
-        'currency': 'CAD'
-      });
-    }
-    
-    function closeBookingModal() {
-      const modal = document.getElementById('bookingModal');
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    
-    // Book Now button clicks
-    document.querySelectorAll('.book-now-btn').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        const service = this.getAttribute('data-service');
-        const price = this.getAttribute('data-price');
-        openBookingModal(service, price);
-      });
-    });
-    
-    // Close modal on outside click
-    document.getElementById('bookingModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeBookingModal();
-      }
-    });
-    
     // Form submission
     document.getElementById('bookingForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData.entries());
+      var formData = new FormData(this);
+      var data = {};
+      formData.forEach(function(value, key) {
+        data[key] = value;
+      });
       
       // Track form submission
       pushToDataLayer({
@@ -644,9 +654,9 @@
         'currency': 'CAD'
       });
       
-      const submitBtn = this.querySelector('.submit-btn');
-      const successMsg = document.getElementById('formSuccess');
-      const errorMsg = document.getElementById('formError');
+      var submitBtn = this.querySelector('.submit-btn');
+      var successMsg = document.getElementById('formSuccess');
+      var errorMsg = document.getElementById('formError');
       
       submitBtn.disabled = true;
       submitBtn.textContent = 'Submitting...';
@@ -655,7 +665,7 @@
       
       try {
         // Send to Vercel serverless function
-        const response = await fetch('/api/send-booking', {
+        var response = await fetch('/api/send-booking', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -699,7 +709,7 @@
     });
     
     // Track time on page
-    let timeOnPage = 0;
+    var timeOnPage = 0;
     setInterval(function() {
       timeOnPage += 30;
       if (timeOnPage % 60 === 0) {
