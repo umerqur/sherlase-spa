@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Booking Received - Sherlase Clinic & Spa</title>
+  <meta name="description" content="Thank you for your booking request at Sherlase Clinic & Spa">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root{--brand:#7b1d3b;--brand-2:#a13a5a;--text:#1b1b1b;--muted:#6b6b6b;--bg:#fff;--cream:#fff7f7;--light-cream:#fffbfb}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,var(--light-cream) 0%,var(--cream) 100%);line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+    .container{max-width:600px;margin:0 auto}
+    .success-card{background:#fff;border-radius:24px;padding:48px 40px;text-align:center;box-shadow:0 10px 40px rgba(123,29,59,.1);border:2px solid var(--brand)}
+    .checkmark{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--brand) 0%,var(--brand-2) 100%);margin:0 auto 24px;display:flex;align-items:center;justify-content:center;font-size:48px;color:#fff;animation:scaleIn .3s ease-out}
+    @keyframes scaleIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+    h1{font-size:2rem;color:var(--brand);margin-bottom:16px;font-weight:800}
+    .lead{font-size:1.1rem;color:var(--text);margin-bottom:32px;line-height:1.7}
+    .info-box{background:var(--light-cream);border-radius:12px;padding:24px;margin:24px 0;text-align:left}
+    .info-box h3{color:var(--brand);font-size:1.1rem;margin-bottom:12px}
+    .info-box p{margin:8px 0;color:var(--text)}
+    .info-box a{color:var(--brand);text-decoration:underline}
+    .cta-btn{background:var(--brand);color:#fff;padding:16px 40px;border-radius:999px;font-weight:600;display:inline-block;transition:all .2s;border:none;font-size:1rem;cursor:pointer;text-decoration:none;margin-top:16px}
+    .cta-btn:hover{background:#6a1933;transform:translateY(-2px);box-shadow:0 6px 20px rgba(123,29,59,.3)}
+    .footer-note{margin-top:32px;font-size:.9rem;color:var(--muted)}
+    @media (max-width:600px){
+      .success-card{padding:40px 24px}
+      h1{font-size:1.6rem}
+      .checkmark{width:60px;height:60px;font-size:36px}
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="success-card">
+      <div class="checkmark">✓</div>
+      
+      <h1>Booking Request Received!</h1>
+      
+      <p class="lead">Thank you for choosing Sherlase Clinic & Spa. We've received your booking request and will contact you within 24 hours to confirm your appointment.</p>
+      
+      <div class="info-box">
+        <h3>What Happens Next?</h3>
+        <p><strong>1.</strong> Our team will review your preferred date and time</p>
+        <p><strong>2.</strong> We'll call or email you within 24 hours to confirm</p>
+        <p><strong>3.</strong> You'll receive appointment details and any preparation instructions</p>
+      </div>
+      
+      <div class="info-box">
+        <h3>Need Immediate Assistance?</h3>
+        <p><strong>Phone:</strong> <a href="tel:+19052018005">(905) 201-8005</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@sherlaseclinic.com">info@sherlaseclinic.com</a></p>
+        <p style="color:var(--muted);font-size:.9rem;margin-top:12px">Monday-Friday: 9:00 AM - 8:00 PM<br>Saturday: 9:00 AM - 6:00 PM</p>
+      </div>
+      
+      <a href="/" class="cta-btn">Return to Homepage</a>
+      
+      <p class="footer-note">
+        A confirmation email has been sent to the address you provided.<br>
+        Please check your spam folder if you don't see it.
+      </p>
+    </div>
+  </div>
+  
+  <script>
+    // Track form submission success (if Google Analytics is configured)
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-XXXXXXXXX/FORM_CONVERSION_LABEL'
+      });
+    }
+  </script>
+  
+</body>
+</html>
