@@ -76,10 +76,26 @@
       <a href="https://sherlase-spa.netlify.app/" class="cta-btn">Return to Homepage</a>
       
       <p class="footer-note">
-        Our team has been notified and will reach out within 24 hours.
-      </p>
+      Our team has been notified and will reach out within 24 hours.
+    </p>
     </div>
   </div>
+
+  <script>
+    // helper to read the paid flag in the URL
+    function getParam(name) {
+      return new URLSearchParams(window.location.search).get(name);
+    }
+
+    // if Stripe sent them back with ?paid=true
+    if (getParam('paid') === 'true') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17719269754/cUckCIHl8L4bEPqymoFC', // Stripe purchase
+        value: 25.0,      // change to 89 or 99 if you want a different amount
+        currency: 'CAD'
+      });
+    }
+  </script>
 
 </body>
 </html>
