@@ -57,15 +57,15 @@
     .logo-text span{font-weight:400;color:var(--brand-2);font-size:.9rem;display:block;margin-top:-4px}
     .cta-btn{background:var(--brand);color:#fff;padding:14px 28px;border-radius:999px;font-weight:600;display:inline-block;transition:all .2s;border:none;font-size:.95rem;cursor:pointer}
     .cta-btn:hover{background:#6a1933;transform:translateY(-1px);box-shadow:0 4px 12px rgba(123,29,59,.3)}
-    .hero{background:linear-gradient(180deg,var(--light-cream) 0%,var(--cream) 100%);padding:48px 0 32px}
-    .hero h1{font-size:2rem;line-height:1.2;margin:0 0 16px;color:var(--brand);font-weight:800}
+    .hero{background:linear-gradient(180deg,var(--light-cream) 0%,var(--cream) 100%);padding:32px 0 24px}
+    .hero h1{font-size:2rem;line-height:1.2;margin:0 0 12px;color:var(--brand);font-weight:800}
     .hero .lead{color:var(--text);font-size:1.15rem;margin-bottom:24px;font-weight:500}
-    .kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}
+    .kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
     .kpi{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.04)}
     .kpi strong{display:block;font-size:1.1rem;color:var(--brand);margin-bottom:4px}
-    .trust-bar{background:#fff;border:2px solid var(--brand);border-radius:12px;padding:16px;margin-top:24px;text-align:center}
+    .trust-bar{background:#fff;border:2px solid var(--brand);border-radius:12px;padding:16px;margin-top:16px;text-align:center}
     .trust-bar strong{color:var(--brand);font-size:1.1rem}
-    .video-wrap{margin-top:24px}
+    .video-wrap{margin-top:12px}
     section{padding:48px 0;border-top:1px solid var(--border)}
     h2{font-size:1.8rem;margin:0 0 16px;color:var(--brand);font-weight:700}
     h3{font-size:1.2rem;margin:0 0 8px;color:var(--text);font-weight:600}
@@ -100,7 +100,7 @@
     .submit-btn:hover{background:#6a1933;transform:translateY(-1px);box-shadow:0 4px 12px rgba(123,29,59,.3)}
 
     /* slider */
-    .slider{position:relative;border-radius:12px;overflow:hidden;border:1px solid #eee;background:#000;box-shadow:0 4px 16px rgba(0,0,0,.1);margin-top:24px}
+    .slider{position:relative;border-radius:12px;overflow:hidden;border:1px solid #eee;background:#000;box-shadow:0 4px 16px rgba(0,0,0,.1);margin-top:0}
     .slides{position:relative;width:100%;height:0;padding-top:56.25%}
     .slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1s ease,transform 8s ease;background-size:cover;background-position:center}
     .slide.active{opacity:1;transform:scale(1.05)}
@@ -109,7 +109,7 @@
     @media (min-width:768px){
       .hero{padding:64px 0 48px}
       .hero h1{font-size:2.8rem}
-      .kpis{grid-template-columns:repeat(4,1fr);gap:16px}
+      .kpis{grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0}
       .features{grid-template-columns:repeat(2,1fr);gap:20px}
       .features.three-col{grid-template-columns:repeat(3,1fr)}
       section{padding:64px 0}
@@ -138,8 +138,19 @@
   
   <div class="hero">
     <div class="container">
-      <h1>Markham's Premier Spa for Women – Without the Downtown Hassle</h1>
-      <p class="lead">High-end RMT massage, custom facials, and luxurious treatments in a serene, women-focused atmosphere.</p>
+      <h1>Markham's Premier Spa for Women</h1>
+
+      <div class="video-wrap">
+        <div class="slider">
+          <div class="slides">
+            <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa1.png');"></div>
+            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa2.png');"></div>
+            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa3.png');"></div>
+            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa4.png');"></div>
+            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa5.png');"></div>
+          </div>
+        </div>
+      </div>
       
       <div class="kpis">
         <div class="kpi"><strong>25+ Years</strong><span>Trusted in Markham</span></div>
@@ -152,17 +163,6 @@
         <strong>RMT Massage Covered by Extended Health Insurance</strong><br>
         <span style="color:var(--muted)">Receipts issued for insurance reimbursement</span>
       </div>
-      
-      <div class="video-wrap">
-        <div class="slider">
-          <div class="slides">
-            <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa1.png');"></div>
-            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa2.png');"></div>
-            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa3.png');"></div>
-            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa4.png');"></div>
-            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa5.png');"></div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -438,4 +438,3 @@
   
 </body>
 </html>
-
