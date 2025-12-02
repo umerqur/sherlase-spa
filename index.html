@@ -151,6 +151,12 @@
           </div>
         </div>
       </div>
+
+      <!-- small hours notice under hero -->
+      <div style="margin-top:16px;margin-bottom:4px;padding:10px 14px;border-radius:12px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.04);font-size:.95rem;color:var(--muted);">
+        <strong style="color:var(--brand);">Closed Sunday and Monday.</strong>
+        <span style="display:block;margin-top:4px;">Booking requests are answered during regular working hours.</span>
+      </div>
       
       <div class="kpis">
         <div class="kpi"><strong>25+ Years</strong><span>Trusted in Markham</span></div>
@@ -217,7 +223,23 @@
   <section id="booking-form" style="background:linear-gradient(135deg,var(--light-cream) 0%,var(--cream) 100%)">
     <div class="container">
       <h2 style="text-align:center;margin-bottom:8px">Book Your Appointment</h2>
-      <p class="lead" style="text-align:center;margin-bottom:32px">Fill out the form below and we will contact you within 24 hours to confirm your booking.</p>
+      <p class="lead" style="text-align:center;margin-bottom:24px">Fill out the form below and we will contact you within 24 hours to confirm your booking.</p>
+
+      <!-- how booking works card -->
+      <div style="max-width:700px;margin:0 auto 24px;">
+        <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px 18px;font-size:.95rem;">
+          <h3 style="margin:0 0 8px;font-size:1.05rem;color:var(--brand);">How booking works</h3>
+          <ol style="padding-left:20px;margin:0 0 8px;">
+            <li>Send your booking request by form or phone.</li>
+            <li>We confirm your time during business hours.</li>
+            <li>We send you a secure online payment link.</li>
+            <li>Your appointment is confirmed once payment is received at least 24 hours before your visit.</li>
+          </ol>
+          <p style="margin:4px 0 0;color:var(--muted);font-size:.9rem;">
+            If you already spoke with us and only need to pay, please use the Pay Now button on our main site.
+          </p>
+        </div>
+      </div>
       
       <form class="booking-form" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
         <input type="hidden" name="form-name" value="booking" />
