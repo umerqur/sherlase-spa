@@ -12,20 +12,17 @@
   <meta property="og:url" content="https://sherlase-spa.netlify.app/">
   <meta property="og:image" content="https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa2.png">
   
-  <!-- Google tag (gtag.js) — NEW ACCOUNT -->
+  <!-- Google tag (gtag.js) for Google Ads only -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17719269754"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    // Google Ads
+    // Google Ads only
     gtag('config', 'AW-17719269754');
 
-    // Google Analytics 4
-    gtag('config', 'G-RL12R0G9FN');
-
-    // helper to fire a click conversion and then continue navigation
+    // helper to fire a click conversion then continue navigation
     function sendConversion(sendTo, url, value) {
       var cb = function() { if (url) window.location = url; };
       gtag('event', 'conversion', {
@@ -34,7 +31,7 @@
         'currency': 'CAD',
         'event_callback': cb
       });
-      return false; // prevent default; resume in callback
+      return false;
     }
   </script>
 
@@ -111,7 +108,6 @@
       .hero h1{font-size:2.8rem}
       .kpis{grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0}
       .features{grid-template-columns:repeat(2,1fr);gap:20px}
-      .features.three-col{grid-template-columns:repeat(3,1fr)}
       section{padding:64px 0}
     }
     @media (max-width:767px){
@@ -152,7 +148,6 @@
         </div>
       </div>
 
-      <!-- small hours notice under hero -->
       <div style="margin-top:16px;margin-bottom:4px;padding:10px 14px;border-radius:12px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.04);font-size:.95rem;color:var(--muted);text-align:center;">
         <strong style="color:var(--brand);">Closed Sunday and Monday.</strong>
         <span style="display:block;margin-top:4px;">Booking requests are answered during regular working hours.</span>
@@ -205,7 +200,7 @@
           <div class="badge">NEW CLIENT SPECIAL</div>
           <h3>RMT Massage (60 min)</h3>
           <p class="price">$99</p>
-          <p>Release tightness, aches and pains to restore the body's natural flow of energy. Female RMT therapists available. Specialized massage beds designed for women's comfort.</p>
+          <p>Release tightness, aches and pains to restore the body's natural flow. Female RMT therapists available. Specialized beds designed for comfort.</p>
           <p style="font-size:.9rem;color:#6b6b6b;margin-top:12px">*New clients only. One per person. Taxes & gratuities not included.</p>
           <div style="margin-top:auto;padding-top:16px">
             <a href="https://buy.stripe.com/5kQfZh7wR4nxdNx1wSbEA01"
@@ -225,19 +220,15 @@
       <h2 style="text-align:center;margin-bottom:8px">Book Your Appointment</h2>
       <p class="lead" style="text-align:center;margin-bottom:24px">Fill out the form below and we will contact you within 24 hours to confirm your booking.</p>
 
-      <!-- how booking works card -->
       <div style="max-width:700px;margin:0 auto 24px;">
         <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px 18px;font-size:.95rem;">
           <h3 style="margin:0 0 8px;font-size:1.05rem;color:var(--brand);">How booking works</h3>
           <ol style="padding-left:20px;margin:0 0 8px;">
-            <li>Send your booking request by form or phone.</li>
-            <li>We confirm your time during business hours.</li>
-            <li>We send you a secure online payment link.</li>
-            <li>Your appointment is confirmed once payment is received at least 24 hours before your visit.</li>
+            <li>Request by form or phone</li>
+            <li>We confirm your time</li>
+            <li>We send a secure payment link</li>
+            <li>Your appointment is confirmed</li>
           </ol>
-          <p style="margin:4px 0 0;color:var(--muted);font-size:.9rem;">
-            If you already spoke with us and only need to pay, please use the Pay Now button on our main site.
-          </p>
         </div>
       </div>
       
@@ -317,17 +308,17 @@
       <div class="features three-col">
         <div class="card">
           <h3>No More Downtown Hassles</h3>
-          <p>Skip the traffic, parking fees, and rushed appointments. Get premium spa treatments right here in Markham with free parking and a relaxing atmosphere.</p>
+          <p>Skip traffic, parking fees, and rushed appointments. Premium spa treatments here in Markham with free parking.</p>
         </div>
         
         <div class="card">
           <h3>Certified Professionals</h3>
-          <p>Our RMT-certified therapists and experienced estheticians bring clinic-grade expertise with a spa's warmth. Every treatment is performed by trained professionals who care.</p>
+          <p>Our RMT certified therapists and estheticians bring clinic-grade expertise with a spa's warmth.</p>
         </div>
         
         <div class="card">
           <h3>Women-Centered Care</h3>
-          <p>A safe, welcoming space designed with women in mind. Experience personalized attention in an environment where you can truly relax and be yourself.</p>
+          <p>A safe, welcoming space designed with women in mind. Personalized attention with every visit.</p>
         </div>
       </div>
     </div>
@@ -341,21 +332,21 @@
       <div class="features three-col">
         <div class="card testimonial">
           <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p>"I had a very positive experience at Sherlase Clinic and Spa in Markham. From the moment I was greeted by Lisa, I knew it was going to be a good experience. The spot itself is very calming and peaceful. Alexis did my facial and she took her time and made me feel very comfortable. When I left I felt very relaxed and my face felt softer and very clean. After my treatment I had a very warming cup of tea and I was not rushed out."</p>
+          <p>"I had a positive experience. The clinic is calming and peaceful. My facial was excellent and relaxing."</p>
           <p class="author">– Nalini Persaud</p>
           <p class="verified">✓ Verified Google Review</p>
         </div>
         
         <div class="card testimonial">
           <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p>"I absolutely love this clinic! The staff is so sweet, honest and not pushy at all! The clinic is so clean and beautiful. Every single employee, including the owner, have been so welcoming and kind! Also if you are on a budget they let you know about sales they have - they are not just there to try and get your money! When I come here it feels like I am coming to visit family!"</p>
+          <p>"I absolutely love this clinic. The staff is sweet, honest and never pushy. The clinic is beautiful and welcoming."</p>
           <p class="author">– Freada V.</p>
           <p class="verified">✓ Verified Google Review</p>
         </div>
         
         <div class="card testimonial">
           <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p>"Such a relaxing and beautiful experience celebrating my cousins 50th birthday at Sherlase Spa! From the moment we walked in and were greeted by the welcoming staff to the comfortable and serene seating lounge we enjoyed before our amazing massages, the entire experience made us feel so VIP! This definitely is Markham's little hidden gem!"</p>
+          <p>"Such a relaxing experience celebrating my cousin's birthday. The staff made us feel VIP. A hidden gem."</p>
           <p class="author">– Gabby Cripouris</p>
           <p class="verified">✓ Verified Google Review</p>
         </div>
@@ -370,17 +361,17 @@
       <div style="max-width:800px;margin:24px auto 0">
         <div class="faq-item">
           <h4>Do you accept walk-ins?</h4>
-          <p>We recommend booking in advance to guarantee your preferred time, but we will do our best to accommodate walk-ins based on availability.</p>
+          <p>We recommend booking in advance but we do our best to accommodate walk-ins.</p>
         </div>
         
         <div class="faq-item">
           <h4>Is parking really free?</h4>
-          <p>Yes! We have ample free parking right at our location. No meters, no stress just park and relax.</p>
+          <p>Yes. We have ample free parking right at our location.</p>
         </div>
         
         <div class="faq-item">
           <h4>What payment methods do you accept?</h4>
-          <p>We accept cash, debit, Visa, Mastercard, and American Express.</p>
+          <p>Cash, debit, Visa, Mastercard and American Express.</p>
         </div>
         
         <div class="faq-item">
@@ -389,13 +380,13 @@
         </div>
         
         <div class="faq-item">
-          <h4>Do you provide direct billing for insurance?</h4>
-          <p>We provide official RMT receipts that you can submit to your insurance company. Many clients get reimbursed quickly through their extended health benefits.</p>
+          <h4>Do you provide direct billing?</h4>
+          <p>We provide official RMT receipts that you can submit to your insurance company for reimbursement.</p>
         </div>
         
         <div class="faq-item">
-          <h4>Can I book multiple services in one visit?</h4>
-          <p>Absolutely. Many clients combine treatments like a facial and massage. Call us at (905) 201-8005 and we will create a custom spa package for you.</p>
+          <h4>Can I book multiple services?</h4>
+          <p>Absolutely. Many clients combine services. Call us and we will arrange it.</p>
         </div>
       </div>
     </div>
@@ -403,8 +394,8 @@
   
   <section style="background:linear-gradient(135deg,#7b1d3b 0%,#a13a5a 100%);color:#fff;padding:64px 0">
     <div class="container">
-      <h2 style="color:#fff;font-size:2rem;text-align:center;margin-bottom:16px">Ready to Book Your Appointment?</h2>
-      <p style="font-size:1.15rem;text-align:center;margin-bottom:40px;color:#fff;opacity:.95">Experience the difference at Markham's premier spa for women</p>
+      <h2 style="color:#fff;font-size:2rem;text-align:center;margin-bottom:16px">Ready to Book?</h2>
+      <p style="font-size:1.15rem;text-align:center;margin-bottom:40px;color:#fff;opacity:.95">Experience the difference at Markham's premier spa</p>
       
       <div style="max-width:900px;margin:0 auto">
         <div style="display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:32px">
@@ -416,7 +407,7 @@
           </div>
           
           <div style="background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,.2)">
-            <h3 style="color:#fff;margin-bottom:12px;font-size:1.1rem">Hours of Operation</h3>
+            <h3 style="color:#fff;margin-bottom:12px;font-size:1.1rem">Hours</h3>
             <p style="margin:8px 0"><strong>Tuesday Friday:</strong> 9:00 AM 8:00 PM</p>
             <p style="margin:8px 0"><strong>Saturday:</strong> 9:00 AM 6:00 PM</p>
             <p style="margin:8px 0"><strong>Sunday and Monday:</strong> Closed</p>
@@ -428,7 +419,7 @@
         </div>
         
         <p style="text-align:center;font-size:.9rem;opacity:.85;margin-top:32px">
-          Proudly serving Markham, Richmond Hill, Thornhill, Unionville, Stouffville, and surrounding areas
+          Proudly serving Markham and surrounding areas
         </p>
       </div>
     </div>
@@ -437,7 +428,7 @@
   <footer style="background:#1b1b1b;color:#999;padding:20px 0;text-align:center">
     <div class="container">
       <p style="font-size:.85rem">
-        &copy; <span id="year">2025</span> Sherlase Clinic & Spa. All rights reserved. | Premium spa & wellness services for Markham women since 1998
+        &copy; <span id="year">2025</span> Sherlase Clinic & Spa. All rights reserved.
       </p>
     </div>
   </footer>
@@ -445,7 +436,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // simple slider logic
     (function() {
       var slides = document.querySelectorAll('.slide');
       if (!slides.length) return;
