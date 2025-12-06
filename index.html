@@ -103,11 +103,15 @@
     .slide.active{opacity:1;transform:scale(1.05)}
     .slider-caption{position:absolute;left:20px;bottom:20px;background:rgba(0,0,0,.4);color:#fff;padding:10px 16px;border-radius:999px;font-size:.9rem;font-weight:500;backdrop-filter:blur(6px)}
 
+    .cta-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:32px}
+
     @media (min-width:768px){
       .hero{padding:64px 0 48px}
       .hero h1{font-size:2.8rem}
       .kpis{grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0}
       .features{grid-template-columns:repeat(2,1fr);gap:20px}
+      .features.three-col{grid-template-columns:repeat(3,1fr);}
+      .cta-grid{grid-template-columns:repeat(2,1fr);}
       section{padding:64px 0}
     }
     @media (max-width:767px){
@@ -398,7 +402,7 @@
       <p style="font-size:1.15rem;text-align:center;margin-bottom:40px;color:#fff;opacity:.95">Experience the difference at Markham's premier spa</p>
       
       <div style="max-width:900px;margin:0 auto">
-        <div style="display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:32px">
+        <div class="cta-grid">
           <div style="background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,.2)">
             <h3 style="color:#fff;margin-bottom:12px;font-size:1.1rem">Contact Us</h3>
             <p style="margin:8px 0"><strong>Phone:</strong> <a href="tel:+19052018005" style="color:#fff;text-decoration:underline">(905) 201-8005</a></p>
