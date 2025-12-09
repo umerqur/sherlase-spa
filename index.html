@@ -72,9 +72,11 @@
     .card h3{margin:0 0 12px}
     .card p{margin:8px 0}
     .card>div:last-child{margin-top:auto}
-    .offer{background:linear-gradient(135deg,#fff 0%,#fff5f7 100%);border:2px solid var(--brand-2)}
-    .offer .price{font-size:2.2rem;font-weight:800;color:var(--brand);margin:12px 0;line-height:1}
-    .offer .badge{display:inline-block;background:var(--brand);color:#fff;padding:6px 14px;border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:12px}
+    .offer{background:#fff;border:2px solid #e5e5e5;box-shadow:0 8px 24px rgba(0,0,0,.08);position:relative;overflow:hidden;transition:all .3s ease}
+    .offer:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(123,29,59,.15)}
+    .offer::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#7b1d3b 0%,#a13a5a 100%)}
+    .offer .price{font-size:3rem;font-weight:800;color:var(--brand);margin:16px 0;line-height:1;letter-spacing:-1px}
+    .offer .badge{display:inline-block;background:linear-gradient(135deg,#7b1d3b 0%,#a13a5a 100%);color:#fff;padding:10px 20px;border-radius:8px;font-size:.8rem;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 4px 12px rgba(123,29,59,.25)}
     .cta-btn-secondary{background:#fff;color:var(--brand);border:2px solid var(--brand);padding:10px 20px;border-radius:999px;font-weight:600;display:inline-block;transition:all .2s;font-size:.9rem;cursor:pointer;text-decoration:none}
     .cta-btn-secondary:hover{background:var(--cream)}
     .testimonial{background:var(--light-cream);border-left:4px solid var(--brand);padding:20px;border-radius:8px}
@@ -185,7 +187,7 @@
       
       <div class="features">
         <div class="card offer">
-          <div class="badge">NEW CLIENT SPECIAL</div>
+          <div class="badge">New Spa Clients Only</div>
           <h3>Sherlase Signature Facial</h3>
           <p class="price">$89</p>
           <p>A luxurious 50-minute anti-aging facial using premium products. Address your skin concerns, relax, and be pampered with a treatment you will not want to end.</p>
@@ -201,7 +203,7 @@
         </div>
         
         <div class="card offer">
-          <div class="badge">NEW CLIENT SPECIAL</div>
+          <div class="badge">New Spa Clients Only</div>
           <h3>RMT Massage (60 min)</h3>
           <p class="price">$99</p>
           <p>Release tightness, aches and pains to restore the body's natural flow. Female RMT therapists available. Specialized beds designed for comfort.</p>
