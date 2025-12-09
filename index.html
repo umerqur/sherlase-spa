@@ -72,11 +72,10 @@
     .card h3{margin:0 0 12px}
     .card p{margin:8px 0}
     .card>div:last-child{margin-top:auto}
-    .offer{background:#fff;border:2px solid #e5e5e5;box-shadow:0 8px 24px rgba(0,0,0,.08);position:relative;overflow:hidden;transition:all .3s ease}
-    .offer:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(123,29,59,.15)}
-    .offer::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#7b1d3b 0%,#a13a5a 100%)}
-    .offer .price{font-size:3rem;font-weight:800;color:var(--brand);margin:16px 0;line-height:1;letter-spacing:-1px}
-    .offer .badge{display:inline-block;background:linear-gradient(135deg,#7b1d3b 0%,#a13a5a 100%);color:#fff;padding:10px 20px;border-radius:8px;font-size:.8rem;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 4px 12px rgba(123,29,59,.25)}
+    .offer{background:#fff;border:3px solid #e0e0e0;box-shadow:0 10px 30px rgba(0,0,0,.12);position:relative;overflow:hidden}
+    .offer::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,#7b1d3b 0%,#a13a5a 100%)}
+    .offer .price{font-size:3.5rem;font-weight:900;color:var(--brand);margin:20px 0;line-height:1;letter-spacing:-2px}
+    .offer .badge{display:block;background:linear-gradient(135deg,#7b1d3b 0%,#a13a5a 100%);color:#fff;padding:24px 32px;margin:-24px -24px 24px -24px;font-size:1.4rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;text-align:center;box-shadow:0 6px 20px rgba(123,29,59,.35)}
     .cta-btn-secondary{background:#fff;color:var(--brand);border:2px solid var(--brand);padding:10px 20px;border-radius:999px;font-weight:600;display:inline-block;transition:all .2s;font-size:.9rem;cursor:pointer;text-decoration:none}
     .cta-btn-secondary:hover{background:var(--cream)}
     .testimonial{background:var(--light-cream);border-left:4px solid var(--brand);padding:20px;border-radius:8px}
@@ -115,12 +114,14 @@
       .features.three-col{grid-template-columns:repeat(3,1fr);}
       .cta-grid{grid-template-columns:repeat(2,1fr);}
       section{padding:64px 0}
+      .offer .badge{font-size:1.6rem;padding:28px 40px}
     }
     @media (max-width:767px){
       .cta-btn{width:100%;text-align:center;display:block;margin:8px 0}
       .row{flex-direction:column;gap:12px;text-align:center}
       .form-row{grid-template-columns:1fr}
       .slider-caption{left:12px;right:12px;text-align:center;border-radius:8px}
+      .offer .badge{font-size:1.2rem;padding:20px 24px;letter-spacing:1px}
     }
   </style>
 </head>
