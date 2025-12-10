@@ -54,8 +54,13 @@
     .logo-text span{font-weight:400;color:var(--brand-2);font-size:.9rem;display:block;margin-top:-4px}
     .cta-btn{background:var(--brand);color:#fff;padding:14px 28px;border-radius:999px;font-weight:600;display:inline-block;transition:all .2s;border:none;font-size:.95rem;cursor:pointer}
     .cta-btn:hover{background:#6a1933;transform:translateY(-1px);box-shadow:0 4px 12px rgba(123,29,59,.3)}
-    .hero{background:linear-gradient(180deg,var(--light-cream) 0%,var(--cream) 100%);padding:32px 0 24px}
-    .hero h1{font-size:2rem;line-height:1.2;margin:0 0 12px;color:var(--brand);font-weight:800}
+    .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;padding-top:80px;background:linear-gradient(180deg,var(--light-cream) 0%,var(--cream) 100%)}
+    .hero-slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+    .hero-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1.5s ease-in-out;background-size:cover;background-position:center}
+    .hero-slide.active{opacity:1}
+    .hero-slide::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4)}
+    .hero-content{position:relative;z-index:10;width:100%;padding:40px 0}
+    .hero h1{font-size:2.5rem;line-height:1.15;margin:0;color:#fff;font-weight:800;letter-spacing:-0.02em;text-align:center}
     .hero .lead{color:var(--text);font-size:1.15rem;margin-bottom:24px;font-weight:500}
     .kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
     .kpi{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.04)}
@@ -97,18 +102,11 @@
     .submit-btn{background:var(--brand);color:#fff;padding:16px 32px;border-radius:999px;font-weight:600;font-size:1.05rem;border:none;cursor:pointer;width:100%;transition:all .2s}
     .submit-btn:hover{background:#6a1933;transform:translateY(-1px);box-shadow:0 4px 12px rgba(123,29,59,.3)}
 
-    /* slider */
-    .slider{position:relative;border-radius:12px;overflow:hidden;border:1px solid #eee;background:#000;box-shadow:0 4px 16px rgba(0,0,0,.1);margin-top:0}
-    .slides{position:relative;width:100%;height:0;padding-top:56.25%}
-    .slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1s ease,transform 8s ease;background-size:cover;background-position:center}
-    .slide.active{opacity:1;transform:scale(1.05)}
-    .slider-caption{position:absolute;left:20px;bottom:20px;background:rgba(0,0,0,.4);color:#fff;padding:10px 16px;border-radius:999px;font-size:.9rem;font-weight:500;backdrop-filter:blur(6px)}
-
     .cta-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:32px}
 
     @media (min-width:768px){
-      .hero{padding:64px 0 48px}
-      .hero h1{font-size:2.8rem}
+      .hero{padding:64px 0 0}
+      .hero h1{font-size:3.5rem}
       .kpis{grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0}
       .features{grid-template-columns:repeat(2,1fr);gap:20px}
       .features.three-col{grid-template-columns:repeat(3,1fr);}
@@ -120,7 +118,7 @@
       .cta-btn{width:100%;text-align:center;display:block;margin:8px 0}
       .row{flex-direction:column;gap:12px;text-align:center}
       .form-row{grid-template-columns:1fr}
-      .slider-caption{left:12px;right:12px;text-align:center;border-radius:8px}
+      .hero-content{padding:20px 24px}
       .offer .badge{font-size:1.2rem;padding:20px 24px;letter-spacing:1px}
     }
   </style>
@@ -140,22 +138,23 @@
   </header>
   
   <div class="hero">
+    <div class="hero-slideshow">
+      <div class="hero-slide active" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa1.png');"></div>
+      <div class="hero-slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa2.png');"></div>
+      <div class="hero-slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa3.png');"></div>
+      <div class="hero-slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa4.png');"></div>
+      <div class="hero-slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa5.png');"></div>
+    </div>
     <div class="container">
-      <h1>Markham's Premier Spa for Women</h1>
-
-      <div class="video-wrap">
-        <div class="slider">
-          <div class="slides">
-            <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa1.png');"></div>
-            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa2.png');"></div>
-            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa3.png');"></div>
-            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa4.png');"></div>
-            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa5.png');"></div>
-          </div>
-        </div>
+      <div class="hero-content">
+        <h1>Markham's Premier Spa for Women</h1>
       </div>
-
-      <div style="margin-top:16px;margin-bottom:4px;padding:10px 14px;border-radius:12px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.04);font-size:.95rem;color:var(--muted);text-align:center;">
+    </div>
+  </div>
+  
+  <section style="background:linear-gradient(180deg,var(--light-cream) 0%,var(--cream) 100%);padding:32px 0 24px;border-top:none">
+    <div class="container">
+      <div style="margin-bottom:16px;padding:10px 14px;border-radius:12px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.04);font-size:.95rem;color:var(--muted);text-align:center;">
         <strong style="color:var(--brand);">Closed Sunday and Monday.</strong>
         <span style="display:block;margin-top:4px;">Booking requests are answered during regular working hours.</span>
       </div>
@@ -171,9 +170,8 @@
         <strong>RMT Massage Covered by Extended Health Insurance</strong><br>
         <span style="color:var(--muted)">Receipts issued for insurance reimbursement</span>
       </div>
-      </div>
     </div>
-  </div>
+  </section>
   
   <section style="background:#7b1d3b;color:#fff">
     <div class="container">
@@ -443,8 +441,9 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Hero Slideshow
     (function() {
-      var slides = document.querySelectorAll('.slide');
+      var slides = document.querySelectorAll('.hero-slide');
       if (!slides.length) return;
       var index = 0;
       setInterval(function() {
@@ -457,4 +456,3 @@
   
 </body>
 </html>
-
