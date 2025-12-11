@@ -83,19 +83,21 @@
     
     /* Icons */
     .icon-svg {
-      width: 48px;
-      height: 48px;
+      width: 42px;
+      height: 42px;
       color: var(--brand);
       margin-bottom: 16px;
       display: block;
     }
     .icon-sm {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       display: inline-block;
       vertical-align: middle;
       margin-right: 8px;
       color: var(--brand);
+      position: relative;
+      top: -2px;
     }
     
     /* Top Banner */
@@ -152,11 +154,13 @@
       padding: 40px 0 60px;
       background: radial-gradient(circle at top center, #fffbfb 0%, #fff 100%);
       text-align: center;
+      overflow-x: hidden; /* Prevent horizontal scroll on mobile due to full-width slider */
     }
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 800;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
+      padding: 0 10px;
       background: linear-gradient(135deg, var(--brand) 0%, #a13a5a 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -185,19 +189,6 @@
       background-position: center;
     }
     .slide.active { opacity: 1; transform: scale(1.05); }
-
-    /* Hours Badge */
-    .hours-badge {
-      display: inline-block;
-      background: #fff;
-      padding: 10px 24px;
-      border-radius: 50px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(0,0,0,0.05);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-    .hours-badge strong { color: var(--brand); }
 
     /* KPIs */
     .kpis {
@@ -279,6 +270,21 @@
       max-width: 800px;
       margin: 0 auto;
     }
+    
+    /* Alert inside booking form */
+    .booking-alert {
+      background: #fff0f3;
+      border-left: 4px solid var(--brand);
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+      color: #60142c;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
     .booking-steps {
       background: #f8f9fa;
       border-radius: 12px;
@@ -339,7 +345,7 @@
     .faq-item p { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
 
     /* Footer */
-    footer { background: #111; color: #888; padding: 40px 0; font-size: 0.9rem; }
+    footer { background: #111; color: #888; padding: 24px 0; font-size: 0.85rem; }
     footer a { color: #fff; text-decoration: underline; }
 
     /* Media Queries */
@@ -352,6 +358,22 @@
     }
 
     @media (max-width: 767px) {
+      /* Full Width Slider Logic */
+      .slider-container {
+        width: 100vw;
+        max-width: none;
+        margin-left: -24px; /* Counteract container padding */
+        margin-right: -24px;
+        border-radius: 0;
+      }
+      .slider {
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+      }
+
       .cta-btn { width: 100%; margin-top: 10px; }
       .row { flex-direction: column; text-align: center; gap: 10px; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
@@ -393,10 +415,6 @@
           </div>
         </div>
       </div>
-
-      <div class="hours-badge">
-        <strong>Closed Sunday & Monday.</strong> Booking requests answered during working hours.
-      </div>
       
       <div class="kpis">
         <div class="kpi"><strong>25+ Years</strong><span>Trusted in Markham</span></div>
@@ -411,7 +429,6 @@
     </div>
   </div>
   
-  <!-- LEFT INDENTED AS REQUESTED -->
   <section style="background: var(--brand); color: #fff;">
     <div class="container" style="text-align:left; max-width:800px; margin:0 auto;">
       <h2 style="color:#fff; margin-bottom:20px;">Experience you can trust</h2>
@@ -456,15 +473,25 @@
         <h2 style="text-align:center; margin-bottom:12px;">Request Your Appointment</h2>
         <p style="text-align:center; color:var(--text-muted); margin-bottom:32px;">We will contact you within 24 hours to confirm the time.</p>
 
+        <!-- Hours Alert Box -->
+        <div class="booking-alert">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <div>
+            <strong>Note:</strong> We are closed Sundays and Mondays. Booking requests sent on these days will be answered Tuesday morning.
+          </div>
+        </div>
+
         <div class="booking-steps">
           <h3>
-            <!-- Modern Subtle Icon -->
+            <!-- Modern Clipboard Icon -->
             <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="16" y1="2" x2="16" y2="6"></line>
-              <line x1="8" y1="2" x2="8" y2="6"></line>
-              <line x1="3" y1="10" x2="21" y2="10"></line>
-              <path d="M9 16l2 2 4-4"></path>
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              <path d="M9 14l2 2 4-4"></path>
             </svg>
             How booking works
           </h3>
@@ -545,32 +572,31 @@
       
       <div class="features three-col">
         <div class="card">
-          <!-- Location / Map Icon -->
+          <!-- CAR / PARKING Icon -->
           <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+            <circle cx="7" cy="17" r="2"></circle>
+            <circle cx="17" cy="17" r="2"></circle>
+            <path d="M5 17h10"></path>
           </svg>
           <h3>No Downtown Hassle</h3>
           <p style="color:var(--text-muted)">Skip the traffic and parking fees. Enjoy premium spa treatments right here in Markham with ample free parking.</p>
         </div>
         
         <div class="card">
-          <!-- Professional Badge Icon -->
+          <!-- DIPLOMA / CERTIFICATE Icon -->
           <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.78z"></path>
-            <path d="M12 16v-4"></path>
-            <path d="M12 8h.01"></path>
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
           </svg>
           <h3>Certified Professionals</h3>
           <p style="color:var(--text-muted)">Our RMT certified therapists and estheticians combine clinic-grade expertise with the warmth of a spa.</p>
         </div>
         
         <div class="card">
-          <!-- Lotus / Wellness Icon -->
+          <!-- HEART / CARE Icon -->
           <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2.5l2.5 5 5 2.5-5 2.5-2.5 5-2.5-5-5-2.5 5-2.5z"></path>
-            <path d="M12 17.5c4 0 7 1.5 7 4"></path>
-            <path d="M12 17.5c-4 0-7 1.5-7 4"></path>
+             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
           <h3>Women-Centered Care</h3>
           <p style="color:var(--text-muted)">A safe, welcoming space designed with women in mind. Personalized attention with every single visit.</p>
