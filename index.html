@@ -37,102 +37,340 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
-    :root{--brand:#7b1d3b;--brand-2:#a13a5a;--text:#1b1b1b;--muted:#6b6b6b;--bg:#fff;--cream:#fff7f7;--light-cream:#fffbfb;--border:#f1e9ec}
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
-    .topbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    .row{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .logo-container{display:flex;align-items:center}
-    .logo-img{height:50px;width:auto;max-width:250px}
-    .logo-text{font-size:1.5rem;font-weight:700;color:var(--brand);letter-spacing:-.5px;display:none}
-    .logo-text span{font-weight:400;color:var(--brand-2);font-size:.9rem;display:block;margin-top:-4px}
-    .cta-btn{background:var(--brand);color:#fff;padding:14px 28px;border-radius:999px;font-weight:600;display:inline-block;transition:all .2s;border:none;font-size:.95rem;cursor:pointer}
-    .cta-btn:hover{background:#6a1933;transform:translateY(-1px);box-shadow:0 4px 12px rgba(123,29,59,.3)}
-    .hero{background:linear-gradient(180deg,var(--light-cream) 0%,var(--cream) 100%);padding:32px 0 24px}
-    .hero h1{font-size:2rem;line-height:1.2;margin:0 0 12px;color:var(--brand);font-weight:800}
-    .hero .lead{color:var(--text);font-size:1.15rem;margin-bottom:24px;font-weight:500}
-    .kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
-    .kpi{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-    .kpi strong{display:block;font-size:1.1rem;color:var(--brand);margin-bottom:4px}
-    .trust-bar{background:#fff;border:2px solid var(--brand);border-radius:12px;padding:16px;margin-top:16px;text-align:center}
-    .trust-bar strong{color:var(--brand);font-size:1.1rem}
-    .video-wrap{margin-top:12px}
-    section{padding:48px 0;border-top:1px solid var(--border)}
-    h2{font-size:1.8rem;margin:0 0 16px;color:var(--brand);font-weight:700}
-    h3{font-size:1.2rem;margin:0 0 8px;color:var(--text);font-weight:600}
-    .lead{color:var(--muted);font-size:1.05rem}
-    .features{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
-    .card{border:1px solid #eee;border-radius:16px;padding:24px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.04);display:flex;flex-direction:column}
-    .card h3{margin:0 0 12px}
-    .card p{margin:8px 0}
-    .card>div:last-child{margin-top:auto}
-    .offer{background:#fff;border:3px solid #e0e0e0;box-shadow:0 10px 30px rgba(0,0,0,.12);position:relative;overflow:hidden}
-    .offer::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,#7b1d3b 0%,#a13a5a 100%)}
-    .offer .price{font-size:3.5rem;font-weight:900;color:var(--brand);margin:20px 0;line-height:1;letter-spacing:-2px}
-    .offer .badge{display:block;background:linear-gradient(135deg,#7b1d3b 0%,#a13a5a 100%);color:#fff;padding:24px 32px;margin:-24px -24px 24px -24px;font-size:1.4rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;text-align:center;box-shadow:0 6px 20px rgba(123,29,59,.35)}
-    .cta-btn-secondary{background:#fff;color:var(--brand);border:2px solid var(--brand);padding:10px 20px;border-radius:999px;font-weight:600;display:inline-block;transition:all .2s;font-size:.9rem;cursor:pointer;text-decoration:none}
-    .cta-btn-secondary:hover{background:var(--cream)}
-    .testimonial{background:var(--light-cream);border-left:4px solid var(--brand);padding:20px;border-radius:8px}
-    .testimonial p{font-style:italic;margin-bottom:12px;line-height:1.7;font-size:.95rem}
-    .testimonial .author{font-weight:600;color:var(--brand);font-style:normal;font-size:.9rem}
-    .testimonial .verified{color:var(--muted);font-size:.85rem;margin-top:4px}
-    .stars{color:#fbbf24;margin-bottom:8px;font-size:1.1rem}
-    .faq-item{background:#fff;border:1px solid #eee;border-radius:12px;padding:20px;margin-bottom:12px}
-    .faq-item h4{color:var(--brand);margin-bottom:8px;font-size:1.05rem}
-    footer{background:#1b1b1b;color:#f5f5f5;padding:32px 0;margin-top:0}
-    footer a{color:#f5f5f5;text-decoration:underline}
-    .urgent-banner{background:linear-gradient(90deg,#7b1d3b 0%,#a13a5a 100%);color:#fff;text-align:center;padding:12px 20px;font-weight:500;font-size:.95rem}
-    .booking-form{background:#fff;border:2px solid var(--brand);border-radius:16px;padding:32px;max-width:700px;margin:0 auto}
-    .form-group{margin-bottom:20px}
-    .form-group label{display:block;font-weight:600;color:var(--text);margin-bottom:8px;font-size:.95rem}
-    .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:8px;font-size:1rem;font-family:inherit;transition:border-color .2s}
-    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px rgba(123,29,59,.1)}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .submit-btn{background:var(--brand);color:#fff;padding:16px 32px;border-radius:999px;font-weight:600;font-size:1.05rem;border:none;cursor:pointer;width:100%;transition:all .2s}
-    .submit-btn:hover{background:#6a1933;transform:translateY(-1px);box-shadow:0 4px 12px rgba(123,29,59,.3)}
-
-    /* slider */
-    .slider{position:relative;border-radius:12px;overflow:hidden;border:1px solid #eee;background:#000;box-shadow:0 4px 16px rgba(0,0,0,.1);margin-top:0}
-    .slides{position:relative;width:100%;height:0;padding-top:56.25%}
-    .slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1s ease,transform 8s ease;background-size:cover;background-position:center}
-    .slide.active{opacity:1;transform:scale(1.05)}
-    .slider-caption{position:absolute;left:20px;bottom:20px;background:rgba(0,0,0,.4);color:#fff;padding:10px 16px;border-radius:999px;font-size:.9rem;font-weight:500;backdrop-filter:blur(6px)}
-
-    .cta-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:32px}
-
-    @media (min-width:768px){
-      .hero{padding:64px 0 48px}
-      .hero h1{font-size:2.8rem}
-      .kpis{grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0}
-      .features{grid-template-columns:repeat(2,1fr);gap:20px}
-      .features.three-col{grid-template-columns:repeat(3,1fr);}
-      .cta-grid{grid-template-columns:repeat(2,1fr);}
-      section{padding:64px 0}
-      .offer .badge{font-size:1.6rem;padding:28px 40px}
+    :root {
+      --brand: #7b1d3b;
+      --brand-hover: #60142c;
+      --brand-2: #a13a5a;
+      --text-main: #2c2c2c;
+      --text-muted: #666;
+      --bg-body: #ffffff;
+      --bg-surface: #ffffff;
+      --bg-alt: #fdf8f9;
+      --border-radius: 16px;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-md: 0 10px 15px -3px rgba(123, 29, 59, 0.08), 0 4px 6px -2px rgba(123, 29, 59, 0.04);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
-    @media (max-width:767px){
-      .cta-btn{width:100%;text-align:center;display:block;margin:8px 0}
-      .row{flex-direction:column;gap:12px;text-align:center}
-      .form-row{grid-template-columns:1fr}
-      .slider-caption{left:12px;right:12px;text-align:center;border-radius:8px}
-      .offer .badge{font-size:1.2rem;padding:20px 24px;letter-spacing:1px}
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-main);
+      background: var(--bg-body);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { color: var(--brand); letter-spacing: -0.02em; line-height: 1.2; }
+    
+    a { text-decoration: none; color: inherit; transition: color 0.2s; }
+    img { max-width: 100%; height: auto; display: block; }
+    
+    /* Layout */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    section { padding: 60px 0; }
+    
+    /* Icons */
+    .icon-svg {
+      width: 48px;
+      height: 48px;
+      color: var(--brand);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .icon-sm {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+      color: var(--brand);
+    }
+    
+    /* Top Banner */
+    .urgent-banner {
+      background: linear-gradient(90deg, #5e132b 0%, var(--brand) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* Header */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding: 12px 0;
+      transition: all 0.3s ease;
+    }
+    .topbar .row { display: flex; align-items: center; justify-content: space-between; }
+    .logo-img { height: 45px; width: auto; }
+    .logo-text { font-size: 1.5rem; font-weight: 800; color: var(--brand); display: none; }
+    .logo-text span { font-weight: 400; font-size: 0.8rem; display: block; color: var(--brand-2); }
+
+    /* Buttons */
+    .cta-btn {
+      background: var(--brand);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(123, 29, 59, 0.3);
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+      text-align: center;
+      display: inline-block;
+    }
+    .cta-btn:hover {
+      background: var(--brand-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(123, 29, 59, 0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 40px 0 60px;
+      background: radial-gradient(circle at top center, #fffbfb 0%, #fff 100%);
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--brand) 0%, #a13a5a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Slider styling */
+    .slider-container {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      position: relative;
+    }
+    .slider {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      background: #000;
+      box-shadow: var(--shadow-lg);
+      transform: translateZ(0); /* Hardware accel */
+    }
+    .slides { position: relative; width: 100%; height: 0; padding-top: 56.25%; } /* 16:9 Aspect Ratio */
+    .slide {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      opacity: 0;
+      transition: opacity 1.2s ease, transform 8s ease;
+      background-size: cover;
+      background-position: center;
+    }
+    .slide.active { opacity: 1; transform: scale(1.05); }
+
+    /* Hours Badge */
+    .hours-badge {
+      display: inline-block;
+      background: #fff;
+      padding: 10px 24px;
+      border-radius: 50px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.05);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .hours-badge strong { color: var(--brand); }
+
+    /* KPIs */
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .kpi {
+      background: #fff;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.03);
+      transition: transform 0.2s;
+    }
+    .kpi:hover { transform: translateY(-3px); }
+    .kpi strong { display: block; font-size: 1.25rem; color: var(--brand); margin-bottom: 4px; font-weight: 700; }
+    .kpi span { font-size: 0.9rem; color: var(--text-muted); }
+
+    .trust-bar {
+      margin-top: 24px;
+      background: rgba(123, 29, 59, 0.04);
+      border: 1px dashed var(--brand);
+      border-radius: 12px;
+      padding: 16px;
+      color: var(--brand);
+    }
+
+    /* Content Cards & Offers */
+    .features { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
+    
+    .card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s;
+    }
+    .card:hover { box-shadow: var(--shadow-md); }
+    .card h3 { font-size: 1.25rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700; }
+    
+    .offer {
+      border: 1px solid rgba(123, 29, 59, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .offer .badge {
+      position: absolute;
+      top: 0; right: 0;
+      background: var(--brand);
+      color: #fff;
+      padding: 6px 16px;
+      border-bottom-left-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .offer .price {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--brand);
+      margin: 16px 0;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    /* Booking Form */
+    .booking-section { background: var(--bg-alt); }
+    .booking-container {
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .booking-steps {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .booking-steps h3 { font-size: 1.1rem; margin-bottom: 12px; display:flex; align-items:center; }
+    .booking-steps ol { padding-left: 20px; margin: 0; font-size: 0.95rem; color: var(--text-muted); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #e2e2e2;
+      border-radius: 10px;
+      background: #fdfdfd;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--brand);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(123, 29, 59, 0.1);
+    }
+    .submit-btn { width: 100%; font-size: 1.1rem; padding: 18px; }
+
+    /* Testimonials */
+    .testimonial {
+      background: #fff;
+      position: relative;
+    }
+    .stars { color: #fbbf24; margin-bottom: 12px; font-size: 1rem; }
+    .testimonial p { font-style: italic; color: #444; margin-bottom: 16px; }
+    .testimonial .author { font-weight: 700; color: var(--brand); font-style: normal; }
+    .testimonial .verified { font-size: 0.8rem; color: #888; display: flex; align-items: center; gap: 4px; }
+    
+    /* FAQ */
+    .faq-item {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: #ddd; }
+    .faq-item h4 { color: var(--text-main); font-weight: 700; margin-bottom: 8px; }
+    .faq-item p { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
+
+    /* Footer */
+    footer { background: #111; color: #888; padding: 40px 0; font-size: 0.9rem; }
+    footer a { color: #fff; text-decoration: underline; }
+
+    /* Media Queries */
+    @media (min-width: 768px) {
+      .kpis { grid-template-columns: repeat(4, 1fr); }
+      .features { grid-template-columns: repeat(2, 1fr); }
+      .features.three-col { grid-template-columns: repeat(3, 1fr); }
+      .booking-container { padding: 48px; }
+      .topbar { padding: 16px 0; }
+    }
+
+    @media (max-width: 767px) {
+      .cta-btn { width: 100%; margin-top: 10px; }
+      .row { flex-direction: column; text-align: center; gap: 10px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .hero { padding-top: 20px; }
+      h1 { font-size: 2.2rem; }
+      .offer .price { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
   
-  <div class="urgent-banner">Premium Spa Treatments in Markham | Free Parking | Insurance Accepted</div>
+  <div class="urgent-banner">Markham's Premium Spa | Free Parking | Insurance Accepted</div>
   
   <header class="topbar">
     <div class="container row">
       <div class="logo-container">
+        <!-- Logo Image -->
         <img src="https://raw.githubusercontent.com/umerqur/sherlase-spa/main/logo_sheri.png" alt="Sherlase Clinic & Spa" class="logo-img" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'" />
+        <!-- Fallback Text Logo -->
         <div class="logo-text">SHERLASE<span>Clinic & Spa</span></div>
       </div>
       <a href="tel:+19052018005" class="cta-btn" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',10)">Call (905) 201-8005</a>
@@ -142,8 +380,9 @@
   <div class="hero">
     <div class="container">
       <h1>Markham's Premier Spa for Women</h1>
-
-      <div class="video-wrap">
+      
+      <!-- SLIDER SECTION -->
+      <div class="slider-container">
         <div class="slider">
           <div class="slides">
             <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa1.png');"></div>
@@ -155,207 +394,222 @@
         </div>
       </div>
 
-      <div style="margin-top:16px;margin-bottom:4px;padding:10px 14px;border-radius:12px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.04);font-size:.95rem;color:var(--muted);text-align:center;">
-        <strong style="color:var(--brand);">Closed Sunday and Monday.</strong>
-        <span style="display:block;margin-top:4px;">Booking requests are answered during regular working hours.</span>
+      <div class="hours-badge">
+        <strong>Closed Sunday & Monday.</strong> Booking requests answered during working hours.
       </div>
       
       <div class="kpis">
         <div class="kpi"><strong>25+ Years</strong><span>Trusted in Markham</span></div>
-        <div class="kpi"><strong>RMT Certified</strong><span>Licensed Therapists</span></div>
-        <div class="kpi"><strong>Women-Focused</strong><span>Safe & Welcoming</span></div>
-        <div class="kpi"><strong>Free Parking</strong><span>Easy Access</span></div>
+        <div class="kpi"><strong>RMT Certified</strong><span>Insurance Receipts</span></div>
+        <div class="kpi"><strong>Women-Focused</strong><span>Safe Environment</span></div>
+        <div class="kpi"><strong>Free Parking</strong><span>Stress-Free</span></div>
       </div>
       
       <div class="trust-bar">
-        <strong>RMT Massage Covered by Extended Health Insurance</strong><br>
-        <span style="color:var(--muted)">Receipts issued for insurance reimbursement</span>
-      </div>
+        <strong>Direct Billing Info:</strong> RMT Massage is covered by most Extended Health Insurance plans.
       </div>
     </div>
   </div>
   
-  <section style="background:#7b1d3b;color:#fff">
-    <div class="container">
-      <h2 style="color:#fff">Experience you can trust</h2>
-      <p style="font-size:1.1rem;line-height:1.8">With over 25 years serving Markham and on-site cosmetic physician, Sherlase Clinic & Spa offers both relaxing spa treatments and advanced aesthetic services in a professional, welcoming environment. From custom facials and therapeutic massage to luxurious body treatments and RMT services, we focus on making every visit feel special.</p>
+  <!-- LEFT INDENTED AS REQUESTED -->
+  <section style="background: var(--brand); color: #fff;">
+    <div class="container" style="text-align:left; max-width:800px; margin:0 auto;">
+      <h2 style="color:#fff; margin-bottom:20px;">Experience you can trust</h2>
+      <p style="font-size:1.15rem; opacity:0.9;">With over 25 years serving Markham and an on-site cosmetic physician, Sherlase Clinic & Spa offers both relaxing spa treatments and advanced aesthetic services. From custom facials to therapeutic massage, we focus on making every visit feel special.</p>
     </div>
   </section>
   
-  <section style="background:#fffbfb">
+  <section style="background: var(--bg-alt);">
     <div class="container">
-      <h2>Special Introductory Offers</h2>
+      <h2 style="text-align:center; margin-bottom:8px;">Special Introductory Offers</h2>
+      <p style="text-align:center; color:var(--text-muted); margin-bottom:32px;">Limited time pricing for new spa clients</p>
       
       <div class="features">
+        
+        <!-- Offer 1 (RMT First) -->
         <div class="card offer">
-          <div class="badge">New Spa Clients Only</div>
-          <h3>Sherlase Signature Facial</h3>
-          <p class="price">$89</p>
-          <p>A luxurious 50-minute anti-aging facial using premium products. Address your skin concerns, relax, and be pampered with a treatment you will not want to end.</p>
-          <p style="font-size:.9rem;color:#6b6b6b;margin-top:12px">*Some conditions apply. One per person. Taxes & gratuities not included.</p>
-          <div style="margin-top:auto;padding-top:16px">
-            <a href="https://buy.stripe.com/6oU8wP9EZcU39xhdfAbEA00"
-               class="cta-btn"
-               style="display:block;text-align:center"
-               onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 10)">
-              Pay Now
-            </a>
-          </div>
+          <div class="badge">New Clients Only</div>
+          <h3>RMT Massage (60 min)</h3>
+          <div class="price">$99</div>
+          <p>Release tightness, aches, and pains. Restores the body's natural flow. Performed by female RMT therapists on specialized beds designed for maximum comfort.</p>
+          <p style="font-size:0.85rem; color:#999; margin-top:auto; padding-top:16px;">*Taxes & gratuities extra. Receipts provided.</p>
+          <a href="https://buy.stripe.com/5kQfZh7wR4nxdNx1wSbEA01" class="cta-btn" style="margin-top:20px; width:100%;" onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 10)">Secure Deal Now</a>
         </div>
         
+        <!-- Offer 2 (Facial Second) -->
         <div class="card offer">
-          <div class="badge">New Spa Clients Only</div>
-          <h3>RMT Massage (60 min)</h3>
-          <p class="price">$99</p>
-          <p>Release tightness, aches and pains to restore the body's natural flow. Female RMT therapists available. Specialized beds designed for comfort.</p>
-          <p style="font-size:.9rem;color:#6b6b6b;margin-top:12px">*New clients only. One per person. Taxes & gratuities not included.</p>
-          <div style="margin-top:auto;padding-top:16px">
-            <a href="https://buy.stripe.com/5kQfZh7wR4nxdNx1wSbEA01"
-               class="cta-btn"
-               style="display:block;text-align:center"
-               onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 10)">
-              Pay Now
-            </a>
-          </div>
+          <div class="badge">New Clients Only</div>
+          <h3>Sherlase Signature Facial</h3>
+          <div class="price">$89</div>
+          <p>A luxurious 50-minute anti-aging facial using premium products. Address your skin concerns, relax, and be pampered with a treatment you won't want to end.</p>
+          <p style="font-size:0.85rem; color:#999; margin-top:auto; padding-top:16px;">*Taxes & gratuities extra. One per person.</p>
+          <a href="https://buy.stripe.com/6oU8wP9EZcU39xhdfAbEA00" class="cta-btn" style="margin-top:20px; width:100%;" onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 10)">Secure Deal Now</a>
         </div>
+        
       </div>
     </div>
   </section>
   
-  <section id="booking-form" style="background:linear-gradient(135deg,var(--light-cream) 0%,var(--cream) 100%)">
+  <section id="booking-form" class="booking-section">
     <div class="container">
-      <h2 style="text-align:center;margin-bottom:8px">Book Your Appointment</h2>
-      <p class="lead" style="text-align:center;margin-bottom:24px">Fill out the form below and we will contact you within 24 hours to confirm your booking.</p>
+      <div class="booking-container">
+        <h2 style="text-align:center; margin-bottom:12px;">Request Your Appointment</h2>
+        <p style="text-align:center; color:var(--text-muted); margin-bottom:32px;">We will contact you within 24 hours to confirm the time.</p>
 
-      <div style="max-width:700px;margin:0 auto 24px;">
-        <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px 18px;font-size:.95rem;">
-          <h3 style="margin:0 0 8px;font-size:1.05rem;color:var(--brand);">How booking works</h3>
-          <ol style="padding-left:20px;margin:0 0 8px;">
-            <li>Request by form or phone</li>
-            <li>We confirm your time</li>
-            <li>We send a secure payment link</li>
-            <li>Your appointment is confirmed</li>
+        <div class="booking-steps">
+          <h3>
+            <!-- Modern Subtle Icon -->
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <path d="M9 16l2 2 4-4"></path>
+            </svg>
+            How booking works
+          </h3>
+          <ol>
+            <li>Submit this request form</li>
+            <li>We confirm availability via phone/email</li>
+            <li>We send a secure link for payment</li>
+            <li>Relax, you are booked!</li>
           </ol>
         </div>
-      </div>
-      
-      <form class="booking-form" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
-        <input type="hidden" name="form-name" value="booking" />
-        <p style="display:none"><label>Do not fill: <input name="bot-field" /></label></p>
         
-        <div class="form-row">
-          <div class="form-group">
-            <label for="firstName">First Name *</label>
-            <input type="text" id="firstName" name="firstName" required>
+        <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+          <input type="hidden" name="form-name" value="booking" />
+          <p style="display:none"><label>Do not fill: <input name="bot-field" /></label></p>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="lastName">Last Name *</label>
-            <input type="text" id="lastName" name="lastName" required>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(905) 555-0123">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
           </div>
-        </div>
-        
-        <div class="form-row">
+          
           <div class="form-group">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required placeholder="(905) 123-4567">
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="service">Select Service *</label>
-          <select id="service" name="service" required>
-            <option value="">Choose a service...</option>
-            <option value="Sherlase Signature Facial - $89">Sherlase Signature Facial - $89</option>
-            <option value="RMT Massage (60 min) - $99">RMT Massage (60 min) - $99</option>
-          </select>
-        </div>
-        
-        <div class="form-row">
-          <div class="form-group">
-            <label for="preferredDate">Preferred Date</label>
-            <input type="date" id="preferredDate" name="preferredDate">
-          </div>
-          <div class="form-group">
-            <label for="preferredTime">Preferred Time</label>
-            <select id="preferredTime" name="preferredTime">
-              <option value="">Select time...</option>
-              <option value="9:00 AM">9:00 AM</option>
-              <option value="10:00 AM">10:00 AM</option>
-              <option value="11:00 AM">11:00 AM</option>
-              <option value="12:00 PM">12:00 PM</option>
-              <option value="1:00 PM">1:00 PM</option>
-              <option value="2:00 PM">2:00 PM</option>
-              <option value="3:00 PM">3:00 PM</option>
-              <option value="4:00 PM">4:00 PM</option>
-              <option value="5:00 PM">5:00 PM</option>
-              <option value="6:00 PM">6:00 PM</option>
-              <option value="7:00 PM">7:00 PM</option>
+            <label for="service">Select Service *</label>
+            <select id="service" name="service" required>
+              <option value="">Choose a service...</option>
+              <option value="Sherlase Signature Facial - $89">Sherlase Signature Facial - $89</option>
+              <option value="RMT Massage (60 min) - $99">RMT Massage (60 min) - $99</option>
+              <option value="Other / Not Sure">Other / Not Sure</option>
             </select>
           </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="message">Special Requests (Optional)</label>
-          <textarea id="message" name="message" rows="3" placeholder="Any specific concerns or preferences?"></textarea>
-        </div>
-        
-        <button type="submit" class="submit-btn">Submit Booking Request</button>
-      </form>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="preferredDate">Preferred Date</label>
+              <input type="date" id="preferredDate" name="preferredDate">
+            </div>
+            <div class="form-group">
+              <label for="preferredTime">Preferred Time</label>
+              <select id="preferredTime" name="preferredTime">
+                <option value="">Any Time</option>
+                <option value="Morning (9am - 12pm)">Morning (9am - 12pm)</option>
+                <option value="Afternoon (12pm - 4pm)">Afternoon (12pm - 4pm)</option>
+                <option value="Evening (4pm - 8pm)">Evening (4pm - 8pm)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Special Requests (Optional)</label>
+            <textarea id="message" name="message" rows="3" placeholder="Any specific concerns, preferences, or questions?"></textarea>
+          </div>
+          
+          <button type="submit" class="cta-btn submit-btn">Submit Booking Request</button>
+        </form>
+      </div>
     </div>
   </section>
   
   <section>
     <div class="container">
-      <h2>Why Markham Women Choose Sherlase</h2>
+      <h2 style="text-align:center; margin-bottom:40px;">Why Markham Women Choose Sherlase</h2>
       
       <div class="features three-col">
         <div class="card">
-          <h3>No More Downtown Hassles</h3>
-          <p>Skip traffic, parking fees, and rushed appointments. Premium spa treatments here in Markham with free parking.</p>
+          <!-- Location / Map Icon -->
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <h3>No Downtown Hassle</h3>
+          <p style="color:var(--text-muted)">Skip the traffic and parking fees. Enjoy premium spa treatments right here in Markham with ample free parking.</p>
         </div>
         
         <div class="card">
+          <!-- Professional Badge Icon -->
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.78z"></path>
+            <path d="M12 16v-4"></path>
+            <path d="M12 8h.01"></path>
+          </svg>
           <h3>Certified Professionals</h3>
-          <p>Our RMT certified therapists and estheticians bring clinic-grade expertise with a spa's warmth.</p>
+          <p style="color:var(--text-muted)">Our RMT certified therapists and estheticians combine clinic-grade expertise with the warmth of a spa.</p>
         </div>
         
         <div class="card">
+          <!-- Lotus / Wellness Icon -->
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.5l2.5 5 5 2.5-5 2.5-2.5 5-2.5-5-5-2.5 5-2.5z"></path>
+            <path d="M12 17.5c4 0 7 1.5 7 4"></path>
+            <path d="M12 17.5c-4 0-7 1.5-7 4"></path>
+          </svg>
           <h3>Women-Centered Care</h3>
-          <p>A safe, welcoming space designed with women in mind. Personalized attention with every visit.</p>
+          <p style="color:var(--text-muted)">A safe, welcoming space designed with women in mind. Personalized attention with every single visit.</p>
         </div>
       </div>
     </div>
   </section>
   
-  <section style="background:#fff7f7">
+  <section style="background:var(--bg-alt)">
     <div class="container">
-      <h2>What Our Clients Say</h2>
-      <p class="lead">Real reviews from Google Business</p>
+      <h2 style="text-align:center;">What Our Clients Say</h2>
+      <p style="text-align:center; color:var(--text-muted); margin-bottom:40px;">Real reviews from Google Business</p>
       
       <div class="features three-col">
         <div class="card testimonial">
-          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="stars">★★★★★</div>
           <p>"I had a positive experience. The clinic is calming and peaceful. My facial was excellent and relaxing."</p>
-          <p class="author">– Nalini Persaud</p>
-          <p class="verified">✓ Verified Google Review</p>
+          <div>
+            <p class="author">Nalini Persaud</p>
+            <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="green"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Google Review</span>
+          </div>
         </div>
         
         <div class="card testimonial">
-          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="stars">★★★★★</div>
           <p>"I absolutely love this clinic. The staff is sweet, honest and never pushy. The clinic is beautiful and welcoming."</p>
-          <p class="author">– Freada V.</p>
-          <p class="verified">✓ Verified Google Review</p>
+          <div>
+            <p class="author">Freada V.</p>
+            <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="green"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Google Review</span>
+          </div>
         </div>
         
         <div class="card testimonial">
-          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="stars">★★★★★</div>
           <p>"Such a relaxing experience celebrating my cousin's birthday. The staff made us feel VIP. A hidden gem."</p>
-          <p class="author">– Gabby Cripouris</p>
-          <p class="verified">✓ Verified Google Review</p>
+          <div>
+            <p class="author">Gabby Cripouris</p>
+            <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="green"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Google Review</span>
+          </div>
         </div>
       </div>
     </div>
@@ -363,86 +617,72 @@
   
   <section>
     <div class="container">
-      <h2>Frequently Asked Questions</h2>
+      <h2 style="margin-bottom:32px;">Frequently Asked Questions</h2>
       
-      <div style="max-width:800px;margin:24px auto 0">
+      <div style="max-width:800px;">
         <div class="faq-item">
           <h4>Do you accept walk-ins?</h4>
-          <p>We recommend booking in advance but we do our best to accommodate walk-ins.</p>
+          <p>We recommend booking in advance to ensure availability, but we do our best to accommodate walk-ins when possible.</p>
         </div>
         
         <div class="faq-item">
           <h4>Is parking really free?</h4>
-          <p>Yes. We have ample free parking right at our location.</p>
+          <p>Yes. We have ample free parking right at our location, so you never have to worry about meters.</p>
         </div>
         
         <div class="faq-item">
           <h4>What payment methods do you accept?</h4>
-          <p>Cash, debit, Visa, Mastercard and American Express.</p>
+          <p>We accept Cash, Debit, Visa, Mastercard, and American Express.</p>
         </div>
         
         <div class="faq-item">
           <h4>What is your cancellation policy?</h4>
-          <p>We require 24 hours notice for cancellations or rescheduling.</p>
+          <p>We respectfully request 24 hours notice for cancellations or rescheduling.</p>
         </div>
         
         <div class="faq-item">
-          <h4>Do you provide direct billing?</h4>
+          <h4>Do you provide direct billing for RMT?</h4>
           <p>We provide official RMT receipts that you can submit to your insurance company for reimbursement.</p>
         </div>
-        
-        <div class="faq-item">
-          <h4>Can I book multiple services?</h4>
-          <p>Absolutely. Many clients combine services. Call us and we will arrange it.</p>
-        </div>
       </div>
     </div>
   </section>
   
-  <section style="background:linear-gradient(135deg,#7b1d3b 0%,#a13a5a 100%);color:#fff;padding:64px 0">
+  <section style="background:linear-gradient(135deg, #7b1d3b 0%, #3e0c1b 100%); color:#fff; padding:80px 0; text-align:center;">
     <div class="container">
-      <h2 style="color:#fff;font-size:2rem;text-align:center;margin-bottom:16px">Ready to Book?</h2>
-      <p style="font-size:1.15rem;text-align:center;margin-bottom:40px;color:#fff;opacity:.95">Experience the difference at Markham's premier spa</p>
+      <h2 style="color:#fff; margin-bottom:16px;">Ready to Relax?</h2>
+      <p style="font-size:1.2rem; opacity:0.9; margin-bottom:40px;">Markham's premier spa experience is just a call away.</p>
       
-      <div style="max-width:900px;margin:0 auto">
-        <div class="cta-grid">
-          <div style="background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,.2)">
-            <h3 style="color:#fff;margin-bottom:12px;font-size:1.1rem">Contact Us</h3>
-            <p style="margin:8px 0"><strong>Phone:</strong> <a href="tel:+19052018005" style="color:#fff;text-decoration:underline">(905) 201-8005</a></p>
-            <p style="margin:8px 0"><strong>Email:</strong> <a href="mailto:info@sherlaseclinic.com" style="color:#fff;text-decoration:underline">info@sherlaseclinic.com</a></p>
-            <p style="margin:8px 0"><strong>Address:</strong> 383 Main Street Markham N #7<br>Markham, ON L3P 1Z3</p>
-          </div>
-          
-          <div style="background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,.2)">
-            <h3 style="color:#fff;margin-bottom:12px;font-size:1.1rem">Hours</h3>
-            <p style="margin:8px 0"><strong>Tuesday Friday:</strong> 9:00 AM 8:00 PM</p>
-            <p style="margin:8px 0"><strong>Saturday:</strong> 9:00 AM 6:00 PM</p>
-            <p style="margin:8px 0"><strong>Sunday and Monday:</strong> Closed</p>
-          </div>
+      <div class="features" style="text-align:left; max-width:800px; margin:0 auto 40px;">
+        <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(10px); padding:24px; border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
+          <h3 style="color:#fff; font-size:1.1rem; margin-bottom:12px;">Contact Info</h3>
+          <p style="margin-bottom:8px;"><strong>Phone:</strong> <a href="tel:+19052018005" style="text-decoration:underline;">(905) 201-8005</a></p>
+          <p style="margin-bottom:8px;"><strong>Email:</strong> info@sherlaseclinic.com</p>
+          <p><strong>Address:</strong> 383 Main Street Markham N #7, Markham, ON L3P 1Z3</p>
         </div>
         
-        <div style="text-align:center;margin:32px 0">
-          <a href="tel:+19052018005" class="cta-btn" style="background:#fff;color:#7b1d3b;font-size:1.2rem;padding:18px 48px;display:inline-block" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',10)">Call (905) 201-8005</a>
+        <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(10px); padding:24px; border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
+          <h3 style="color:#fff; font-size:1.1rem; margin-bottom:12px;">Opening Hours</h3>
+          <p style="margin-bottom:8px;"><strong>Tue – Fri:</strong> 9:00 AM – 8:00 PM</p>
+          <p style="margin-bottom:8px;"><strong>Saturday:</strong> 9:00 AM – 6:00 PM</p>
+          <p><strong>Sun – Mon:</strong> Closed</p>
         </div>
-        
-        <p style="text-align:center;font-size:.9rem;opacity:.85;margin-top:32px">
-          Proudly serving Markham and surrounding areas
-        </p>
       </div>
+      
+      <a href="tel:+19052018005" class="cta-btn" style="background:#fff; color:var(--brand); font-size:1.1rem; padding:18px 48px;" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',10)">Call to Book Now</a>
     </div>
   </section>
   
-  <footer style="background:#1b1b1b;color:#999;padding:20px 0;text-align:center">
-    <div class="container">
-      <p style="font-size:.85rem">
-        &copy; <span id="year">2025</span> Sherlase Clinic & Spa. All rights reserved.
-      </p>
+  <footer>
+    <div class="container" style="text-align:center;">
+      <p>&copy; <span id="year">2025</span> Sherlase Clinic & Spa. All rights reserved.</p>
     </div>
   </footer>
   
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Slider Logic
     (function() {
       var slides = document.querySelectorAll('.slide');
       if (!slides.length) return;
@@ -457,4 +697,3 @@
   
 </body>
 </html>
-
