@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sherlase Clinic & Spa – Markham's Premier Spa for Women | RMT Massage & Facials</title>
-  <meta name="description" content="Luxury spa treatments in Markham without downtown prices. RMT massage (insurance accepted), custom facials. 25+ years serving Markham women. Book today!">
-  
-  <meta property="og:title" content="Sherlase Clinic & Spa – Premium Spa in Markham">
-  <meta property="og:description" content="High-end spa treatments without downtown prices. RMT massage and facials. 25+ years serving Markham.">
+  <title>Sherlase Clinic & Spa – Winter Spa Escape February Special | Markham Spa for Women</title>
+  <meta name="description" content="February Special: Winter Spa Escape. 90 minute luxury treatment with facial, massage, and warming hand treatment. Markham premium spa for women. Book today.">
+
+  <meta property="og:title" content="Sherlase Clinic & Spa – Winter Spa Escape February Special">
+  <meta property="og:description" content="90 minute luxury treatment with facial, massage, and warming hand treatment. Limited February availability.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sherlase-spa.netlify.app/">
   <meta property="og:image" content="https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa2.png">
-  
+
   <!-- Google tag (gtag.js) for Google Ads only -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17719269754"></script>
   <script>
@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
   <style>
     :root {
       --brand: #7b1d3b;
@@ -48,7 +48,7 @@
       --text-muted: #666;
       --bg-body: #ffffff;
       --bg-surface: #ffffff;
-      --bg-alt: #fdf8f9;
+      --bg-alt: #fff6f2; /* warmer seasonal background */
       --border-radius: 16px;
       --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
       --shadow-md: 0 10px 15px -3px rgba(123, 29, 59, 0.08), 0 4px 6px -2px rgba(123, 29, 59, 0.04);
@@ -56,7 +56,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       color: var(--text-main);
@@ -67,10 +67,10 @@
     }
 
     h1, h2, h3, h4 { color: var(--brand); letter-spacing: -0.02em; line-height: 1.2; }
-    
+
     a { text-decoration: none; color: inherit; transition: color 0.2s; }
     img { max-width: 100%; height: auto; display: block; }
-    
+
     /* Layout */
     .container {
       width: 100%;
@@ -78,9 +78,9 @@
       margin: 0 auto;
       padding: 0 24px;
     }
-    
+
     section { padding: 60px 0; }
-    
+
     /* Icons */
     .icon-svg {
       width: 42px;
@@ -99,7 +99,7 @@
       position: relative;
       top: -2px;
     }
-    
+
     /* Top Banner */
     .urgent-banner {
       background: linear-gradient(90deg, #5e132b 0%, var(--brand) 100%);
@@ -148,22 +148,53 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(123, 29, 59, 0.4);
     }
+    .cta-secondary {
+      background: #ffffff;
+      color: var(--brand);
+      border: 1px solid rgba(123, 29, 59, 0.18);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+    }
+    .cta-secondary:hover {
+      background: #fff7f9;
+      color: var(--brand-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.08);
+    }
 
     /* Hero Section */
     .hero {
       padding: 40px 0 60px;
-      background: radial-gradient(circle at top center, #fffbfb 0%, #fff 100%);
+      background: radial-gradient(circle at top center, #fff8f7 0%, #fff 100%);
       text-align: center;
-      overflow-x: hidden; /* Prevent horizontal scroll on mobile due to full-width slider */
+      overflow-x: hidden; /* Prevent horizontal scroll on mobile due to full width slider */
     }
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 800;
-      margin-bottom: 32px;
+      margin-bottom: 10px;
       padding: 0 10px;
       background: linear-gradient(135deg, var(--brand) 0%, #a13a5a 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+    .hero .hero-subhead {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--brand);
+      margin-bottom: 10px;
+      opacity: 0.95;
+    }
+    .hero .hero-support {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 22px;
+    }
+    .hero .hero-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
     }
 
     /* Slider styling */
@@ -195,7 +226,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
-      margin-top: 40px;
+      margin-top: 34px;
     }
     .kpi {
       background: #fff;
@@ -220,7 +251,7 @@
 
     /* Content Cards & Offers */
     .features { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
-    
+
     .card {
       background: #fff;
       border-radius: var(--border-radius);
@@ -233,7 +264,7 @@
     }
     .card:hover { box-shadow: var(--shadow-md); }
     .card h3 { font-size: 1.25rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700; }
-    
+
     .offer {
       border: 1px solid rgba(123, 29, 59, 0.1);
       position: relative;
@@ -259,6 +290,19 @@
       line-height: 1;
       letter-spacing: -1px;
     }
+    .offer ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+    .offer li { margin: 8px 0; }
+    .offer .fineprint {
+      font-size: 0.85rem;
+      color: #999;
+      margin-top: auto;
+      padding-top: 16px;
+    }
 
     /* Booking Form */
     .booking-section { background: var(--bg-alt); }
@@ -270,7 +314,7 @@
       max-width: 800px;
       margin: 0 auto;
     }
-    
+
     /* Alert inside booking form */
     .booking-alert {
       background: #fff0f3;
@@ -330,7 +374,7 @@
     .testimonial p { font-style: italic; color: #444; margin-bottom: 16px; }
     .testimonial .author { font-weight: 700; color: var(--brand); font-style: normal; }
     .testimonial .verified { font-size: 0.8rem; color: #888; display: flex; align-items: center; gap: 4px; }
-    
+
     /* FAQ */
     .faq-item {
       background: #fff;
@@ -380,13 +424,14 @@
       .hero { padding-top: 20px; }
       h1 { font-size: 2.2rem; }
       .offer .price { font-size: 2.5rem; }
+      .hero .hero-ctas { gap: 10px; }
     }
   </style>
 </head>
 <body>
-  
-  <div class="urgent-banner">Markham's Premium Spa | Free Parking | Insurance Accepted</div>
-  
+
+  <div class="urgent-banner">Markham Premium Spa | Free Parking | February Special</div>
+
   <header class="topbar">
     <div class="container row">
       <div class="logo-container">
@@ -398,11 +443,21 @@
       <a href="tel:+19052018005" class="cta-btn" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',10)">Call (905) 201-8005</a>
     </div>
   </header>
-  
+
   <div class="hero">
     <div class="container">
-      <h1>Markham's Premier Spa for Women</h1>
-      
+      <h1>Winter Spa Escape</h1>
+      <div class="hero-subhead">Markham's Premier Spa for Women</div>
+      <div class="hero-support">
+        90 Minute Luxury Treatment<br/>
+        Facial · Massage · Warming Hand Treatment
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#booking-form" class="cta-btn">Request Your Appointment</a>
+        <a href="https://buy.stripe.com/9B64gz18t4nx6l56RcbEA04" class="cta-btn cta-secondary" onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 10)">Secure Deal Now</a>
+      </div>
+
       <!-- SLIDER SECTION -->
       <div class="slider-container">
         <div class="slider">
@@ -415,58 +470,66 @@
           </div>
         </div>
       </div>
-      
+
       <div class="kpis">
-        <div class="kpi"><strong>25+ Years</strong><span>Trusted in Markham</span></div>
-        <div class="kpi"><strong>RMT Certified</strong><span>Insurance Receipts</span></div>
-        <div class="kpi"><strong>Women-Focused</strong><span>Safe Environment</span></div>
-        <div class="kpi"><strong>Free Parking</strong><span>Stress-Free</span></div>
+        <div class="kpi"><strong>90 Minutes</strong><span>Full body reset</span></div>
+        <div class="kpi"><strong>Premium Care</strong><span>Luxury treatment</span></div>
+        <div class="kpi"><strong>Women Focused</strong><span>Safe environment</span></div>
+        <div class="kpi"><strong>Free Parking</strong><span>Stress free visit</span></div>
       </div>
-      
+
       <div class="trust-bar">
-        <strong>Insurance Receipts Provided:</strong> RMT massage receipts available for extended health insurance claims.
+        <strong>February Special:</strong> Limited winter availability. Secure your spot before the offer ends.
       </div>
     </div>
   </div>
-  
+
   <section style="background: var(--brand); color: #fff;">
     <div class="container" style="text-align:left; max-width:800px; margin:0 auto;">
       <h2 style="color:#fff; margin-bottom:20px;">Experience you can trust</h2>
-      <p style="font-size:1.15rem; opacity:0.9;">With over 25 years serving Markham and an on-site cosmetic physician, Sherlase Clinic & Spa offers both relaxing spa treatments and advanced aesthetic services. From custom facials to therapeutic massage, we focus on making every visit feel special.</p>
+      <p style="font-size:1.15rem; opacity:0.9;">
+        With over 25 years serving Markham and an on site cosmetic physician, Sherlase Clinic & Spa offers relaxing spa treatments and advanced aesthetic services. We focus on making every visit feel special.
+      </p>
     </div>
   </section>
-  
+
   <section style="background: var(--bg-alt);">
     <div class="container">
-      <h2 style="text-align:center; margin-bottom:8px;">Special Introductory Offers</h2>
-      <p style="text-align:center; color:var(--text-muted); margin-bottom:32px;">Limited time pricing for new spa clients</p>
-      
+      <h2 style="text-align:center; margin-bottom:8px;">February Special</h2>
+      <p style="text-align:center; color:var(--text-muted); margin-bottom:32px;">Winter Spa Escape package</p>
+
       <div class="features">
-        
-        <!-- Offer 1 (RMT First) -->
-        <div class="card offer">
-          <div class="badge">New Clients Only</div>
-          <h3>RMT Massage (60 min)</h3>
-          <div class="price">$99</div>
-          <p>Release tightness, aches, and pains. Restores the body's natural flow. Performed by female RMT therapists on specialized beds designed for maximum comfort.</p>
-          <p style="font-size:0.85rem; color:#999; margin-top:auto; padding-top:16px;">*Taxes & gratuities extra. Receipts provided.</p>
-          <a href="https://buy.stripe.com/5kQfZh7wR4nxdNx1wSbEA01" class="cta-btn" style="margin-top:20px; width:100%;" onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 10)">Secure Deal Now</a>
+        <div class="card offer" style="max-width:720px; margin:0 auto;">
+          <div class="badge">February Special</div>
+          <h3>Winter Spa Escape (90 min)</h3>
+          <div class="price">$155</div>
+          <p style="color:var(--text-muted); margin-top:-6px;">+ tax & gratuity</p>
+
+          <ul>
+            <li>Organic Facial</li>
+            <li>Relaxing Massage</li>
+            <li>Warming Hand Treatment</li>
+          </ul>
+
+          <p class="fineprint">One per person. Limited availability.</p>
+
+          <a href="https://buy.stripe.com/9B64gz18t4nx6l56RcbEA04"
+             class="cta-btn"
+             style="margin-top:20px; width:100%;"
+             onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 10)">
+            Secure Deal Now
+          </a>
+
+          <a href="#booking-form"
+             class="cta-btn cta-secondary"
+             style="margin-top:12px; width:100%;">
+            Request Your Appointment
+          </a>
         </div>
-        
-        <!-- Offer 2 (Facial Second) -->
-        <div class="card offer">
-          <div class="badge">New Clients Only</div>
-          <h3>Sherlase Signature Facial</h3>
-          <div class="price">$89</div>
-          <p>A luxurious 50-minute anti-aging facial using premium products. Address your skin concerns, relax, and be pampered with a treatment you won't want to end.</p>
-          <p style="font-size:0.85rem; color:#999; margin-top:auto; padding-top:16px;">*Taxes & gratuities extra. One per person.</p>
-          <a href="https://buy.stripe.com/6oU8wP9EZcU39xhdfAbEA00" class="cta-btn" style="margin-top:20px; width:100%;" onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 10)">Secure Deal Now</a>
-        </div>
-        
       </div>
     </div>
   </section>
-  
+
   <section id="booking-form" class="booking-section">
     <div class="container">
       <div class="booking-container">
@@ -487,7 +550,6 @@
 
         <div class="booking-steps">
           <h3>
-            <!-- Modern Clipboard Icon -->
             <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
               <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
@@ -497,16 +559,16 @@
           </h3>
           <ol>
             <li>Submit this request form</li>
-            <li>We confirm availability via phone/email</li>
+            <li>We confirm availability via phone email</li>
             <li>We send a secure link for payment</li>
-            <li>Relax, you are booked!</li>
+            <li>Relax, you are booked</li>
           </ol>
         </div>
-        
+
         <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
           <input type="hidden" name="form-name" value="booking" />
           <p style="display:none"><label>Do not fill: <input name="bot-field" /></label></p>
-          
+
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name *</label>
@@ -517,7 +579,7 @@
               <input type="text" id="lastName" name="lastName" required>
             </div>
           </div>
-          
+
           <div class="form-row">
             <div class="form-group">
               <label for="phone">Phone Number *</label>
@@ -528,17 +590,18 @@
               <input type="email" id="email" name="email" required>
             </div>
           </div>
-          
+
           <div class="form-group">
             <label for="service">Select Service *</label>
             <select id="service" name="service" required>
               <option value="">Choose a service...</option>
-              <option value="Sherlase Signature Facial - $89">Sherlase Signature Facial - $89</option>
-              <option value="RMT Massage (60 min) - $99">RMT Massage (60 min) - $99</option>
+              <option value="Winter Spa Escape (90 min) - $155">Winter Spa Escape (90 min) - $155</option>
+              <option value="Facial">Facial</option>
+              <option value="Massage">Massage</option>
               <option value="Other / Not Sure">Other / Not Sure</option>
             </select>
           </div>
-          
+
           <div class="form-row">
             <div class="form-group">
               <label for="preferredDate">Preferred Date</label>
@@ -554,25 +617,24 @@
               </select>
             </div>
           </div>
-          
+
           <div class="form-group">
             <label for="message">Special Requests (Optional)</label>
             <textarea id="message" name="message" rows="3" placeholder="Any specific concerns, preferences, or questions?"></textarea>
           </div>
-          
+
           <button type="submit" class="cta-btn submit-btn">Submit Booking Request</button>
         </form>
       </div>
     </div>
   </section>
-  
+
   <section>
     <div class="container">
       <h2 style="text-align:center; margin-bottom:40px;">Why Markham Women Choose Sherlase</h2>
-      
+
       <div class="features three-col">
         <div class="card">
-          <!-- CAR / PARKING Icon -->
           <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
             <circle cx="7" cy="17" r="2"></circle>
@@ -582,34 +644,32 @@
           <h3>No Downtown Hassle</h3>
           <p style="color:var(--text-muted)">Skip the traffic and parking fees. Enjoy premium spa treatments right here in Markham with ample free parking.</p>
         </div>
-        
+
         <div class="card">
-          <!-- DIPLOMA / CERTIFICATE Icon -->
           <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
             <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
           </svg>
           <h3>Certified Professionals</h3>
-          <p style="color:var(--text-muted)">Our RMT certified therapists and estheticians combine clinic-grade expertise with the warmth of a spa.</p>
+          <p style="color:var(--text-muted)">Our therapists and estheticians combine clinic grade expertise with the warmth of a spa.</p>
         </div>
-        
+
         <div class="card">
-          <!-- HEART / CARE Icon -->
           <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
-          <h3>Women-Centered Care</h3>
-          <p style="color:var(--text-muted)">A safe, welcoming space designed with women in mind. Personalized attention with every single visit.</p>
+          <h3>Women Centered Care</h3>
+          <p style="color:var(--text-muted)">A safe, welcoming space designed with women in mind. Personalized attention with every visit.</p>
         </div>
       </div>
     </div>
   </section>
-  
+
   <section style="background:var(--bg-alt)">
     <div class="container">
       <h2 style="text-align:center;">What Our Clients Say</h2>
       <p style="text-align:center; color:var(--text-muted); margin-bottom:40px;">Real reviews from Google Business</p>
-      
+
       <div class="features three-col">
         <div class="card testimonial">
           <div class="stars">★★★★★</div>
@@ -619,7 +679,7 @@
             <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="green"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Google Review</span>
           </div>
         </div>
-        
+
         <div class="card testimonial">
           <div class="stars">★★★★★</div>
           <p>"I absolutely love this clinic. The staff is sweet, honest and never pushy. The clinic is beautiful and welcoming."</p>
@@ -628,7 +688,7 @@
             <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="green"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Google Review</span>
           </div>
         </div>
-        
+
         <div class="card testimonial">
           <div class="stars">★★★★★</div>
           <p>"Such a relaxing experience celebrating my cousin's birthday. The staff made us feel VIP. A hidden gem."</p>
@@ -640,45 +700,40 @@
       </div>
     </div>
   </section>
-  
+
   <section>
     <div class="container">
       <h2 style="margin-bottom:32px;">Frequently Asked Questions</h2>
-      
+
       <div style="max-width:800px;">
         <div class="faq-item">
-          <h4>Do you accept walk-ins?</h4>
-          <p>We recommend booking in advance to ensure availability, but we do our best to accommodate walk-ins when possible.</p>
+          <h4>Do you accept walk ins?</h4>
+          <p>We recommend booking in advance to ensure availability, but we do our best to accommodate walk ins when possible.</p>
         </div>
-        
+
         <div class="faq-item">
           <h4>Is parking really free?</h4>
           <p>Yes. We have ample free parking right at our location, so you never have to worry about meters.</p>
         </div>
-        
+
         <div class="faq-item">
           <h4>What payment methods do you accept?</h4>
           <p>We accept Cash, Debit, Visa, Mastercard, and American Express.</p>
         </div>
-        
+
         <div class="faq-item">
           <h4>What is your cancellation policy?</h4>
           <p>We respectfully request 24 hours notice for cancellations or rescheduling.</p>
         </div>
-        
-        <div class="faq-item">
-          <h4>Do you provide direct billing for RMT?</h4>
-          <p>We provide official RMT receipts that you can submit to your insurance company for reimbursement.</p>
-        </div>
       </div>
     </div>
   </section>
-  
+
   <section style="background:linear-gradient(135deg, #7b1d3b 0%, #3e0c1b 100%); color:#fff; padding:80px 0; text-align:center;">
     <div class="container">
       <h2 style="color:#fff; margin-bottom:16px;">Ready to Relax?</h2>
-      <p style="font-size:1.2rem; opacity:0.9; margin-bottom:40px;">Markham's premier spa experience is just a call away.</p>
-      
+      <p style="font-size:1.2rem; opacity:0.9; margin-bottom:40px;">Your winter escape is just a call away.</p>
+
       <div class="features" style="text-align:left; max-width:800px; margin:0 auto 40px;">
         <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(10px); padding:24px; border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
           <h3 style="color:#fff; font-size:1.1rem; margin-bottom:12px;">Contact Info</h3>
@@ -686,7 +741,7 @@
           <p style="margin-bottom:8px;"><strong>Email:</strong> info@sherlaseclinic.com</p>
           <p><strong>Address:</strong> 383 Main Street Markham N #7, Markham, ON L3P 1Z3</p>
         </div>
-        
+
         <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(10px); padding:24px; border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
           <h3 style="color:#fff; font-size:1.1rem; margin-bottom:12px;">Opening Hours</h3>
           <p style="margin-bottom:8px;"><strong>Tue – Fri:</strong> 9:00 AM – 8:00 PM</p>
@@ -694,17 +749,22 @@
           <p><strong>Sun – Mon:</strong> Closed</p>
         </div>
       </div>
-      
-      <a href="tel:+19052018005" class="cta-btn" style="background:#fff; color:var(--brand); font-size:1.1rem; padding:18px 48px;" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',10)">Call to Book Now</a>
+
+      <a href="tel:+19052018005"
+         class="cta-btn"
+         style="background:#fff; color:var(--brand); font-size:1.1rem; padding:18px 48px;"
+         onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',10)">
+        Call to Book Now
+      </a>
     </div>
   </section>
-  
+
   <footer>
     <div class="container" style="text-align:center;">
       <p>&copy; <span id="year">2025</span> Sherlase Clinic & Spa. All rights reserved.</p>
     </div>
   </footer>
-  
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -720,7 +780,6 @@
       }, 4000);
     })();
   </script>
-  
+
 </body>
 </html>
-
