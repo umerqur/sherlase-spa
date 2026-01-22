@@ -27,7 +27,7 @@
       var cb = function() { if (url) window.location = url; };
       gtag('event', 'conversion', {
         'send_to': sendTo,
-        'value': value || 10.0,
+        'value': value || 155.0,
         'currency': 'CAD',
         'event_callback': cb
       });
@@ -341,30 +341,6 @@
       height: 20px;
     }
 
-    /* Slider styling */
-    .slider-container {
-      max-width: 900px;
-      margin: 0 auto 30px;
-      position: relative;
-    }
-    .slider {
-      position: relative;
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      background: #000;
-      box-shadow: var(--shadow-lg);
-      transform: translateZ(0);
-    }
-    .slides { position: relative; width: 100%; height: 0; padding-top: 56.25%; }
-    .slide {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      opacity: 0;
-      transition: opacity 1.2s ease, transform 8s ease;
-      background-size: cover;
-      background-position: center;
-    }
-    .slide.active { opacity: 1; transform: scale(1.05); }
-
     /* KPIs */
     .kpis {
       display: grid;
@@ -393,7 +369,7 @@
       color: var(--brand);
     }
 
-    /* Content Cards & Offers */
+    /* Content Cards */
     .features { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
     
     .card {
@@ -408,32 +384,6 @@
     }
     .card:hover { box-shadow: var(--shadow-md); }
     .card h3 { font-size: 1.25rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700; }
-    
-    .offer {
-      border: 1px solid rgba(123, 29, 59, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
-    .offer .badge {
-      position: absolute;
-      top: 0; right: 0;
-      background: var(--brand);
-      color: #fff;
-      padding: 6px 16px;
-      border-bottom-left-radius: 12px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .offer .price {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--brand);
-      margin: 16px 0;
-      line-height: 1;
-      letter-spacing: -1px;
-    }
 
     /* Booking Form */
     .booking-section { background: var(--bg-alt); }
@@ -533,27 +483,11 @@
     }
 
     @media (max-width: 767px) {
-      .slider-container {
-        width: 100vw;
-        max-width: none;
-        margin-left: -24px;
-        margin-right: -24px;
-        border-radius: 0;
-      }
-      .slider {
-        border-radius: 0;
-        box-shadow: none;
-        border: none;
-        border-top: 1px solid #eee;
-        border-bottom: 1px solid #eee;
-      }
-
       .cta-btn { width: 100%; margin-top: 10px; }
       .row { flex-direction: column; text-align: center; gap: 10px; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
       .hero { padding-top: 20px; }
       h1 { font-size: 2.2rem; }
-      .offer .price { font-size: 2.5rem; }
       .featured-package { padding: 32px 24px; }
       .package-includes { grid-template-columns: 1fr; }
       .price-row { flex-direction: column; }
@@ -570,7 +504,7 @@
         <img src="https://raw.githubusercontent.com/umerqur/sherlase-spa/main/logo_sheri.png" alt="Sherlase Clinic & Spa" class="logo-img" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'" />
         <div class="logo-text">SHERLASE<span>Clinic & Spa</span></div>
       </div>
-      <a href="tel:+19052018005" class="cta-btn" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',10)">Call (905) 201-8005</a>
+      <a href="tel:+19052018005" class="cta-btn" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',155)">Call (905) 201-8005</a>
     </div>
   </header>
   
@@ -661,35 +595,6 @@
     </div>
   </section>
   
-  <section style="background: var(--bg-alt);">
-    <div class="container">
-      <h2 style="text-align:center; margin-bottom:8px;">Also Available: Individual Services</h2>
-      <p style="text-align:center; color:var(--text-muted); margin-bottom:32px;">New client introductory pricing</p>
-      
-      <div class="features">
-        
-        <div class="card offer">
-          <div class="badge">New Clients Only</div>
-          <h3>RMT Massage (60 min)</h3>
-          <div class="price">$99</div>
-          <p>Release tightness, aches, and pains. Restores the body's natural flow. Performed by female RMT therapists on specialized beds designed for maximum comfort.</p>
-          <p style="font-size:0.85rem; color:#999; margin-top:auto; padding-top:16px;">*Taxes & gratuities extra. Receipts provided.</p>
-          <a href="https://buy.stripe.com/5kQfZh7wR4nxdNx1wSbEA01" class="cta-btn" style="margin-top:20px; width:100%;" onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 99)">Book RMT Massage</a>
-        </div>
-        
-        <div class="card offer">
-          <div class="badge">New Clients Only</div>
-          <h3>Sherlase Signature Facial</h3>
-          <div class="price">$89</div>
-          <p>A luxurious 50-minute anti-aging facial using premium products. Address your skin concerns, relax, and be pampered with a treatment you won't want to end.</p>
-          <p style="font-size:0.85rem; color:#999; margin-top:auto; padding-top:16px;">*Taxes & gratuities extra. One per person.</p>
-          <a href="https://buy.stripe.com/6oU8wP9EZcU39xhdfAbEA00" class="cta-btn" style="margin-top:20px; width:100%;" onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 89)">Book Signature Facial</a>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-  
   <section id="booking-form" class="booking-section">
     <div class="container">
       <div class="booking-container">
@@ -748,17 +653,6 @@
               <label for="email">Email Address *</label>
               <input type="email" id="email" name="email" required>
             </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="service">Select Service *</label>
-            <select id="service" name="service" required>
-              <option value="">Choose a service...</option>
-              <option value="Winter Spa Escape - 90 Min Luxury Treatment - $155">❄️ Winter Spa Escape - 90 Min Luxury Treatment - $155</option>
-              <option value="Sherlase Signature Facial - $89">Sherlase Signature Facial - $89</option>
-              <option value="RMT Massage (60 min) - $99">RMT Massage (60 min) - $99</option>
-              <option value="Other / Not Sure">Other / Not Sure</option>
-            </select>
           </div>
           
           <div class="form-row">
@@ -921,7 +815,7 @@
       
       <a href="https://buy.stripe.com/9B64gz18t4nx6l56RcbEA04" class="cta-btn" style="background:#fff; color:var(--brand); font-size:1.2rem; padding:20px 48px; margin-bottom:16px;" onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 155)">Book Winter Spa Escape - $155</a>
       
-      <p style="font-size:0.9rem; opacity:0.8; margin-top:12px;">Or call <a href="tel:+19052018005" style="text-decoration:underline;" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',10)">(905) 201-8005</a> to book</p>
+      <p style="font-size:0.9rem; opacity:0.8; margin-top:12px;">Or call <a href="tel:+19052018005" style="text-decoration:underline;" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',155)">(905) 201-8005</a> to book</p>
     </div>
   </section>
   
