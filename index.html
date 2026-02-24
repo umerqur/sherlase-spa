@@ -13,13 +13,11 @@
   <meta property="og:url" content="https://sherlase-spa.netlify.app/">
   <meta property="og:image" content="https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa2.png">
 
-  <!-- Google tag (gtag.js) for Google Ads only -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17719269754"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'AW-17719269754');
 
     function sendConversion(sendTo, url, value) {
@@ -237,12 +235,6 @@
       font-weight: 800;
     }
 
-    .package-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      margin-bottom: 26px;
-    }
-
     .package-includes {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -329,6 +321,32 @@
 
     .value-line span {
       font-weight: 800;
+    }
+
+    .clinic-highlight {
+      margin-top: 22px;
+      background: rgba(123, 29, 59, 0.04);
+      border: 1px solid rgba(123, 29, 59, 0.22);
+      border-radius: 18px;
+      padding: 26px 22px;
+      text-align: left;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .clinic-highlight h2 {
+      color: var(--brand);
+      margin-bottom: 14px;
+      font-size: 1.35rem;
+    }
+
+    .clinic-highlight p {
+      color: var(--text-main);
+      opacity: 0.92;
+      font-size: 1.02rem;
+    }
+
+    .clinic-highlight p + p {
+      margin-top: 12px;
     }
 
     .kpis {
@@ -569,15 +587,18 @@
           Book The Sherlase Spa Experience – $145
         </a>
 
-        <section style="background: var(--brand); color: #fff; margin-top: 22px; border-radius: 18px; padding: 26px 22px; text-align:left;">
-          <h2 style="color:#fff; margin-bottom:14px; font-size:1.35rem;">Experience advanced, results driven skincare at Sherlase Clinic</h2>
-          <p style="font-size:1.02rem; opacity:0.92;">
+        <section class="clinic-highlight">
+          <h2>Experience advanced, results driven skincare at Sherlase Clinic</h2>
+
+          <p>
             Markham’s best kept luxury destination at Markham Rd and 16th Avenue. Our professional anti aging facial featuring Nelly De Vuyst uses clinically formulated, plant based active ingredients and vitamins to deliver deep hydration, collagen support, improved skin elasticity, and visible reduction of fine lines and dullness. Suitable for all skin types, including sensitive skin.
           </p>
-          <p style="font-size:1.02rem; opacity:0.92; margin-top:12px;">
+
+          <p>
             For a limited time, receive a complimentary Radiant Eye Treatment (a $45 value), exclusive to Sherlase, designed to target puffiness, dark circles, and loss of firmness.
           </p>
-          <p style="font-size:1.02rem; opacity:0.92; margin-top:12px;">
+
+          <p>
             Book your appointment today for personalized skincare, visible anti aging results, and a premium spa experience in Markham. Sherlase Clinic, luxury medical aesthetics, radiant skin, lasting confidence.
           </p>
         </section>
