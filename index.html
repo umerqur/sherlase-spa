@@ -1,17 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>The Sherlase Spa Experience – Just $145.00 | Sherlase Clinic & Spa Markham</title>
-  <meta name="description" content="The Sherlase Spa Experience for $145. Includes a complimentary Radiant Eye Treatment ($45 value). Premium skincare and a luxury spa experience in Markham. Book today.">
+  <title>Busy Beauty Menu | Sherlase Clinic and Spa Markham</title>
+  <meta name="description" content="Sheri's Busy Beauty Menu at Sherlase Clinic and Spa in Markham. Express luxury spa experiences designed for busy schedules, with secure online booking.">
+  <link rel="canonical" href="https://sherlase-spa.netlify.app/">
+  <meta name="theme-color" content="#7B1D3B">
 
-  <meta property="og:title" content="The Sherlase Spa Experience – Just $145.00 | Sherlase Spa">
-  <meta property="og:description" content="Advanced, results driven skincare in Markham. $145 includes a complimentary Radiant Eye Treatment ($45 value). Book today.">
+  <meta property="og:title" content="Busy Beauty Menu | Sherlase Spa">
+  <meta property="og:description" content="Express luxury spa experiences designed for busy schedules at Sherlase Clinic and Spa in Markham.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sherlase-spa.netlify.app/">
-  <meta property="og:image" content="https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa2.png">
+  <meta property="og:image" content="https://sherlase-spa.netlify.app/og-summer.jpg">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17719269754"></script>
   <script>
@@ -20,855 +22,1204 @@
     gtag('js', new Date());
     gtag('config', 'AW-17719269754');
 
-    function sendConversion(sendTo, url, value) {
-      var cb = function() { if (url) window.location = url; };
-      gtag('event', 'conversion', {
-        'send_to': sendTo,
-        'value': value || 145.0,
-        'currency': 'CAD',
-        'event_callback': cb
+    // Phone call conversion only. The "Purchase on Stripe" conversion is NOT
+    // fired on Stripe button clicks — Google Ads tracks it as a page visit
+    // conversion on /thank-you.html?paid=true after a completed payment.
+    function sendPhoneConversion(url) {
+      var done = false;
+      var callback = function () {
+        if (done) return;
+        done = true;
+        if (url) window.location = url;
+      };
+
+      if (typeof gtag !== "function") {
+        if (url) window.location = url;
+        return false;
+      }
+
+      gtag("event", "conversion", {
+        send_to: "AW-17719269754/x8k7CLLBx74bEPqymoFC",
+        event_callback: callback
       });
+
+      setTimeout(callback, 900);
       return false;
     }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DaySpa",
+    "name": "Sherlase Clinic & Spa",
+    "image": "https://sherlase-spa.netlify.app/og-summer.jpg",
+    "telephone": "+1-905-201-8005",
+    "email": "info@sherlaseclinic.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "383 Main Street Markham N #7",
+      "addressLocality": "Markham",
+      "addressRegion": "ON",
+      "postalCode": "L3P 1Z3",
+      "addressCountry": "CA"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "18:00" }
+    ]
+  }
+  </script>
 
   <style>
     :root {
-      --brand: #7b1d3b;
-      --brand-hover: #60142c;
-      --brand-2: #a13a5a;
-      --accent: #c17a93;
-      --text-main: #2c2c2c;
-      --text-muted: #666;
-      --bg-body: #ffffff;
-      --bg-surface: #ffffff;
-      --bg-alt: #fdf8f9;
-      --border-radius: 16px;
-      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-      --shadow-md: 0 10px 15px -3px rgba(123, 29, 59, 0.08), 0 4px 6px -2px rgba(123, 29, 59, 0.04);
-      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --rose: #7B1D3B;
+      --roseDark: #4A1023;
+      --roseSoft: #FDF1F5;
+      --cream: #FFF7F2;
+      --blush: #D9A3B4;
+      --gold: #B88A44;
+      --text: #201A1D;
+      --muted: #6F5F66;
+      --border: #E9D8DE;
+      --white: #FFFFFF;
+      --shadow: 0 24px 70px rgba(74, 16, 35, 0.14);
+      --radius: 28px;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+      --sans: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      color: var(--text-main);
-      background: var(--bg-body);
-      line-height: 1.6;
-      font-size: 16px;
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, h3, h4 { color: var(--brand); letter-spacing: -0.02em; line-height: 1.2; }
-    a { text-decoration: none; color: inherit; transition: color 0.2s; }
-    img { max-width: 100%; height: auto; display: block; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    a { color: inherit; }
 
     .container {
-      width: 100%;
-      max-width: 1100px;
+      width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 0 24px;
     }
 
-    section { padding: 60px 0; }
+    .section { padding: clamp(56px, 8vw, 96px) 0; }
 
-    .icon-svg {
-      width: 42px;
-      height: 42px;
-      color: var(--brand);
-      margin-bottom: 16px;
-      display: block;
-    }
-    .icon-sm {
-      width: 22px;
-      height: 22px;
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 8px;
-      color: var(--brand);
-      position: relative;
-      top: -2px;
-    }
-
-    .urgent-banner {
-      background: linear-gradient(90deg, #5e132b 0%, var(--brand) 100%);
-      color: #fff;
-      text-align: center;
-      padding: 12px 20px;
+    h1, h2 {
+      font-family: var(--serif);
       font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
+      color: var(--roseDark);
     }
 
-    .topbar {
+    /* ---------- Header ---------- */
+    .siteHeader {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      padding: 12px 0;
-      transition: all 0.3s ease;
+      z-index: 20;
+      background: rgba(255, 247, 242, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(233, 216, 222, 0.8);
     }
-    .topbar .row { display: flex; align-items: center; justify-content: space-between; }
-    .logo-img { height: 45px; width: auto; }
-    .logo-text { font-size: 1.5rem; font-weight: 800; color: var(--brand); display: none; }
-    .logo-text span { font-weight: 400; font-size: 0.8rem; display: block; color: var(--brand-2); }
 
-    .cta-btn {
-      background: var(--brand);
-      color: #fff;
-      padding: 14px 32px;
-      border-radius: 50px;
+    .headerInner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo { width: 168px; height: auto; }
+
+    .headerActions { display: flex; align-items: center; gap: 12px; }
+
+    /* ---------- Buttons ---------- */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 26px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .buttonPrimary {
+      background: linear-gradient(135deg, #93264A 0%, var(--rose) 55%, var(--roseDark) 100%);
+      color: var(--white);
+      box-shadow: 0 14px 30px rgba(123, 29, 59, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    }
+
+    .buttonPrimary:hover {
+      background: linear-gradient(135deg, var(--rose) 0%, var(--roseDark) 100%);
+      box-shadow: 0 18px 36px rgba(123, 29, 59, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    }
+
+    .buttonSecondary {
+      color: var(--rose);
+      background: rgba(255, 255, 255, 0.72);
+      border-color: var(--border);
+    }
+
+    .buttonSecondary:hover { border-color: var(--blush); }
+
+    .buttonLight {
+      background: var(--white);
+      color: var(--rose);
+    }
+
+    .buttonLight:hover { background: var(--roseSoft); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 82% 8%, rgba(217, 163, 180, 0.35), transparent 36%),
+        linear-gradient(135deg, #FFF7F2 0%, #FDF1F5 58%, #FFFFFF 100%);
+    }
+
+    .heroInner {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: clamp(36px, 6vw, 72px);
+      align-items: center;
+      padding: clamp(44px, 6.5vw, 84px) 0;
+    }
+
+    .eyebrow {
+      color: var(--rose);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin: 0 0 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 5.6vw, 4.4rem);
+      line-height: 1.04;
+      letter-spacing: -0.015em;
+      margin: 0 0 20px;
+    }
+
+    .heroSub {
+      font-family: var(--serif);
+      color: var(--rose);
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      line-height: 1.35;
+      margin: 0 0 14px;
+    }
+
+    .heroText {
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 0 26px;
+    }
+
+    .chipRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--roseDark);
+      box-shadow: 0 6px 16px rgba(74, 16, 35, 0.06);
+    }
+
+    .chip::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blush), var(--rose));
+      flex-shrink: 0;
+    }
+
+    .priceBlock {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      margin: 0 0 26px;
+    }
+
+    .price {
+      color: var(--rose);
+      font-family: var(--serif);
+      font-size: clamp(3.1rem, 7vw, 4.4rem);
+      font-weight: 600;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+    }
+
+    .priceMeta {
+      color: var(--muted);
       font-weight: 600;
       font-size: 0.95rem;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(123, 29, 59, 0.3);
-      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
-      text-align: center;
-      display: inline-block;
-    }
-    .cta-btn:hover {
-      background: var(--brand-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(123, 29, 59, 0.4);
+      line-height: 1.4;
+      padding-bottom: 6px;
     }
 
-    .hero {
-      padding: 40px 0 60px;
-      background: linear-gradient(135deg, #fdf8f9 0%, #fff5f7 50%, #fff 100%);
+    .ctaRow {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 0 0 20px;
+    }
+
+    .heroMedia { position: relative; }
+
+    .heroImageFrame {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      background: var(--white);
+    }
+
+    .heroImageFrame img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .offerPanel {
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px 24px;
+      box-shadow: 0 16px 38px rgba(74, 16, 35, 0.1);
       text-align: center;
-      overflow-x: hidden;
+    }
+
+    .offerPanel strong {
+      display: block;
+      color: var(--roseDark);
+      font-size: 1.12rem;
+    }
+
+    .offerPanel p { margin: 4px 0 0; color: var(--muted); }
+
+    /* ---------- Trust strip ---------- */
+    .trustStrip {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trustGrid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: clamp(24px, 4vw, 36px) 0;
+    }
+
+    .trustItem {
+      padding: 6px clamp(14px, 2.5vw, 28px);
+      border-left: 1px solid var(--border);
+    }
+
+    .trustItem:first-child { border-left: none; }
+
+    .trustItem strong {
+      display: block;
+      color: var(--roseDark);
+      font-size: 1.02rem;
+      margin-bottom: 2px;
+    }
+
+    .trustItem span { color: var(--muted); font-size: 0.9rem; }
+
+    /* ---------- Section headers ---------- */
+    .sectionHeader { max-width: 720px; margin-bottom: 36px; }
+
+    .sectionHeader.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .sectionHeader h2 {
+      font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin: 0 0 12px;
+    }
+
+    .sectionHeader p { color: var(--muted); font-size: 1.06rem; margin: 0; }
+
+    /* ---------- Cards ---------- */
+    .cardGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 30px 28px;
+      box-shadow: 0 18px 50px rgba(74, 16, 35, 0.06);
+    }
+
+    .card h3 {
+      color: var(--roseDark);
+      font-size: 1.22rem;
+      margin: 0 0 10px;
+    }
+
+    .card p { color: var(--muted); margin: 0; }
+
+    /* ---------- Busy Beauty menu cards ---------- */
+    .menuSection {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(217, 163, 180, 0.18), transparent 42%),
+        radial-gradient(circle at 92% 100%, rgba(184, 138, 68, 0.08), transparent 45%),
+        linear-gradient(180deg, var(--cream) 0%, var(--roseSoft) 100%);
+    }
+
+    .menuGrid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .menuCard {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
       position: relative;
+      overflow: hidden;
+      padding: 36px 32px 32px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(217, 163, 180, 0.16), transparent 42%),
+        var(--white);
+      border: 1px solid var(--border);
+      box-shadow: 0 22px 60px rgba(74, 16, 35, 0.09);
+      transition: transform 180ms ease, box-shadow 180ms ease;
     }
 
-    .hero::before {
-      content: '';
+    .menuCard:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 28px 70px rgba(74, 16, 35, 0.14);
+    }
+
+    .menuCard::before {
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      bottom: 0;
-      background-image:
-        radial-gradient(circle at 20% 30%, rgba(193, 122, 147, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(123, 29, 59, 0.06) 0%, transparent 50%);
-      pointer-events: none;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blush), var(--rose), var(--roseDark));
     }
 
-    .hero h1 {
-      font-size: clamp(1.8rem, 4.8vw, 3.2rem);
-      font-weight: 800;
-      margin-bottom: 14px;
-      padding: 0 10px;
-      background: linear-gradient(135deg, var(--brand) 0%, #a13a5a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
-    }
-
-    .hero .subtitle {
-      font-size: clamp(1.05rem, 2.8vw, 1.35rem);
-      color: var(--text-muted);
-      margin-bottom: 26px;
-      font-weight: 400;
-    }
-
-    .slider-container {
-      max-width: 900px;
-      margin: 0 auto 30px;
-      position: relative;
-    }
-    .slider {
-      position: relative;
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      background: #000;
-      box-shadow: var(--shadow-lg);
-      transform: translateZ(0);
-    }
-    .slides { position: relative; width: 100%; height: 0; padding-top: 56.25%; }
-    .slide {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      opacity: 0;
-      transition: opacity 1.2s ease, transform 8s ease;
-      background-size: cover;
-      background-position: center;
-    }
-    .slide.active { opacity: 1; transform: scale(1.05); }
-
-    .featured-package {
-      max-width: 900px;
-      margin: 40px auto 20px;
-      background: linear-gradient(135deg, #fff 0%, #fefbfc 100%);
-      border-radius: 24px;
-      padding: 48px 40px;
-      box-shadow: 0 20px 60px rgba(123, 29, 59, 0.12);
-      border: 2px solid rgba(193, 122, 147, 0.2);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .package-badge {
-      display: inline-block;
-      background: var(--brand);
-      color: #fff;
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-size: 0.85rem;
+    .menuCardLabel {
+      display: inline-flex;
+      align-self: flex-start;
+      align-items: center;
+      background: var(--roseSoft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 14px;
+      color: var(--rose);
       font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
+      margin: 0 0 18px;
     }
 
-    .package-title {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      color: var(--brand);
-      margin-bottom: 10px;
-      font-weight: 800;
+    .menuCard h3 {
+      font-family: var(--serif);
+      font-weight: 600;
+      color: var(--roseDark);
+      font-size: clamp(1.4rem, 2.4vw, 1.7rem);
+      line-height: 1.15;
+      margin: 0 0 14px;
     }
 
-    .package-includes {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-      margin: 28px 0;
-      text-align: left;
+    .menuCardPrice {
+      font-family: var(--serif);
+      color: var(--rose);
+      font-size: clamp(2rem, 3.4vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      margin: 0;
     }
 
-    .package-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .package-item svg {
-      width: 28px;
-      height: 28px;
-      color: var(--brand);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .package-item-content h4 {
-      font-size: 1.05rem;
-      color: var(--text-main);
-      margin-bottom: 6px;
+    .menuCardSupport {
+      color: var(--gold);
       font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      margin: 8px 0 0;
     }
 
-    .package-item-content p {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.5;
+    .menuCardDivider {
+      width: 100%;
+      height: 1px;
+      border: none;
+      background: linear-gradient(90deg, var(--border), rgba(233, 216, 222, 0.2));
+      margin: 20px 0;
     }
 
-    .package-price {
-      margin: 28px 0 18px;
-      padding: 22px;
-      background: rgba(123, 29, 59, 0.04);
-      border-radius: 16px;
-      border: 2px dashed var(--brand);
+    .menuCardText { flex: 1; margin: 0; }
+
+    .menuCardButton { margin-top: 24px; width: 100%; }
+
+    .menuCardNote {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
     }
 
-    .price-row {
+    /* ---------- Inline CTA band ---------- */
+    .ctaBand {
+      background: var(--roseSoft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(26px, 4.5vw, 44px);
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 16px;
+      justify-content: space-between;
+      gap: 24px;
       flex-wrap: wrap;
     }
 
-    .price-main {
-      font-size: clamp(3rem, 8vw, 4.5rem);
-      font-weight: 900;
-      color: var(--brand);
-      line-height: 1;
-      letter-spacing: -2px;
+    .ctaBand h2 {
+      font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+      margin: 0 0 4px;
     }
 
-    .price-details {
-      text-align: left;
-      min-width: 220px;
-    }
+    .ctaBand p { margin: 0; color: var(--muted); }
 
-    .price-duration {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--text-main);
-    }
+    .ctaBandActions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    .price-note {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .value-line {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(123, 29, 59, 0.18);
-      font-size: 0.95rem;
-      color: var(--brand);
-      font-weight: 700;
-    }
-
-    .value-line span {
-      font-weight: 800;
-    }
-
-    .clinic-highlight {
-      margin-top: 22px;
-      background: rgba(123, 29, 59, 0.04);
-      border: 1px solid rgba(123, 29, 59, 0.22);
-      border-radius: 18px;
-      padding: 26px 22px;
-      text-align: left;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .clinic-highlight h2 {
-      color: var(--brand);
-      margin-bottom: 14px;
-      font-size: 1.35rem;
-    }
-
-    .clinic-highlight p {
-      color: var(--text-main);
-      opacity: 0.92;
-      font-size: 1.02rem;
-    }
-
-    .clinic-highlight p + p {
-      margin-top: 12px;
-    }
-
-    .kpis {
+    /* ---------- Split section ---------- */
+    .splitSection {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 40px;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
     }
-    .kpi {
-      background: #fff;
-      padding: 20px;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(0,0,0,0.03);
-      transition: transform 0.2s;
+
+    .splitImageFrame {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.82);
     }
-    .kpi:hover { transform: translateY(-3px); }
-    .kpi strong { display: block; font-size: 1.25rem; color: var(--brand); margin-bottom: 4px; font-weight: 700; }
-    .kpi span { font-size: 0.9rem; color: var(--text-muted); }
 
-    .features { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
-
-    .card {
-      background: #fff;
-      border-radius: var(--border-radius);
-      padding: 32px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(0,0,0,0.03);
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow 0.3s;
+    .splitImageFrame img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
     }
-    .card:hover { box-shadow: var(--shadow-md); }
-    .card h3 { font-size: 1.25rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700; }
 
-    .booking-section { background: var(--bg-alt); }
-    .booking-container {
-      background: #fff;
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: var(--shadow-lg);
-      max-width: 800px;
+    .benefitList {
+      display: grid;
+      gap: 12px;
+      margin-top: 26px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .benefitList li {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: var(--muted);
+    }
+
+    .check {
+      width: 26px;
+      height: 26px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: var(--roseSoft);
+      color: var(--rose);
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-top: 1px;
+    }
+
+    /* ---------- Booking ---------- */
+    .bookingSection { background: var(--roseSoft); }
+
+    .bookingBox {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(26px, 5vw, 46px);
+      box-shadow: var(--shadow);
+      max-width: 860px;
       margin: 0 auto;
     }
 
-    .booking-alert {
-      background: #fff0f3;
-      border-left: 4px solid var(--brand);
-      padding: 16px;
-      border-radius: 8px;
-      margin-bottom: 24px;
-      font-size: 0.95rem;
-      color: #60142c;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
+    .bookingSteps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 0 0 30px;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
     }
 
-    .booking-steps {
-      background: #f8f9fa;
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 26px;
+    .bookingSteps li {
+      counter-increment: step;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 14px;
+      font-size: 0.92rem;
+      color: var(--muted);
     }
-    .booking-steps h3 { font-size: 1.1rem; margin-bottom: 12px; display:flex; align-items:center; }
-    .booking-steps ol { padding-left: 20px; margin: 0; font-size: 0.95rem; color: var(--text-muted); }
 
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .form-group { margin-bottom: 20px; }
-    .form-group label {
+    .bookingSteps li::before {
+      content: counter(step);
       display: block;
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text-main);
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--rose);
+      margin-bottom: 6px;
     }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid #e2e2e2;
+
+    .bookingNote {
+      background: var(--roseSoft);
+      border-left: 3px solid var(--rose);
       border-radius: 10px;
-      background: #fdfdfd;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: all 0.2s;
+      padding: 14px 16px;
+      font-size: 0.93rem;
+      color: var(--roseDark);
+      margin: 0 0 28px;
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      outline: none;
-      border-color: var(--brand);
-      background: #fff;
-      box-shadow: 0 0 0 4px rgba(123, 29, 59, 0.1);
+
+    .formGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
-    .submit-btn { width: 100%; font-size: 1.1rem; padding: 18px; }
 
-    .testimonial { background: #fff; position: relative; }
-    .stars { color: #fbbf24; margin-bottom: 12px; font-size: 1rem; }
-    .testimonial p { font-style: italic; color: #444; margin-bottom: 16px; }
-    .testimonial .author { font-weight: 700; color: var(--brand); font-style: normal; }
-    .testimonial .verified { font-size: 0.8rem; color: #888; display: flex; align-items: center; gap: 4px; }
+    .formGroup { display: grid; gap: 8px; }
 
-    .faq-item {
-      background: #fff;
-      border: 1px solid #eee;
-      border-radius: 12px;
+    .formGroup.full { grid-column: 1 / -1; }
+
+    label {
+      font-weight: 700;
+      color: var(--roseDark);
+      font-size: 0.9rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      min-height: 52px;
+      padding: 14px 15px;
+      font: inherit;
+      background: #FFFDFB;
+      color: var(--text);
+    }
+
+    textarea { min-height: 104px; resize: vertical; }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 3px solid rgba(217, 163, 180, 0.35);
+      border-color: var(--rose);
+    }
+
+    .submitButton { width: 100%; font-size: 1.08rem; min-height: 58px; border: none; }
+
+    /* ---------- Reviews ---------- */
+    .reviewGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .review { display: flex; flex-direction: column; }
+
+    .stars {
+      color: var(--gold);
+      letter-spacing: 0.14em;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    .review blockquote {
+      margin: 0 0 18px;
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 1.06rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .review figcaption strong { display: block; color: var(--roseDark); }
+
+    .review figcaption span { color: var(--muted); font-size: 0.85rem; }
+
+    /* ---------- FAQ ---------- */
+    .faqList {
+      display: grid;
+      gap: 14px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    details {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 22px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--roseDark);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--blush);
+      line-height: 1;
+      flex-shrink: 0;
+      transition: transform 160ms ease;
+    }
+
+    details[open] summary::after { transform: rotate(45deg); }
+
+    details p { color: var(--muted); margin: 12px 0 0; }
+
+    /* ---------- Final CTA ---------- */
+    .finalCta {
+      background: linear-gradient(135deg, var(--roseDark), var(--rose));
+      color: var(--white);
+      text-align: center;
+    }
+
+    .finalCta h2 {
+      color: var(--white);
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0 0 12px;
+    }
+
+    .finalCta > .container > p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.12rem;
+      margin: 0 0 30px;
+    }
+
+    .finalCta .callLine {
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
+    }
+
+    .finalCta .callLine a {
+      color: var(--white);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .contactGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 760px;
+      margin: 40px auto 0;
+      text-align: left;
+    }
+
+    .contactCard {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 20px;
       padding: 24px;
-      margin-bottom: 16px;
-      transition: border-color 0.2s;
-    }
-    .faq-item:hover { border-color: #ddd; }
-    .faq-item h4 { color: var(--text-main); font-weight: 700; margin-bottom: 8px; }
-    .faq-item p { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
-
-    footer { background: #111; color: #888; padding: 24px 0; font-size: 0.85rem; }
-    footer a { color: #fff; text-decoration: underline; }
-
-    @media (min-width: 768px) {
-      .kpis { grid-template-columns: repeat(4, 1fr); }
-      .features { grid-template-columns: repeat(2, 1fr); }
-      .features.three-col { grid-template-columns: repeat(3, 1fr); }
-      .booking-container { padding: 48px; }
-      .topbar { padding: 16px 0; }
-      .package-includes { grid-template-columns: repeat(3, 1fr); }
+      font-size: 0.95rem;
     }
 
-    @media (max-width: 767px) {
-      .slider-container {
-        width: 100vw;
-        max-width: none;
-        margin-left: -24px;
-        margin-right: -24px;
-        border-radius: 0;
-      }
-      .slider {
-        border-radius: 0;
-        box-shadow: none;
-        border: none;
-        border-top: 1px solid #eee;
-        border-bottom: 1px solid #eee;
+    .contactCard h3 {
+      margin: 0 0 12px;
+      font-size: 1.02rem;
+      color: var(--white);
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .contactCard p { margin: 0 0 8px; color: rgba(255, 255, 255, 0.85); }
+
+    .contactCard p:last-child { margin-bottom: 0; }
+
+    .contactCard a { color: var(--white); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--roseDark);
+      color: rgba(255, 255, 255, 0.55);
+      padding: 22px 0;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    /* ---------- Sticky mobile CTA ---------- */
+    .mobileStickyCta { display: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .heroInner, .splitSection { grid-template-columns: 1fr; }
+
+      .heroContent { order: 1; }
+      .heroMedia { order: 2; }
+
+      .splitMedia { order: 2; }
+      .splitContent { order: 1; }
+
+      .trustGrid { grid-template-columns: repeat(2, 1fr); row-gap: 18px; }
+      .trustItem:nth-child(3) { border-left: none; }
+
+      .cardGrid, .reviewGrid { grid-template-columns: 1fr; }
+
+      .bookingSteps { grid-template-columns: repeat(2, 1fr); }
+
+      .headerActions .buttonSecondary { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: calc(100% - 24px); }
+
+      .headerInner { min-height: 64px; }
+
+      .logo { width: 138px; }
+
+      .headerActions .button { min-height: 44px; padding: 0 18px; font-size: 0.92rem; }
+
+      .heroInner { padding: 34px 0 40px; gap: 30px; }
+
+      .hero h1 { font-size: clamp(2.35rem, 10vw, 3rem); }
+
+      .ctaRow .button { width: 100%; }
+
+      .chip { font-size: 0.8rem; padding: 7px 13px; }
+
+      .heroImageFrame { border-radius: 22px; }
+
+      .section { padding: 56px 0; }
+
+      .ctaBand { flex-direction: column; align-items: stretch; text-align: center; }
+
+      .ctaBandActions { flex-direction: column; }
+
+      .contactGrid { grid-template-columns: 1fr; }
+
+      .formGrid { grid-template-columns: 1fr; }
+
+      .bookingSteps { grid-template-columns: 1fr; }
+
+      .mobileStickyCta {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 30;
+        display: grid;
+        grid-template-columns: 1.6fr 0.75fr;
+        gap: 10px;
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(255, 247, 242, 0.96);
+        border-top: 1px solid var(--border);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
       }
 
-      .cta-btn { width: 100%; margin-top: 10px; }
-      .row { flex-direction: column; text-align: center; gap: 10px; }
-      .form-row { grid-template-columns: 1fr; gap: 0; }
-      .hero { padding-top: 20px; }
-      h1 { font-size: 2.1rem; }
-      .featured-package { padding: 32px 22px; }
-      .package-includes { grid-template-columns: 1fr; }
-      .price-row { flex-direction: column; }
-      .price-details { text-align: center; }
+      .mobileStickyCta .button { min-height: 50px; padding: 0 10px; font-size: 0.95rem; white-space: nowrap; }
+
+      body { padding-bottom: 84px; }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="urgent-banner">The Sherlase Spa Experience – Just $145.00</div>
-
-  <header class="topbar">
-    <div class="container row">
-      <div class="logo-container">
-        <img src="https://raw.githubusercontent.com/umerqur/sherlase-spa/main/logo_sheri.png" alt="Sherlase Clinic & Spa" class="logo-img" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'" />
-        <div class="logo-text">SHERLASE<span>Clinic & Spa</span></div>
-      </div>
-      <a href="tel:+19052018005" class="cta-btn" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',145)">Call (905) 201-8005</a>
+  <header class="siteHeader">
+    <div class="container headerInner">
+      <a href="/" aria-label="Sherlase Clinic and Spa">
+        <img class="logo" src="logo.webp" alt="Sherlase Clinic &amp; Spa" width="380" height="102">
+      </a>
+      <nav class="headerActions" aria-label="Primary actions">
+        <a class="button buttonSecondary" href="tel:+19052018005"
+           onclick="return sendPhoneConversion('tel:+19052018005')">Call (905) 201-8005</a>
+        <a class="button buttonPrimary" href="#busy-beauty-menu">Book Now</a>
+      </nav>
     </div>
   </header>
 
-  <div class="hero">
-    <div class="container">
-      <h1>The Sherlase Spa Experience – Just $145.00</h1>
-      <p class="subtitle">Includes a Complimentary Radiant Eye Treatment</p>
+  <main>
 
-      <div class="slider-container">
-        <div class="slider">
-          <div class="slides">
-            <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa1.png');"></div>
-            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa2.png');"></div>
-            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa3.png');"></div>
-            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa4.png');"></div>
-            <div class="slide" style="background-image:url('https://raw.githubusercontent.com/umerqur/sherlase-spa/main/new_spa5.png');"></div>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container heroInner">
+        <div class="heroContent">
+          <p class="eyebrow">Sherlase Clinic &amp; Spa &middot; Markham</p>
+          <h1>The Busy Beauty&nbsp;Menu</h1>
+          <p class="heroSub">Quick, focused skin treatments for busy women in Markham.</p>
+          <p class="heroText">Choose your treatment, pay securely online, and Sherlase will contact you to book your appointment.</p>
+
+          <div class="ctaRow">
+            <a class="button buttonPrimary" href="#busy-beauty-menu">View Treatments</a>
+            <a class="button buttonSecondary" href="tel:+19052018005"
+               onclick="return sendPhoneConversion('tel:+19052018005')">Call Sherlase</a>
+          </div>
+
+          <ul class="chipRow" aria-label="Why clients choose Sherlase">
+            <li class="chip">Women Focused Spa</li>
+            <li class="chip">Markham</li>
+            <li class="chip">Free Parking</li>
+            <li class="chip">25 Years Trusted</li>
+            <li class="chip">Secure Online Payment</li>
+          </ul>
+        </div>
+
+        <div class="heroMedia">
+          <div class="heroImageFrame">
+            <img src="hero-880.webp"
+                 srcset="hero-560.webp 560w, hero-880.webp 880w"
+                 sizes="(max-width: 900px) 94vw, 44vw"
+                 alt="Warm marble spa basin with fresh tulips at Sherlase Clinic and Spa"
+                 width="880" height="1100"
+                 fetchpriority="high" decoding="async">
+          </div>
+          <div class="offerPanel">
+            <strong>The Busy Beauty Menu</strong>
+            <p>Two focused treatments &bull; Secure Stripe checkout</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="featured-package">
-        <div class="package-badge">Signature Experience</div>
-        <h2 class="package-title">Book Your Spa Escape Today</h2>
+    <!-- Trust proof -->
+    <section class="trustStrip" aria-label="Why clients trust Sherlase">
+      <div class="container trustGrid">
+        <div class="trustItem"><strong>25+ years</strong><span>trusted in Markham</span></div>
+        <div class="trustItem"><strong>Women focused</strong><span>spa care</span></div>
+        <div class="trustItem"><strong>Free parking</strong><span>easy arrival</span></div>
+        <div class="trustItem"><strong>RMT certified</strong><span>professional team</span></div>
+      </div>
+    </section>
 
-        <div class="package-includes">
-          <div class="package-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"></path>
-              <path d="M12 6v6l4 2"></path>
-            </svg>
-            <div class="package-item-content">
-              <h4>Nelly De Vuyst Organic Facial</h4>
-              <p>Swiss made organic skincare with antioxidants to firm, smooth and renew your skin.</p>
-            </div>
-          </div>
-
-          <div class="package-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"></path>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-            <div class="package-item-content">
-              <h4>Professional Spa Grade Beauty</h4>
-              <p>Clean, high performance products for radiant, youthful, nourished skin.</p>
-            </div>
-          </div>
-
-          <div class="package-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-            <div class="package-item-content">
-              <h4>Complimentary Radiant Eye Treatment</h4>
-              <p>Soothing organic eye treatment designed to reduce dryness, fine lines, and puffiness. A $45.00 value.</p>
-            </div>
-          </div>
+    <!-- Busy Beauty Menu -->
+    <section class="section menuSection" id="busy-beauty-menu">
+      <div class="container">
+        <div class="sectionHeader center">
+          <h2>Choose your Busy Beauty treatment</h2>
+          <p>Two focused treatments from Sheri's Busy Beauty Menu. Pick your option, pay securely with Stripe, and Sherlase will contact you to book your appointment.</p>
         </div>
 
-        <div class="package-price">
-          <div class="price-row">
-            <div class="price-main">$145</div>
-            <div class="price-details">
-              <div class="price-duration">Includes Radiant Eye Treatment</div>
-              <div class="price-note">Taxes and gratuities extra</div>
-              <div class="value-line">A <span>$195.00</span> value</div>
-            </div>
-          </div>
+        <!--
+          Stripe purchase buttons intentionally do NOT fire any Google Ads
+          conversion. "Purchase on Stripe" is tracked by Google Ads as a
+          page visit conversion on /thank-you.html?paid=true after a
+          completed payment.
+        -->
+        <div class="cardGrid menuGrid">
+          <article class="card menuCard">
+            <p class="menuCardLabel">Option 01</p>
+            <h3>The Microdermabrasion Tune Up</h3>
+            <p class="menuCardPrice">From $89</p>
+            <p class="menuCardSupport">Single treatment or package option available at checkout.</p>
+            <hr class="menuCardDivider">
+            <p class="menuCardText">A focused skin refresh for a smoother, brighter looking glow. Choose your option securely through Stripe, then Sherlase will contact you to book your appointment.</p>
+            <a class="button buttonPrimary menuCardButton" href="https://buy.stripe.com/bJe28r04p07h9xhgrMbEA06">Book Microdermabrasion</a>
+            <p class="menuCardNote">Secure Stripe checkout</p>
+          </article>
+          <article class="card menuCard">
+            <p class="menuCardLabel">Option 02</p>
+            <h3>The Acne Treatment Tune Up</h3>
+            <p class="menuCardPrice">$175 CAD</p>
+            <p class="menuCardSupport">Purchase 3 and Save</p>
+            <hr class="menuCardDivider">
+            <p class="menuCardText">A focused acne care package designed to help clients stay consistent with regular treatments. Purchase 3 and save, then Sherlase will contact you to book your appointments.</p>
+            <a class="button buttonPrimary menuCardButton" href="https://buy.stripe.com/7sYfZhdVfcU3gZJ0sObEA09">Book Acne Treatment</a>
+            <p class="menuCardNote">Secure Stripe checkout</p>
+          </article>
         </div>
-
-        <a href="https://buy.stripe.com/6oUdR904p7zJ9xh1wSbEA05"
-           class="cta-btn"
-           style="width:100%; font-size:1.2rem; padding:18px;"
-           onclick="sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 145)">
-          Book The Sherlase Spa Experience – $145
-        </a>
-
-        <section class="clinic-highlight">
-          <h2>Experience advanced, results driven skincare at Sherlase Clinic</h2>
-
-          <p>
-            Markham’s best kept luxury destination at Markham Rd and 16th Avenue. Our professional anti aging facial featuring Nelly De Vuyst uses clinically formulated, plant based active ingredients and vitamins to deliver deep hydration, collagen support, improved skin elasticity, and visible reduction of fine lines and dullness. Suitable for all skin types, including sensitive skin.
-          </p>
-
-          <p>
-            For a limited time, receive a complimentary Radiant Eye Treatment (a $45 value), exclusive to Sherlase, designed to target puffiness, dark circles, and loss of firmness.
-          </p>
-
-          <p>
-            Book your appointment today for personalized skincare, visible anti aging results, and a premium spa experience in Markham. Sherlase Clinic, luxury medical aesthetics, radiant skin, lasting confidence.
-          </p>
-        </section>
       </div>
+    </section>
 
-      <div class="kpis">
-        <div class="kpi"><strong>25+ Years</strong><span>Trusted in Markham</span></div>
-        <div class="kpi"><strong>Clinic Grade</strong><span>Results Driven Skincare</span></div>
-        <div class="kpi"><strong>Women Focused</strong><span>Safe Environment</span></div>
-        <div class="kpi"><strong>Free Parking</strong><span>Stress Free</span></div>
-      </div>
-    </div>
-  </div>
-
-  <section id="booking-form" class="booking-section">
-    <div class="container">
-      <div class="booking-container">
-        <h2 style="text-align:center; margin-bottom:12px;">Request Your Appointment</h2>
-        <p style="text-align:center; color:var(--text-muted); margin-bottom:32px;">We will contact you within 24 hours to confirm the time.</p>
-
-        <div class="booking-alert">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="8" x2="12" y2="12"></line>
-            <line x1="12" y1="16" x2="12.01" y2="16"></line>
-          </svg>
+    <!-- CTA band -->
+    <section aria-label="Book your appointment">
+      <div class="container">
+        <div class="ctaBand">
           <div>
-            <strong>Note:</strong> We are closed Sundays and Mondays. Booking requests sent on these days will be answered Tuesday morning.
+            <h2>The Busy Beauty Menu</h2>
+            <p>Quick, focused skin treatments, designed for busy schedules.</p>
+          </div>
+          <div class="ctaBandActions">
+            <a class="button buttonPrimary" href="#busy-beauty-menu">Book Busy Beauty</a>
+            <a class="button buttonSecondary" href="tel:+19052018005"
+               onclick="return sendPhoneConversion('tel:+19052018005')">Call (905) 201-8005</a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="booking-steps">
-          <h3>
-            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-              <path d="M9 14l2 2 4-4"></path>
-            </svg>
-            How booking works
-          </h3>
-          <ol>
-            <li>Submit this request form</li>
-            <li>We confirm availability via phone or email</li>
-            <li>We send a secure link for payment</li>
-            <li>You are booked</li>
+    <!-- Why book -->
+    <section class="section">
+      <div class="container splitSection">
+        <div class="splitMedia">
+          <div class="splitImageFrame">
+            <img src="reset.webp"
+                 alt="Client enjoying a relaxing facial treatment at Sherlase Clinic and Spa"
+                 width="900" height="600"
+                 loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="splitContent">
+          <div class="sectionHeader" style="margin-bottom:0;">
+            <h2>Designed for busy women</h2>
+            <p>The Busy Beauty Menu is built for women who want real spa care without giving up half a day. Slow down, feel cared for, and get back to your day refreshed.</p>
+          </div>
+          <ul class="benefitList">
+            <li><span class="check" aria-hidden="true">&#10003;</span>Express treatments that respect your time</li>
+            <li><span class="check" aria-hidden="true">&#10003;</span>Calm, private spa environment</li>
+            <li><span class="check" aria-hidden="true">&#10003;</span>Easy Markham location</li>
+            <li><span class="check" aria-hidden="true">&#10003;</span>Free parking</li>
+            <li><span class="check" aria-hidden="true">&#10003;</span>Secure online booking</li>
+            <li><span class="check" aria-hidden="true">&#10003;</span>Friendly follow up from the Sherlase team</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section class="section bookingSection" id="booking-form">
+      <div class="container">
+        <div class="bookingBox">
+          <div class="sectionHeader center">
+            <h2>Prefer to choose a time first?</h2>
+            <p>Request your preferred date and time. The Sherlase team will contact you to confirm availability.</p>
+          </div>
+
+          <ol class="bookingSteps">
+            <li>Submit your request</li>
+            <li>We confirm availability</li>
+            <li>You receive secure payment details</li>
+            <li>Arrive, relax, and enjoy your appointment</li>
           </ol>
-        </div>
 
-        <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
-          <input type="hidden" name="form-name" value="booking" />
-          <p style="display:none"><label>Do not fill: <input name="bot-field" /></label></p>
+          <p class="bookingNote"><strong>Please note:</strong> we are closed Sundays and Mondays. Requests sent on these days are answered Tuesday morning.</p>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First Name *</label>
-              <input type="text" id="firstName" name="firstName" required>
+          <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+            <input type="hidden" name="form-name" value="booking">
+            <p style="display:none"><label>Do not fill: <input name="bot-field"></label></p>
+
+            <div class="formGrid">
+              <div class="formGroup">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
+              </div>
+              <div class="formGroup">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" autocomplete="family-name" required>
+              </div>
+              <div class="formGroup">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(905) 555-0123" required>
+              </div>
+              <div class="formGroup">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+              </div>
+              <div class="formGroup">
+                <label for="preferredDate">Preferred Date</label>
+                <input type="date" id="preferredDate" name="preferredDate">
+              </div>
+              <div class="formGroup">
+                <label for="preferredTime">Preferred Time</label>
+                <select id="preferredTime" name="preferredTime">
+                  <option value="">Any Time</option>
+                  <option value="Morning (9am - 12pm)">Morning (9am - 12pm)</option>
+                  <option value="Afternoon (12pm - 4pm)">Afternoon (12pm - 4pm)</option>
+                  <option value="Evening (4pm - 8pm)">Evening (4pm - 8pm)</option>
+                </select>
+              </div>
+              <div class="formGroup full">
+                <label for="message">Any special notes for your visit?</label>
+                <textarea id="message" name="message" rows="3" placeholder="Preferences, questions, or gift details"></textarea>
+              </div>
+              <div class="formGroup full">
+                <button type="submit" class="button buttonPrimary submitButton">Request My Appointment</button>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="lastName">Last Name *</label>
-              <input type="text" id="lastName" name="lastName" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" required placeholder="(905) 555-0123">
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address *</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="preferredDate">Preferred Date</label>
-              <input type="date" id="preferredDate" name="preferredDate">
-            </div>
-            <div class="form-group">
-              <label for="preferredTime">Preferred Time</label>
-              <select id="preferredTime" name="preferredTime">
-                <option value="">Any Time</option>
-                <option value="Morning (9am - 12pm)">Morning (9am - 12pm)</option>
-                <option value="Afternoon (12pm - 4pm)">Afternoon (12pm - 4pm)</option>
-                <option value="Evening (4pm - 8pm)">Evening (4pm - 8pm)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Any special notes for your Spa Experience?</label>
-            <textarea id="message" name="message" rows="3" placeholder="Any specific concerns, preferences, or questions?"></textarea>
-          </div>
-
-          <button type="submit" class="cta-btn submit-btn">Submit Booking Request</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <h2 style="text-align:center; margin-bottom:40px;">Why Markham Women Choose Sherlase</h2>
-
-      <div class="features three-col">
-        <div class="card">
-          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
-            <circle cx="7" cy="17" r="2"></circle>
-            <circle cx="17" cy="17" r="2"></circle>
-            <path d="M5 17h10"></path>
-          </svg>
-          <h3>No Downtown Hassle</h3>
-          <p style="color:var(--text-muted)">Skip the traffic and parking fees. Enjoy premium care in Markham with ample free parking.</p>
-        </div>
-
-        <div class="card">
-          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-          </svg>
-          <h3>Certified Professionals</h3>
-          <p style="color:var(--text-muted)">Clinic grade expertise with the comfort of a premium spa setting.</p>
-        </div>
-
-        <div class="card">
-          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-          </svg>
-          <h3>Women Centered Care</h3>
-          <p style="color:var(--text-muted)">A safe, welcoming space designed with women in mind, with personalized attention every visit.</p>
+          </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section style="background:var(--bg-alt)">
-    <div class="container">
-      <h2 style="text-align:center;">What Our Clients Say</h2>
-      <p style="text-align:center; color:var(--text-muted); margin-bottom:40px;">Real reviews from Google Business</p>
-
-      <div class="features three-col">
-        <div class="card testimonial">
-          <div class="stars">★★★★★</div>
-          <p>"I had a positive experience. The clinic is calming and peaceful. My facial was excellent and relaxing."</p>
-          <div>
-            <p class="author">Nalini Persaud</p>
-            <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="green"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Google Review</span>
-          </div>
+    <!-- Reviews -->
+    <section class="section">
+      <div class="container">
+        <div class="sectionHeader center">
+          <h2>Loved by local clients</h2>
+          <p>Real reviews from Google.</p>
         </div>
 
-        <div class="card testimonial">
-          <div class="stars">★★★★★</div>
-          <p>"I absolutely love this clinic. The staff is sweet, honest and never pushy. The clinic is beautiful and welcoming."</p>
-          <div>
-            <p class="author">Freada V.</p>
-            <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="green"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Google Review</span>
-          </div>
+        <div class="reviewGrid">
+          <figure class="card review">
+            <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>&ldquo;The clinic is calming and peaceful. My facial was excellent and relaxing.&rdquo;</blockquote>
+            <figcaption><strong>Nalini Persaud</strong><span>Google review</span></figcaption>
+          </figure>
+          <figure class="card review">
+            <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>&ldquo;The staff is sweet, honest and never pushy. The clinic is beautiful and welcoming.&rdquo;</blockquote>
+            <figcaption><strong>Freada V.</strong><span>Google review</span></figcaption>
+          </figure>
+          <figure class="card review">
+            <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>&ldquo;Such a relaxing experience. The staff made us feel VIP. A hidden gem.&rdquo;</blockquote>
+            <figcaption><strong>Gabby Cripouris</strong><span>Google review</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="sectionHeader center">
+          <h2>Frequently asked questions</h2>
         </div>
 
-        <div class="card testimonial">
-          <div class="stars">★★★★★</div>
-          <p>"Such a relaxing experience celebrating my cousin's birthday. The staff made us feel VIP. A hidden gem."</p>
-          <div>
-            <p class="author">Gabby Cripouris</p>
-            <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="green"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified Google Review</span>
+        <div class="faqList">
+          <details>
+            <summary>What is the Busy Beauty Menu?</summary>
+            <p>The Busy Beauty Menu is Sheri's new collection of express spa experiences, designed for women who want luxury spa results on a busy schedule. Weekly appointment spots are limited, so we recommend booking early.</p>
+          </details>
+          <details>
+            <summary>Can I buy this as a gift?</summary>
+            <p>Yes. A Busy Beauty experience makes a lovely gift. Mention it is a gift in your booking notes and our team will arrange the details with you.</p>
+          </details>
+          <details>
+            <summary>Do I need to book ahead?</summary>
+            <p>Yes, we recommend booking ahead. Submit your request online or call us, and we will confirm your appointment time with you.</p>
+          </details>
+          <details>
+            <summary>Is parking available?</summary>
+            <p>Yes. Free parking is available right at our Markham location.</p>
+          </details>
+          <details>
+            <summary>What payment methods do you accept?</summary>
+            <p>We accept Cash, Debit, Visa, Mastercard, and American Express, as well as secure online payment when you book.</p>
+          </details>
+          <details>
+            <summary>What is your cancellation policy?</summary>
+            <p>We respectfully ask for 24 hours notice if you need to cancel or reschedule your appointment.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section finalCta">
+      <div class="container">
+        <h2>Ready for your Busy Beauty moment?</h2>
+        <p>Your express luxury spa experience is ready when you are.</p>
+
+        <a class="button buttonLight" href="#busy-beauty-menu" style="min-height:58px; font-size:1.08rem;">View the Busy Beauty Menu</a>
+
+        <p class="callLine">Or call
+          <a href="tel:+19052018005"
+             onclick="return sendPhoneConversion('tel:+19052018005')">(905) 201-8005</a>
+          to book
+        </p>
+
+        <div class="contactGrid">
+          <div class="contactCard">
+            <h3>Visit us</h3>
+            <p>383 Main Street Markham N #7<br>Markham, ON L3P 1Z3</p>
+            <p><a href="tel:+19052018005" onclick="return sendPhoneConversion('tel:+19052018005')">(905) 201-8005</a></p>
+            <p><a href="mailto:info@sherlaseclinic.com">info@sherlaseclinic.com</a></p>
+          </div>
+          <div class="contactCard">
+            <h3>Hours</h3>
+            <p><strong>Tue &ndash; Fri:</strong> 9:00 AM &ndash; 8:00 PM</p>
+            <p><strong>Saturday:</strong> 9:00 AM &ndash; 6:00 PM</p>
+            <p><strong>Sun &ndash; Mon:</strong> Closed</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <div class="container">
-      <h2 style="margin-bottom:32px;">Frequently Asked Questions</h2>
-
-      <div style="max-width:800px;">
-        <div class="faq-item">
-          <h4>What is included in The Sherlase Spa Experience?</h4>
-          <p>Nelly De Vuyst organic facial and premium clinic grade skincare, with a complimentary Radiant Eye Treatment included.</p>
-        </div>
-
-        <div class="faq-item">
-          <h4>Is the Radiant Eye Treatment included?</h4>
-          <p>Yes. For a limited time, the Radiant Eye Treatment is included at no extra cost. It is a $45 value.</p>
-        </div>
-
-        <div class="faq-item">
-          <h4>Do you accept walk ins?</h4>
-          <p>We recommend booking in advance to ensure availability, but we do our best to accommodate walk ins when possible.</p>
-        </div>
-
-        <div class="faq-item">
-          <h4>Is parking free?</h4>
-          <p>Yes. We have ample free parking right at our location.</p>
-        </div>
-
-        <div class="faq-item">
-          <h4>What payment methods do you accept?</h4>
-          <p>We accept Cash, Debit, Visa, Mastercard, and American Express.</p>
-        </div>
-
-        <div class="faq-item">
-          <h4>What is your cancellation policy?</h4>
-          <p>We respectfully request 24 hours notice for cancellations or rescheduling.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:linear-gradient(135deg, #7b1d3b 0%, #3e0c1b 100%); color:#fff; padding:80px 0; text-align:center;">
-    <div class="container">
-      <h2 style="color:#fff; margin-bottom:16px;">Ready to book?</h2>
-      <p style="font-size:1.2rem; opacity:0.9; margin-bottom:40px;">A premium spa experience in Markham for $145.</p>
-
-      <div class="features" style="text-align:left; max-width:800px; margin:0 auto 40px;">
-        <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(10px); padding:24px; border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
-          <h3 style="color:#fff; font-size:1.1rem; margin-bottom:12px;">Contact Info</h3>
-          <p style="margin-bottom:8px;"><strong>Phone:</strong> <a href="tel:+19052018005" style="text-decoration:underline;">(905) 201-8005</a></p>
-          <p style="margin-bottom:8px;"><strong>Email:</strong> info@sherlaseclinic.com</p>
-          <p><strong>Address:</strong> 383 Main Street Markham N #7, Markham, ON L3P 1Z3</p>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(10px); padding:24px; border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
-          <h3 style="color:#fff; font-size:1.1rem; margin-bottom:12px;">Opening Hours</h3>
-          <p style="margin-bottom:8px;"><strong>Tue – Fri:</strong> 9:00 AM – 8:00 PM</p>
-          <p style="margin-bottom:8px;"><strong>Saturday:</strong> 9:00 AM – 6:00 PM</p>
-          <p><strong>Sun – Mon:</strong> Closed</p>
-        </div>
-      </div>
-
-      <a href="https://buy.stripe.com/6oUdR904p7zJ9xh1wSbEA05"
-         class="cta-btn"
-         style="background:#fff; color:var(--brand); font-size:1.2rem; padding:20px 48px; margin-bottom:16px;"
-         onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 145)">
-        Book The Sherlase Spa Experience – $145
-      </a>
-
-      <p style="font-size:0.9rem; opacity:0.85; margin-top:12px;">
-        Or call
-        <a href="tel:+19052018005" style="text-decoration:underline;" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',145)">(905) 201-8005</a>
-        to book
-      </p>
-    </div>
-  </section>
+  </main>
 
   <footer>
-    <div class="container" style="text-align:center;">
-      <p>&copy; <span id="year">2025</span> Sherlase Clinic & Spa. All rights reserved.</p>
+    <div class="container">
+      <p>&copy; <span id="year">2026</span> Sherlase Clinic &amp; Spa. All rights reserved.</p>
     </div>
   </footer>
 
+  <div class="mobileStickyCta" aria-label="Booking actions">
+    <a class="button buttonPrimary" href="#busy-beauty-menu">Book Now</a>
+    <a class="button buttonSecondary" href="tel:+19052018005"
+       onclick="return sendPhoneConversion('tel:+19052018005')">Call</a>
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    (function() {
-      var slides = document.querySelectorAll('.slide');
-      if (!slides.length) return;
-      var index = 0;
-      setInterval(function() {
-        slides[index].classList.remove('active');
-        index = (index + 1) % slides.length;
-        slides[index].classList.add('active');
-      }, 4000);
-    })();
   </script>
 
 </body>
 </html>
-
-
-

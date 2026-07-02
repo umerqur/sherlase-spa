@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Thank You – Sherlase Clinic & Spa</title>
-  <meta name="description" content="Thank you for your booking request at Sherlase Clinic & Spa. We will contact you shortly to confirm your appointment.">
+  <meta name="description" content="Thank you from Sherlase Clinic & Spa in Markham. We will contact you shortly to confirm your appointment.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#7B1D3B">
 
   <!-- Google Ads tag only (no GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17719269754"></script>
@@ -12,113 +14,308 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // Google Ads only
     gtag('config', 'AW-17719269754');
 
-    // helper to fire conversion (if you ever need)
-    function sendConversion(sendTo, url, value) {
-      var cb = function() { if (url) window.location = url; };
-      gtag('event', 'conversion', {
-        'send_to': sendTo,
-        'value': value || 10.0,
-        'currency': 'CAD',
-        'event_callback': cb
+    // Phone call conversion only — fired exclusively from tel: links.
+    // The "Purchase on Stripe" conversion is a Google Ads page visit
+    // conversion on /thank-you.html?paid=true; the base tag above handles it,
+    // so no manual purchase conversion is fired anywhere on this site.
+    function sendPhoneConversion(url) {
+      var done = false;
+      var callback = function () {
+        if (done) return;
+        done = true;
+        if (url) window.location = url;
+      };
+
+      if (typeof gtag !== "function") {
+        if (url) window.location = url;
+        return false;
+      }
+
+      gtag("event", "conversion", {
+        send_to: "AW-17719269754/x8k7CLLBx74bEPqymoFC",
+        event_callback: callback
       });
+
+      setTimeout(callback, 900);
       return false;
     }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <style>
-    body{
-      font-family:Inter,Arial,sans-serif;
-      margin:0;
-      padding:0;
-      background:#fff7f7;
-      color:#1b1b1b;
-      line-height:1.6;
+    :root {
+      --rose: #7B1D3B;
+      --roseDark: #4A1023;
+      --roseSoft: #FDF1F5;
+      --cream: #FFF7F2;
+      --blush: #D9A3B4;
+      --gold: #B88A44;
+      --text: #201A1D;
+      --muted: #6F5F66;
+      --border: #E9D8DE;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+      --sans: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
     }
-    .container{
-      max-width:800px;
-      margin:0 auto;
-      padding:40px 20px;
-      text-align:center;
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: var(--sans);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(circle at 85% 5%, rgba(217, 163, 180, 0.28), transparent 40%),
+        radial-gradient(circle at 8% 90%, rgba(184, 138, 68, 0.10), transparent 45%),
+        linear-gradient(160deg, #FFF7F2 0%, #FDF1F5 55%, #FFFFFF 100%);
+      color: var(--text);
+      line-height: 1.6;
     }
-    h1{
-      color:#7b1d3b;
-      font-size:2.2rem;
-      margin-bottom:12px;
-      font-weight:800;
+
+    .page {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(32px, 6vw, 64px) 20px 32px;
     }
-    p{
-      font-size:1.05rem;
-      color:#444;
-      margin-bottom:24px;
+
+    .logo {
+      width: 190px;
+      height: auto;
+      margin: 0 auto 30px;
+      display: block;
     }
-    .box{
-      background:#fff;
-      padding:30px;
-      border-radius:14px;
-      border:1px solid #eee;
-      box-shadow:0 2px 8px rgba(0,0,0,.05);
-      margin-top:20px;
+
+    .card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: 0 28px 80px rgba(74, 16, 35, 0.16);
+      max-width: 620px;
+      width: 100%;
+      margin: 0 auto;
+      padding: clamp(36px, 6vw, 56px) clamp(24px, 5vw, 52px);
+      text-align: center;
+      position: relative;
     }
-    .cta-btn{
-      background:#7b1d3b;
-      color:#fff;
-      padding:14px 34px;
-      border-radius:999px;
-      font-weight:600;
-      text-decoration:none;
-      display:inline-block;
-      font-size:1rem;
-      margin-top:16px;
-      transition:all .2s;
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(217, 163, 180, 0.35);
+      border-radius: 20px;
+      pointer-events: none;
     }
-    .cta-btn:hover{
-      background:#6a1933;
-      transform:translateY(-1px);
-      box-shadow:0 4px 12px rgba(123,29,59,.3);
+
+    .badge {
+      width: 66px;
+      height: 66px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--rose), var(--roseDark));
+      color: #fff;
+      font-size: 1.7rem;
+      box-shadow: 0 14px 30px rgba(123, 29, 59, 0.30);
     }
-    footer{
-      text-align:center;
-      margin-top:50px;
-      padding:20px;
-      color:#777;
-      font-size:.85rem;
+
+    .badgeLabel {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      color: var(--roseDark);
+      font-size: clamp(2.1rem, 5vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin: 0 0 10px;
+    }
+
+    .subheadline {
+      font-family: var(--serif);
+      color: var(--rose);
+      font-size: 1.25rem;
+      margin: 0 0 20px;
+    }
+
+    .card p { font-size: 1.02rem; color: var(--muted); margin: 0 0 18px; }
+
+    .card a { color: var(--rose); font-weight: 600; }
+
+    .divider {
+      width: 64px;
+      height: 2px;
+      margin: 26px auto;
+      background: linear-gradient(90deg, transparent, var(--blush), transparent);
+      border: none;
+    }
+
+    .ctaRow {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 30px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background .2s, transform .2s, border-color .2s;
+    }
+
+    .cta-btn.primary {
+      background: var(--rose);
+      color: #fff !important;
+      box-shadow: 0 14px 30px rgba(123, 29, 59, 0.24);
+    }
+
+    .cta-btn.primary:hover { background: var(--roseDark); transform: translateY(-1px); }
+
+    .cta-btn.secondary {
+      background: #fff;
+      color: var(--rose) !important;
+      border: 1px solid var(--border);
+    }
+
+    .cta-btn.secondary:hover { border-color: var(--blush); transform: translateY(-1px); }
+
+    .trustLine {
+      margin: 28px 0 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .trustLine span { color: var(--blush); padding: 0 8px; }
+
+    footer {
+      text-align: center;
+      padding: 26px 20px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    footer a { color: var(--rose); font-weight: 600; }
+
+    footer .copyright { margin-top: 8px; font-size: 0.8rem; color: rgba(111, 95, 102, 0.7); }
+
+    @media (max-width: 520px) {
+      .ctaRow { flex-direction: column; }
+      .ctaRow .cta-btn { width: 100%; }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>Thank You!</h1>
-    <p>Your booking request has been received.</p>
+  <div class="page">
+    <img class="logo" src="logo.webp" alt="Sherlase Clinic &amp; Spa" width="380" height="102">
 
-    <div class="box">
-      <p>We will contact you during business hours to confirm your appointment time.  
-      If we need more details, we will reach out by phone or email.</p>
+    <div class="card">
 
-      <p><strong>Our team usually replies within one business day.</strong></p>
+      <!-- Mode 1: regular booking form thank you (default) -->
+      <div data-booking-content>
+        <div class="badge" aria-hidden="true">&#10003;</div>
+        <h1>Thank You</h1>
+        <p class="subheadline">Your booking request has been received.</p>
 
-      <a href="tel:+19052018005" class="cta-btn"
-         onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC','tel:+19052018005',10)">
-        Call Us Now
-      </a>
+        <p>We will contact you during business hours to confirm your appointment time.
+        If we need more details, we will reach out by phone or email.</p>
+
+        <p><strong>Our team usually replies within one business day.</strong></p>
+
+        <hr class="divider">
+
+        <div class="ctaRow">
+          <a href="mailto:info@sherlaseclinic.com" class="cta-btn secondary">Email Sherlase</a>
+          <a href="tel:+19052018005" class="cta-btn primary"
+             onclick="return sendPhoneConversion('tel:+19052018005')">Call Sherlase</a>
+        </div>
+
+        <p class="trustLine">Sherlase Clinic &amp; Spa<span>&middot;</span>Markham<span>&middot;</span>Beauty Menu</p>
+      </div>
+
+      <!-- Mode 2: paid Stripe customer thank you (?paid=true) -->
+      <div data-paid-content hidden>
+        <div class="badge" aria-hidden="true">&#10003;</div>
+        <span class="badgeLabel">Payment Successful</span>
+        <h1>Payment Received</h1>
+        <p class="subheadline">Now let&rsquo;s get you booked.</p>
+
+        <p>Thank you. Your payment has been received.</p>
+
+        <p>Someone from Sherlase will reach out during business hours to confirm your appointment.
+        You can also email us at <a href="mailto:info@sherlaseclinic.com">info@sherlaseclinic.com</a>
+        and we&rsquo;ll look after you as soon as possible.</p>
+
+        <hr class="divider">
+
+        <div class="ctaRow">
+          <a href="mailto:info@sherlaseclinic.com" class="cta-btn primary">Email Sherlase</a>
+          <a href="tel:+19052018005" class="cta-btn secondary"
+             onclick="return sendPhoneConversion('tel:+19052018005')">Call Sherlase</a>
+        </div>
+
+        <p class="trustLine">Sherlase Clinic &amp; Spa<span>&middot;</span>Markham<span>&middot;</span>Beauty Menu</p>
+      </div>
+
     </div>
   </div>
 
   <footer>
-    &copy; <span id="year"></span> Sherlase Clinic & Spa. All rights reserved.
+    Questions? Email <a href="mailto:info@sherlaseclinic.com">info@sherlaseclinic.com</a>
+    or call <a href="tel:+19052018005" onclick="return sendPhoneConversion('tel:+19052018005')">(905) 201-8005</a>.
+    <div class="copyright">&copy; <span id="year">2026</span> Sherlase Clinic &amp; Spa. All rights reserved.</div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Two-mode content toggle.
+    // Stripe Payment Links / Buy Buttons redirect here after a completed payment:
+    //   https://sherlase-spa.netlify.app/thank-you.html?paid=true
+    // "Purchase on Stripe" is configured in Google Ads as a PAGE VISIT
+    // conversion on that URL, so the base gtag config above is all it needs.
+    // No manual gtag("event", "conversion", ...) purchase call here — adding
+    // one would double-count every payment.
+    document.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+      const isPaid = params.get("paid") === "true";
+
+      const bookingContent = document.querySelector("[data-booking-content]");
+      const paidContent = document.querySelector("[data-paid-content]");
+
+      if (isPaid) {
+        if (bookingContent) bookingContent.hidden = true;
+        if (paidContent) paidContent.hidden = false;
+        document.title = "Payment Received – Sherlase Clinic & Spa";
+      } else {
+        if (bookingContent) bookingContent.hidden = false;
+        if (paidContent) paidContent.hidden = true;
+      }
+    });
   </script>
 
 </body>
