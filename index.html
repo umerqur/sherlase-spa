@@ -16,7 +16,6 @@
   <meta property="og:image" content="https://sherlase-spa.netlify.app/og-summer.jpg">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17719269754"></script>
-  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -163,12 +162,15 @@
     .button:hover { transform: translateY(-1px); }
 
     .buttonPrimary {
-      background: var(--rose);
+      background: linear-gradient(135deg, #93264A 0%, var(--rose) 55%, var(--roseDark) 100%);
       color: var(--white);
-      box-shadow: 0 14px 30px rgba(123, 29, 59, 0.24);
+      box-shadow: 0 14px 30px rgba(123, 29, 59, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.18);
     }
 
-    .buttonPrimary:hover { background: var(--roseDark); }
+    .buttonPrimary:hover {
+      background: linear-gradient(135deg, var(--rose) 0%, var(--roseDark) 100%);
+      box-shadow: 0 18px 36px rgba(123, 29, 59, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    }
 
     .buttonSecondary {
       color: var(--rose);
@@ -218,11 +220,51 @@
       margin: 0 0 20px;
     }
 
+    .heroSub {
+      font-family: var(--serif);
+      color: var(--rose);
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      line-height: 1.35;
+      margin: 0 0 14px;
+    }
+
     .heroText {
       font-size: clamp(1.05rem, 1.8vw, 1.2rem);
       color: var(--muted);
       max-width: 620px;
       margin: 0 0 26px;
+    }
+
+    .chipRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--roseDark);
+      box-shadow: 0 6px 16px rgba(74, 16, 35, 0.06);
+    }
+
+    .chip::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blush), var(--rose));
+      flex-shrink: 0;
     }
 
     .priceBlock {
@@ -255,14 +297,6 @@
       flex-wrap: wrap;
       margin: 0 0 20px;
     }
-
-    .microTrust {
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin: 0;
-    }
-
-    .microTrust span { color: var(--blush); padding: 0 8px; }
 
     .heroMedia { position: relative; }
 
@@ -361,14 +395,6 @@
       box-shadow: 0 18px 50px rgba(74, 16, 35, 0.06);
     }
 
-    .cardNumber {
-      font-family: var(--serif);
-      color: var(--blush);
-      font-size: 1rem;
-      letter-spacing: 0.12em;
-      margin: 0 0 14px;
-    }
-
     .card h3 {
       color: var(--roseDark);
       font-size: 1.22rem;
@@ -378,49 +404,110 @@
     .card p { color: var(--muted); margin: 0; }
 
     /* ---------- Busy Beauty menu cards ---------- */
+    .menuSection {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(217, 163, 180, 0.18), transparent 42%),
+        radial-gradient(circle at 92% 100%, rgba(184, 138, 68, 0.08), transparent 45%),
+        linear-gradient(180deg, var(--cream) 0%, var(--roseSoft) 100%);
+    }
+
     .menuGrid {
       grid-template-columns: repeat(2, 1fr);
-      max-width: 860px;
+      gap: 24px;
+      max-width: 920px;
       margin: 0 auto;
     }
 
     .menuCard {
       display: flex;
       flex-direction: column;
-      text-align: center;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      padding: 36px 32px 32px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(217, 163, 180, 0.16), transparent 42%),
+        var(--white);
+      border: 1px solid var(--border);
+      box-shadow: 0 22px 60px rgba(74, 16, 35, 0.09);
+      transition: transform 180ms ease, box-shadow 180ms ease;
     }
 
-    .menuCardSubtitle {
-      color: var(--gold);
+    .menuCard:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 28px 70px rgba(74, 16, 35, 0.14);
+    }
+
+    .menuCard::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blush), var(--rose), var(--roseDark));
+    }
+
+    .menuCardLabel {
+      display: inline-flex;
+      align-self: flex-start;
+      align-items: center;
+      background: var(--roseSoft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 14px;
+      color: var(--rose);
       font-weight: 700;
-      font-size: 0.82rem;
-      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-top: 6px;
+      margin: 0 0 18px;
     }
 
-    .menuCardText { flex: 1; }
+    .menuCard h3 {
+      font-family: var(--serif);
+      font-weight: 600;
+      color: var(--roseDark);
+      font-size: clamp(1.4rem, 2.4vw, 1.7rem);
+      line-height: 1.15;
+      margin: 0 0 14px;
+    }
 
     .menuCardPrice {
       font-family: var(--serif);
       color: var(--rose);
-      font-size: 1.5rem;
+      font-size: clamp(2rem, 3.4vw, 2.5rem);
       font-weight: 600;
-      margin-top: 14px;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      margin: 0;
     }
 
-    .menuCardButton { margin-top: 22px; }
-
-    .menuCardNote { margin-top: 12px; font-size: 0.85rem; }
-
-    .stripeBuyButtonWrap {
-      margin-top: 22px;
-      display: flex;
-      justify-content: center;
+    .menuCardSupport {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      margin: 8px 0 0;
     }
 
-    .stripeBuyButtonWrap stripe-buy-button {
+    .menuCardDivider {
       width: 100%;
+      height: 1px;
+      border: none;
+      background: linear-gradient(90deg, var(--border), rgba(233, 216, 222, 0.2));
+      margin: 20px 0;
+    }
+
+    .menuCardText { flex: 1; margin: 0; }
+
+    .menuCardButton { margin-top: 24px; width: 100%; }
+
+    .menuCardNote {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
     }
 
     /* ---------- Inline CTA band ---------- */
@@ -765,7 +852,7 @@
 
       .ctaRow .button { width: 100%; }
 
-      .microTrust span { padding: 0 6px; }
+      .chip { font-size: 0.8rem; padding: 7px 13px; }
 
       .heroImageFrame { border-radius: 22px; }
 
@@ -814,7 +901,7 @@
       <nav class="headerActions" aria-label="Primary actions">
         <a class="button buttonSecondary" href="tel:+19052018005"
            onclick="return sendPhoneConversion('tel:+19052018005')">Call (905) 201-8005</a>
-        <a class="button buttonPrimary" href="#booking-form">Book Now</a>
+        <a class="button buttonPrimary" href="#busy-beauty-menu">Book Now</a>
       </nav>
     </div>
   </header>
@@ -825,17 +912,24 @@
     <section class="hero">
       <div class="container heroInner">
         <div class="heroContent">
-          <p class="eyebrow">New From Sheri</p>
+          <p class="eyebrow">Sherlase Clinic &amp; Spa &middot; Markham</p>
           <h1>The Busy Beauty&nbsp;Menu</h1>
-          <p class="heroText">Luxury spa results, designed around a busy schedule. Sheri's new Busy Beauty Menu offers two express spa experiences in a calm, women focused space in Markham &mdash; book and pay securely online in minutes.</p>
+          <p class="heroSub">Quick, focused skin treatments for busy women in Markham.</p>
+          <p class="heroText">Choose your treatment, pay securely online, and Sherlase will contact you to book your appointment.</p>
 
           <div class="ctaRow">
-            <a class="button buttonPrimary" href="#busy-beauty-menu">View the Busy Beauty Menu</a>
+            <a class="button buttonPrimary" href="#busy-beauty-menu">View Treatments</a>
             <a class="button buttonSecondary" href="tel:+19052018005"
-               onclick="return sendPhoneConversion('tel:+19052018005')">Call (905) 201-8005</a>
+               onclick="return sendPhoneConversion('tel:+19052018005')">Call Sherlase</a>
           </div>
 
-          <p class="microTrust">Women focused spa in Markham<span>&middot;</span>Free parking<span>&middot;</span>25+ years trusted locally</p>
+          <ul class="chipRow" aria-label="Why clients choose Sherlase">
+            <li class="chip">Women Focused Spa</li>
+            <li class="chip">Markham</li>
+            <li class="chip">Free Parking</li>
+            <li class="chip">25 Years Trusted</li>
+            <li class="chip">Secure Online Payment</li>
+          </ul>
         </div>
 
         <div class="heroMedia">
@@ -849,7 +943,7 @@
           </div>
           <div class="offerPanel">
             <strong>The Busy Beauty Menu</strong>
-            <p>Two express spa experiences &bull; Secure Stripe checkout</p>
+            <p>Two focused treatments &bull; Secure Stripe checkout</p>
           </div>
         </div>
       </div>
@@ -866,11 +960,11 @@
     </section>
 
     <!-- Busy Beauty Menu -->
-    <section class="section" id="busy-beauty-menu">
+    <section class="section menuSection" id="busy-beauty-menu">
       <div class="container">
         <div class="sectionHeader center">
-          <h2>Choose your Busy Beauty experience</h2>
-          <p>Two express spa experiences from Sheri's new Busy Beauty Menu. Pick your option, pay securely with Stripe, and we will contact you to schedule your appointment.</p>
+          <h2>Choose your Busy Beauty treatment</h2>
+          <p>Two focused treatments from Sheri's Busy Beauty Menu. Pick your option, pay securely with Stripe, and Sherlase will contact you to book your appointment.</p>
         </div>
 
         <!--
@@ -880,35 +974,26 @@
           completed payment.
         -->
         <div class="cardGrid menuGrid">
-          <div class="card menuCard">
-            <p class="cardNumber">OPTION 01</p>
+          <article class="card menuCard">
+            <p class="menuCardLabel">Option 01</p>
             <h3>The Microdermabrasion Tune Up</h3>
-            <p class="menuCardText">A focused skin refresh for a smoother, brighter looking glow. Choose the single treatment or package option securely through Stripe.</p>
             <p class="menuCardPrice">From $89</p>
-            <div class="stripeBuyButtonWrap">
-              <stripe-buy-button
-                buy-button-id="buy_btn_1TomRNDuteuQ8HQH8PLZqRat"
-                publishable-key="pk_live_51SJckpDuteuQ8HQHLbO64XXPQD1CXBhDiP9aQoehlwZ5US73JQ4H8hsfZxXq0GHbNDPWFrLBuJwNCKd9eZt9aKBN00nc1j3RRG"
-              >
-              </stripe-buy-button>
-            </div>
+            <p class="menuCardSupport">Single treatment or package option available at checkout.</p>
+            <hr class="menuCardDivider">
+            <p class="menuCardText">A focused skin refresh for a smoother, brighter looking glow. Choose your option securely through Stripe, then Sherlase will contact you to book your appointment.</p>
+            <a class="button buttonPrimary menuCardButton" href="https://buy.stripe.com/bJe28r04p07h9xhgrMbEA06">Book Microdermabrasion</a>
             <p class="menuCardNote">Secure Stripe checkout</p>
-          </div>
-          <div class="card menuCard">
-            <p class="cardNumber">OPTION 02</p>
+          </article>
+          <article class="card menuCard">
+            <p class="menuCardLabel">Option 02</p>
             <h3>The Acne Treatment Tune Up</h3>
-            <p class="menuCardSubtitle">Purchase 3 and Save</p>
-            <p class="menuCardText">A focused acne care package designed to help clients stay consistent with regular treatments. Purchase 3 and save, then Sherlase will contact you to book your appointments.</p>
             <p class="menuCardPrice">$175 CAD</p>
-            <div class="stripeBuyButtonWrap">
-              <stripe-buy-button
-                buy-button-id="buy_btn_1TosiaDuteuQ8HQHWfO34Mhp"
-                publishable-key="pk_live_51SJckpDuteuQ8HQHLbO64XXPQD1CXBhDiP9aQoehlwZ5US73JQ4H8hsfZxXq0GHbNDPWFrLBuJwNCKd9eZt9aKBN00nc1j3RRG"
-              >
-              </stripe-buy-button>
-            </div>
+            <p class="menuCardSupport">Purchase 3 and Save</p>
+            <hr class="menuCardDivider">
+            <p class="menuCardText">A focused acne care package designed to help clients stay consistent with regular treatments. Purchase 3 and save, then Sherlase will contact you to book your appointments.</p>
+            <a class="button buttonPrimary menuCardButton" href="https://buy.stripe.com/7sYfZhdVfcU3gZJ0sObEA09">Book Acne Treatment</a>
             <p class="menuCardNote">Secure Stripe checkout</p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -919,7 +1004,7 @@
         <div class="ctaBand">
           <div>
             <h2>The Busy Beauty Menu</h2>
-            <p>Express luxury spa experiences, designed for busy schedules.</p>
+            <p>Quick, focused skin treatments, designed for busy schedules.</p>
           </div>
           <div class="ctaBandActions">
             <a class="button buttonPrimary" href="#busy-beauty-menu">Book Busy Beauty</a>
@@ -963,7 +1048,7 @@
       <div class="container">
         <div class="bookingBox">
           <div class="sectionHeader center">
-            <h2>Prefer to request a time first?</h2>
+            <h2>Prefer to choose a time first?</h2>
             <p>Request your preferred date and time. The Sherlase team will contact you to confirm availability.</p>
           </div>
 
@@ -1015,7 +1100,7 @@
                 <textarea id="message" name="message" rows="3" placeholder="Preferences, questions, or gift details"></textarea>
               </div>
               <div class="formGroup full">
-                <button type="submit" class="button buttonPrimary submitButton">Request My Busy Beauty Appointment</button>
+                <button type="submit" class="button buttonPrimary submitButton">Request My Appointment</button>
               </div>
             </div>
           </form>
@@ -1127,7 +1212,7 @@
   </footer>
 
   <div class="mobileStickyCta" aria-label="Booking actions">
-    <a class="button buttonPrimary" href="#busy-beauty-menu">Buy Now</a>
+    <a class="button buttonPrimary" href="#busy-beauty-menu">Book Now</a>
     <a class="button buttonSecondary" href="tel:+19052018005"
        onclick="return sendPhoneConversion('tel:+19052018005')">Call</a>
   </div>
