@@ -17,8 +17,9 @@
     gtag('config', 'AW-17719269754');
 
     // Phone call conversion only — fired exclusively from tel: links.
-    // The "Purchase on Stripe" conversion fires separately, once, on
-    // ?paid=true page load (see the DOMContentLoaded script at the bottom).
+    // The "Purchase on Stripe" conversion is a Google Ads page visit
+    // conversion on /thank-you.html?paid=true; the base tag above handles it,
+    // so no manual purchase conversion is fired anywhere on this site.
     function sendPhoneConversion(url) {
       var done = false;
       var callback = function () {
@@ -292,11 +293,13 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Two-mode content toggle + "Purchase on Stripe" conversion.
-    // Stripe Payment Links redirect here after a completed payment:
+    // Two-mode content toggle.
+    // Stripe Payment Links / Buy Buttons redirect here after a completed payment:
     //   https://sherlase-spa.netlify.app/thank-you.html?paid=true
-    // The conversion fires once per browser session (sessionStorage guard),
-    // so a refresh or back/forward navigation cannot create a duplicate.
+    // "Purchase on Stripe" is configured in Google Ads as a PAGE VISIT
+    // conversion on that URL, so the base gtag config above is all it needs.
+    // No manual gtag("event", "conversion", ...) purchase call here — adding
+    // one would double-count every payment.
     document.addEventListener("DOMContentLoaded", function () {
       const params = new URLSearchParams(window.location.search);
       const isPaid = params.get("paid") === "true";
@@ -311,24 +314,6 @@
       } else {
         if (bookingContent) bookingContent.hidden = false;
         if (paidContent) paidContent.hidden = true;
-        return;
-      }
-
-      const conversionKey = "sherlase_stripe_purchase_conversion_sent";
-      try {
-        if (sessionStorage.getItem(conversionKey) === "true") return;
-        sessionStorage.setItem(conversionKey, "true");
-      } catch (e) {
-        // sessionStorage unavailable — still fire the conversion.
-      }
-
-      if (typeof gtag === "function") {
-        gtag("event", "conversion", {
-          send_to: "AW-17719269754/cUckCIHl8L4bEPqymoFC",
-          value: 284.0,
-          currency: "CAD",
-          transaction_id: params.get("payment_intent") || params.get("session_id") || ""
-        });
       }
     });
   </script>
