@@ -162,6 +162,12 @@
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.26);
     }
 
+    .headerCall { gap: 8px; }
+
+    .headerCall svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    .headerCallShort { display: none; }
+
     .headerActions { display: flex; align-items: center; gap: 12px; }
 
     /* ---------- Buttons ---------- */
@@ -496,13 +502,6 @@
 
     .menuCardButton { margin-top: 24px; width: 100%; }
 
-    .menuCardNote {
-      margin-top: 12px;
-      font-size: 0.85rem;
-      color: var(--muted);
-      text-align: center;
-    }
-
     /* ---------- Inline CTA band ---------- */
     .ctaBand {
       background: var(--roseSoft);
@@ -807,9 +806,6 @@
       text-align: center;
     }
 
-    /* ---------- Sticky mobile CTA ---------- */
-    .mobileStickyCta { display: none; }
-
     /* ---------- Responsive ---------- */
     @media (max-width: 900px) {
       .heroInner, .splitSection { grid-template-columns: 1fr; }
@@ -827,7 +823,8 @@
 
       .bookingSteps { grid-template-columns: repeat(2, 1fr); }
 
-      .headerActions .buttonSecondary { display: none; }
+      .headerCallFull { display: none; }
+      .headerCallShort { display: inline; }
     }
 
     @media (max-width: 640px) {
@@ -835,9 +832,11 @@
 
       .headerInner { min-height: 64px; }
 
-      .logo { width: 138px; }
+      .logo { width: 118px; }
 
-      .headerActions .button { min-height: 44px; padding: 0 18px; font-size: 0.92rem; }
+      .headerActions { gap: 8px; }
+
+      .headerActions .button { min-height: 42px; padding: 0 13px; font-size: 0.88rem; }
 
       .heroInner { padding: 34px 0 40px; gap: 30px; }
 
@@ -858,26 +857,6 @@
       .formGrid { grid-template-columns: 1fr; }
 
       .bookingSteps { grid-template-columns: 1fr; }
-
-      .mobileStickyCta {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 30;
-        display: grid;
-        grid-template-columns: 1.6fr 0.75fr;
-        gap: 10px;
-        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-        background: rgba(255, 247, 242, 0.96);
-        border-top: 1px solid var(--border);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-      }
-
-      .mobileStickyCta .button { min-height: 50px; padding: 0 10px; font-size: 0.95rem; white-space: nowrap; }
-
-      body { padding-bottom: 84px; }
     }
   </style>
 </head>
@@ -890,8 +869,12 @@
         <img class="logo" src="logo.webp" alt="Sherlase Clinic &amp; Spa" width="380" height="102">
       </a>
       <nav class="headerActions" aria-label="Primary actions">
-        <a class="button buttonSecondary" href="tel:+19052018005"
-           onclick="return sendPhoneConversion('tel:+19052018005')">Call (905) 201-8005</a>
+        <a class="button buttonSecondary headerCall" href="tel:+19052018005"
+           onclick="return sendPhoneConversion('tel:+19052018005')">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="headerCallFull">(905) 201-8005</span>
+          <span class="headerCallShort">Call Us</span>
+        </a>
         <a class="button buttonPrimary" href="#busy-beauty-menu">Book Now</a>
       </nav>
     </div>
@@ -927,7 +910,7 @@
           </div>
           <div class="offerPanel">
             <strong>The Busy Beauty Menu</strong>
-            <p>Two focused treatments &bull; Secure Stripe checkout</p>
+            <p>Two focused treatments &bull; Book &amp; pay online</p>
           </div>
         </div>
       </div>
@@ -966,7 +949,6 @@
             <hr class="menuCardDivider">
             <p class="menuCardText">A focused skin refresh for a smoother, brighter looking glow. Choose your option securely through Stripe, then Sherlase will contact you to book your appointment.</p>
             <a class="button buttonPrimary menuCardButton" href="https://buy.stripe.com/bJe28r04p07h9xhgrMbEA06">Book Microdermabrasion</a>
-            <p class="menuCardNote">Secure Stripe checkout</p>
           </article>
           <article class="card menuCard">
             <p class="menuCardLabel">No. 02 &mdash; Acne Care</p>
@@ -976,7 +958,6 @@
             <hr class="menuCardDivider">
             <p class="menuCardText">A focused acne care package designed to help clients stay consistent with regular treatments. Purchase 3 and save, then Sherlase will contact you to book your appointments.</p>
             <a class="button buttonPrimary menuCardButton" href="https://buy.stripe.com/7sYfZhdVfcU3gZJ0sObEA09">Book Acne Treatment</a>
-            <p class="menuCardNote">Secure Stripe checkout</p>
           </article>
         </div>
       </div>
@@ -1194,12 +1175,6 @@
       <p>&copy; <span id="year">2026</span> Sherlase Clinic &amp; Spa. All rights reserved.</p>
     </div>
   </footer>
-
-  <div class="mobileStickyCta" aria-label="Booking actions">
-    <a class="button buttonPrimary" href="#busy-beauty-menu">Book Now</a>
-    <a class="button buttonSecondary" href="tel:+19052018005"
-       onclick="return sendPhoneConversion('tel:+19052018005')">Call</a>
-  </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
