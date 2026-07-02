@@ -16,6 +16,7 @@
   <meta property="og:image" content="https://sherlase-spa.netlify.app/og-summer.jpg">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17719269754"></script>
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -23,8 +24,8 @@
     gtag('config', 'AW-17719269754');
 
     // Phone call conversion only. The "Purchase on Stripe" conversion is NOT
-    // fired on Stripe button clicks — it fires on /thank-you.html?paid=true
-    // after a completed payment (see thank-you.html).
+    // fired on Stripe button clicks — Google Ads tracks it as a page visit
+    // conversion on /thank-you.html?paid=true after a completed payment.
     function sendPhoneConversion(url) {
       var done = false;
       var callback = function () {
@@ -391,9 +392,27 @@
 
     .menuCardText { flex: 1; }
 
+    .menuCardPrice {
+      font-family: var(--serif);
+      color: var(--rose);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 14px;
+    }
+
     .menuCardButton { margin-top: 22px; }
 
     .menuCardNote { margin-top: 12px; font-size: 0.85rem; }
+
+    .stripeBuyButtonWrap {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .stripeBuyButtonWrap stripe-buy-button {
+      width: 100%;
+    }
 
     /* ---------- Inline CTA band ---------- */
     .ctaBand {
@@ -786,7 +805,7 @@
       <nav class="headerActions" aria-label="Primary actions">
         <a class="button buttonSecondary" href="tel:+19052018005"
            onclick="return sendPhoneConversion('tel:+19052018005')">Call (905) 201-8005</a>
-        <a class="button buttonPrimary" href="#busy-beauty-menu">Book Now</a>
+        <a class="button buttonPrimary" href="#booking-form">Book Now</a>
       </nav>
     </div>
   </header>
@@ -846,22 +865,24 @@
         </div>
 
         <!--
-          TODO (Sheri / Umer):
-          1. Replace the two placeholder hrefs below with Sheri's real Stripe
-             Payment Link URLs (buy.stripe.com/...).
-          2. Update each card's name, description, and price to match the
-             final Busy Beauty Menu offers.
-          Note: the Stripe buttons intentionally do NOT fire any Google Ads
-          conversion. The purchase conversion fires on
-          /thank-you.html?paid=true after a completed payment.
+          Stripe purchase buttons intentionally do NOT fire any Google Ads
+          conversion. "Purchase on Stripe" is tracked by Google Ads as a
+          page visit conversion on /thank-you.html?paid=true after a
+          completed payment.
         -->
         <div class="cardGrid menuGrid">
           <div class="card menuCard">
             <p class="cardNumber">OPTION 01</p>
-            <h3>Busy Beauty Express</h3>
-            <p class="menuCardText">A focused express spa treatment for the woman on the go. Arrive, unwind, and walk out glowing &mdash; all on a busy schedule.</p>
-            <a class="button buttonPrimary menuCardButton"
-               href="https://buy.stripe.com/REPLACE_WITH_BUSY_BEAUTY_LINK_1">Book Option 1</a>
+            <h3>The Microdermabrasion Tune Up</h3>
+            <p class="menuCardText">A focused skin refresh for a smoother, brighter looking glow. Choose the single treatment or package option securely through Stripe.</p>
+            <p class="menuCardPrice">From $89</p>
+            <div class="stripeBuyButtonWrap">
+              <stripe-buy-button
+                buy-button-id="buy_btn_1TomRNDuteuQ8HQH8PLZqRat"
+                publishable-key="pk_live_5I5JckpDuteuQ8HQHLb064XXPQD1CXBhDiP9aQoehlwZEUS73JQ4H8hsfZxXqOGHbNDPWFrLBuJwNCKd9eZt9aKBN0enc1j3RRG"
+              >
+              </stripe-buy-button>
+            </div>
             <p class="menuCardNote">Secure Stripe checkout</p>
           </div>
           <div class="card menuCard">
@@ -869,7 +890,7 @@
             <h3>Busy Beauty Signature</h3>
             <p class="menuCardText">A fuller express experience with extra pampering built in &mdash; luxury spa care that still respects your calendar.</p>
             <a class="button buttonPrimary menuCardButton"
-               href="https://buy.stripe.com/REPLACE_WITH_BUSY_BEAUTY_LINK_2">Book Option 2</a>
+               href="https://buy.stripe.com/7sYfZhdVfcU3gZJ0sObEA09">Buy Option 2</a>
             <p class="menuCardNote">Secure Stripe checkout</p>
           </div>
         </div>
@@ -1090,7 +1111,7 @@
   </footer>
 
   <div class="mobileStickyCta" aria-label="Booking actions">
-    <a class="button buttonPrimary" href="#busy-beauty-menu">Book Busy Beauty</a>
+    <a class="button buttonPrimary" href="#busy-beauty-menu">Buy Now</a>
     <a class="button buttonSecondary" href="tel:+19052018005"
        onclick="return sendPhoneConversion('tel:+19052018005')">Call</a>
   </div>
