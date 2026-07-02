@@ -438,19 +438,23 @@
     }
 
     .menuCardLabel {
-      display: inline-flex;
-      align-self: flex-start;
+      display: flex;
       align-items: center;
-      background: var(--roseSoft);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 5px 14px;
-      color: var(--rose);
+      gap: 12px;
+      color: var(--gold);
       font-weight: 700;
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
+      font-size: 0.76rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin: 0 0 18px;
+      margin: 0 0 16px;
+    }
+
+    .menuCardLabel::after {
+      content: "";
+      flex: 0 0 34px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: 0.55;
     }
 
     .menuCard h3 {
@@ -955,7 +959,7 @@
         -->
         <div class="cardGrid menuGrid">
           <article class="card menuCard">
-            <p class="menuCardLabel">Option 01</p>
+            <p class="menuCardLabel">No. 01 &mdash; Skin Refresh</p>
             <h3>The Microdermabrasion Tune Up</h3>
             <p class="menuCardPrice">From $89</p>
             <p class="menuCardSupport">Single treatment or package option available at checkout.</p>
@@ -965,7 +969,7 @@
             <p class="menuCardNote">Secure Stripe checkout</p>
           </article>
           <article class="card menuCard">
-            <p class="menuCardLabel">Option 02</p>
+            <p class="menuCardLabel">No. 02 &mdash; Acne Care</p>
             <h3>The Acne Treatment Tune Up</h3>
             <p class="menuCardPrice">$175 CAD</p>
             <p class="menuCardSupport">Purchase 3 and Save</p>
