@@ -125,10 +125,9 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255, 247, 242, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(233, 216, 222, 0.8);
+      background: linear-gradient(135deg, var(--roseDark) 0%, var(--rose) 100%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 30px rgba(74, 16, 35, 0.22);
     }
 
     .headerInner {
@@ -139,7 +138,29 @@
       gap: 24px;
     }
 
-    .logo { width: 168px; height: auto; }
+    .logo { width: 168px; height: auto; filter: brightness(0) invert(1); }
+
+    .siteHeader .buttonSecondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.32);
+    }
+
+    .siteHeader .buttonSecondary:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.55);
+    }
+
+    .siteHeader .buttonPrimary {
+      background: var(--white);
+      color: var(--rose);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    .siteHeader .buttonPrimary:hover {
+      background: var(--roseSoft);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.26);
+    }
 
     .headerActions { display: flex; align-items: center; gap: 12px; }
 
