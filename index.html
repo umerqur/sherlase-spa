@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Summer Refresh Spa Experience $155 | Sherlase Clinic and Spa Markham</title>
-  <meta name="description" content="Book the Summer Refresh, a 90 minute luxury spa experience with facial, massage, and hand treatment at Sherlase Clinic and Spa in Markham.">
+  <title>Busy Beauty Menu | Sherlase Clinic and Spa Markham</title>
+  <meta name="description" content="Sheri's Busy Beauty Menu at Sherlase Clinic and Spa in Markham. Express luxury spa experiences designed for busy schedules, with secure online booking.">
   <link rel="canonical" href="https://sherlase-spa.netlify.app/">
   <meta name="theme-color" content="#7B1D3B">
 
-  <meta property="og:title" content="Summer Refresh Spa Experience | Sherlase Spa">
-  <meta property="og:description" content="A 90 minute luxury spa package with facial, massage, and hand treatment in Markham.">
+  <meta property="og:title" content="Busy Beauty Menu | Sherlase Spa">
+  <meta property="og:description" content="Express luxury spa experiences designed for busy schedules at Sherlase Clinic and Spa in Markham.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sherlase-spa.netlify.app/">
   <meta property="og:image" content="https://sherlase-spa.netlify.app/og-summer.jpg">
@@ -22,7 +22,10 @@
     gtag('js', new Date());
     gtag('config', 'AW-17719269754');
 
-    function sendConversion(sendTo, url, value) {
+    // Phone call conversion only. The "Purchase on Stripe" conversion is NOT
+    // fired on Stripe button clicks — it fires on /thank-you.html?paid=true
+    // after a completed payment (see thank-you.html).
+    function sendPhoneConversion(url) {
       var done = false;
       var callback = function () {
         if (done) return;
@@ -36,9 +39,7 @@
       }
 
       gtag("event", "conversion", {
-        send_to: sendTo,
-        value: value || 155.0,
-        currency: "CAD",
+        send_to: "AW-17719269754/x8k7CLLBx74bEPqymoFC",
         event_callback: callback
       });
 
@@ -374,6 +375,25 @@
     }
 
     .card p { color: var(--muted); margin: 0; }
+
+    /* ---------- Busy Beauty menu cards ---------- */
+    .menuGrid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .menuCard {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .menuCardText { flex: 1; }
+
+    .menuCardButton { margin-top: 22px; }
+
+    .menuCardNote { margin-top: 12px; font-size: 0.85rem; }
 
     /* ---------- Inline CTA band ---------- */
     .ctaBand {
@@ -765,9 +785,8 @@
       </a>
       <nav class="headerActions" aria-label="Primary actions">
         <a class="button buttonSecondary" href="tel:+19052018005"
-           onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC', 'tel:+19052018005', 155)">Call (905) 201-8005</a>
-        <a class="button buttonPrimary" href="https://buy.stripe.com/6oUdR904p7zJ9xh1wSbEA05"
-           onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 155)">Book Now</a>
+           onclick="return sendPhoneConversion('tel:+19052018005')">Call (905) 201-8005</a>
+        <a class="button buttonPrimary" href="#busy-beauty-menu">Book Now</a>
       </nav>
     </div>
   </header>
@@ -778,20 +797,14 @@
     <section class="hero">
       <div class="container heroInner">
         <div class="heroContent">
-          <p class="eyebrow">Limited Summer Special</p>
-          <h1>Summer Refresh Spa&nbsp;Experience</h1>
-          <p class="heroText">Step away from the rush of daily life with 90 minutes of focused spa care. This luxury package combines a customized facial, relaxing massage, and restorative hand treatment in a calm, women focused space in Markham.</p>
-
-          <div class="priceBlock">
-            <div class="price">$155</div>
-            <div class="priceMeta">90 minutes<br>plus tax and gratuity</div>
-          </div>
+          <p class="eyebrow">New From Sheri</p>
+          <h1>The Busy Beauty&nbsp;Menu</h1>
+          <p class="heroText">Luxury spa results, designed around a busy schedule. Sheri's new Busy Beauty Menu offers two express spa experiences in a calm, women focused space in Markham &mdash; book and pay securely online in minutes.</p>
 
           <div class="ctaRow">
-            <a class="button buttonPrimary" href="https://buy.stripe.com/6oUdR904p7zJ9xh1wSbEA05"
-               onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 155)">Book Summer Refresh</a>
+            <a class="button buttonPrimary" href="#busy-beauty-menu">View the Busy Beauty Menu</a>
             <a class="button buttonSecondary" href="tel:+19052018005"
-               onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC', 'tel:+19052018005', 155)">Call (905) 201-8005</a>
+               onclick="return sendPhoneConversion('tel:+19052018005')">Call (905) 201-8005</a>
           </div>
 
           <p class="microTrust">Women focused spa in Markham<span>&middot;</span>Free parking<span>&middot;</span>25+ years trusted locally</p>
@@ -807,8 +820,8 @@
                  fetchpriority="high" decoding="async">
           </div>
           <div class="offerPanel">
-            <strong>90 Minute Luxury Treatment</strong>
-            <p>Facial &bull; Massage &bull; Hand Treatment</p>
+            <strong>The Busy Beauty Menu</strong>
+            <p>Two express spa experiences &bull; Secure Stripe checkout</p>
           </div>
         </div>
       </div>
@@ -824,29 +837,40 @@
       </div>
     </section>
 
-    <!-- Offer breakdown -->
-    <section class="section" id="included">
+    <!-- Busy Beauty Menu -->
+    <section class="section" id="busy-beauty-menu">
       <div class="container">
         <div class="sectionHeader center">
-          <h2>What is included</h2>
-          <p>Three treatments, one unhurried 90 minute appointment. Everything is included for $155 plus tax and gratuity.</p>
+          <h2>Choose your Busy Beauty experience</h2>
+          <p>Two express spa experiences from Sheri's new Busy Beauty Menu. Pick your option, pay securely with Stripe, and we will contact you to schedule your appointment.</p>
         </div>
 
-        <div class="cardGrid">
-          <div class="card">
-            <p class="cardNumber">01</p>
-            <h3>Customized Facial</h3>
-            <p>A calming facial experience using professional skin care selected for your skin needs.</p>
+        <!--
+          TODO (Sheri / Umer):
+          1. Replace the two placeholder hrefs below with Sheri's real Stripe
+             Payment Link URLs (buy.stripe.com/...).
+          2. Update each card's name, description, and price to match the
+             final Busy Beauty Menu offers.
+          Note: the Stripe buttons intentionally do NOT fire any Google Ads
+          conversion. The purchase conversion fires on
+          /thank-you.html?paid=true after a completed payment.
+        -->
+        <div class="cardGrid menuGrid">
+          <div class="card menuCard">
+            <p class="cardNumber">OPTION 01</p>
+            <h3>Busy Beauty Express</h3>
+            <p class="menuCardText">A focused express spa treatment for the woman on the go. Arrive, unwind, and walk out glowing &mdash; all on a busy schedule.</p>
+            <a class="button buttonPrimary menuCardButton"
+               href="https://buy.stripe.com/REPLACE_WITH_BUSY_BEAUTY_LINK_1">Book Option 1</a>
+            <p class="menuCardNote">Secure Stripe checkout</p>
           </div>
-          <div class="card">
-            <p class="cardNumber">02</p>
-            <h3>Relaxing Massage</h3>
-            <p>A soothing massage experience designed to help you unwind and release everyday tension.</p>
-          </div>
-          <div class="card">
-            <p class="cardNumber">03</p>
-            <h3>Restorative Hand Treatment</h3>
-            <p>Gentle exfoliation, rich hydration, and warm comfort for softer, cared for hands.</p>
+          <div class="card menuCard">
+            <p class="cardNumber">OPTION 02</p>
+            <h3>Busy Beauty Signature</h3>
+            <p class="menuCardText">A fuller express experience with extra pampering built in &mdash; luxury spa care that still respects your calendar.</p>
+            <a class="button buttonPrimary menuCardButton"
+               href="https://buy.stripe.com/REPLACE_WITH_BUSY_BEAUTY_LINK_2">Book Option 2</a>
+            <p class="menuCardNote">Secure Stripe checkout</p>
           </div>
         </div>
       </div>
@@ -857,14 +881,13 @@
       <div class="container">
         <div class="ctaBand">
           <div>
-            <h2>Summer Refresh &mdash; $155</h2>
-            <p>90 minute luxury treatment. Facial, massage, and hand treatment.</p>
+            <h2>The Busy Beauty Menu</h2>
+            <p>Express luxury spa experiences, designed for busy schedules.</p>
           </div>
           <div class="ctaBandActions">
-            <a class="button buttonPrimary" href="https://buy.stripe.com/6oUdR904p7zJ9xh1wSbEA05"
-               onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 155)">Book Summer Refresh</a>
+            <a class="button buttonPrimary" href="#busy-beauty-menu">Book Busy Beauty</a>
             <a class="button buttonSecondary" href="tel:+19052018005"
-               onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC', 'tel:+19052018005', 155)">Call (905) 201-8005</a>
+               onclick="return sendPhoneConversion('tel:+19052018005')">Call (905) 201-8005</a>
           </div>
         </div>
       </div>
@@ -883,11 +906,11 @@
         </div>
         <div class="splitContent">
           <div class="sectionHeader" style="margin-bottom:0;">
-            <h2>Designed for a real reset</h2>
-            <p>This is not a rushed appointment. It is a complete 90 minute spa experience built for women who want to slow down, feel cared for, and leave refreshed.</p>
+            <h2>Designed for busy women</h2>
+            <p>The Busy Beauty Menu is built for women who want real spa care without giving up half a day. Slow down, feel cared for, and get back to your day refreshed.</p>
           </div>
           <ul class="benefitList">
-            <li><span class="check" aria-hidden="true">&#10003;</span>A full 90 minute appointment</li>
+            <li><span class="check" aria-hidden="true">&#10003;</span>Express treatments that respect your time</li>
             <li><span class="check" aria-hidden="true">&#10003;</span>Calm, private spa environment</li>
             <li><span class="check" aria-hidden="true">&#10003;</span>Easy Markham location</li>
             <li><span class="check" aria-hidden="true">&#10003;</span>Free parking</li>
@@ -903,7 +926,7 @@
       <div class="container">
         <div class="bookingBox">
           <div class="sectionHeader center">
-            <h2>Book your summer appointment</h2>
+            <h2>Prefer to request a time first?</h2>
             <p>Request your preferred date and time. The Sherlase team will contact you to confirm availability.</p>
           </div>
 
@@ -955,7 +978,7 @@
                 <textarea id="message" name="message" rows="3" placeholder="Preferences, questions, or gift details"></textarea>
               </div>
               <div class="formGroup full">
-                <button type="submit" class="button buttonPrimary submitButton">Request My Summer Refresh</button>
+                <button type="submit" class="button buttonPrimary submitButton">Request My Busy Beauty Appointment</button>
               </div>
             </div>
           </form>
@@ -1000,12 +1023,12 @@
 
         <div class="faqList">
           <details>
-            <summary>How long is the Summer Refresh offer available?</summary>
-            <p>The Summer Refresh is a limited summer offer and weekly appointment spots are limited. We recommend booking early to secure your preferred date and time.</p>
+            <summary>What is the Busy Beauty Menu?</summary>
+            <p>The Busy Beauty Menu is Sheri's new collection of express spa experiences, designed for women who want luxury spa results on a busy schedule. Weekly appointment spots are limited, so we recommend booking early.</p>
           </details>
           <details>
             <summary>Can I buy this as a gift?</summary>
-            <p>Yes. The Summer Refresh makes a lovely gift. Mention it is a gift in your booking notes and our team will arrange the details with you.</p>
+            <p>Yes. A Busy Beauty experience makes a lovely gift. Mention it is a gift in your booking notes and our team will arrange the details with you.</p>
           </details>
           <details>
             <summary>Do I need to book ahead?</summary>
@@ -1030,15 +1053,14 @@
     <!-- Final CTA -->
     <section class="section finalCta">
       <div class="container">
-        <h2>Ready for your Summer Refresh?</h2>
-        <p>Your 90 minute luxury spa experience is ready when you are.</p>
+        <h2>Ready for your Busy Beauty moment?</h2>
+        <p>Your express luxury spa experience is ready when you are.</p>
 
-        <a class="button buttonLight" href="https://buy.stripe.com/6oUdR904p7zJ9xh1wSbEA05" style="min-height:58px; font-size:1.08rem;"
-           onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 155)">Book Summer Refresh &mdash; $155</a>
+        <a class="button buttonLight" href="#busy-beauty-menu" style="min-height:58px; font-size:1.08rem;">View the Busy Beauty Menu</a>
 
         <p class="callLine">Or call
           <a href="tel:+19052018005"
-             onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC', 'tel:+19052018005', 155)">(905) 201-8005</a>
+             onclick="return sendPhoneConversion('tel:+19052018005')">(905) 201-8005</a>
           to book
         </p>
 
@@ -1046,7 +1068,7 @@
           <div class="contactCard">
             <h3>Visit us</h3>
             <p>383 Main Street Markham N #7<br>Markham, ON L3P 1Z3</p>
-            <p><a href="tel:+19052018005" onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC', 'tel:+19052018005', 155)">(905) 201-8005</a></p>
+            <p><a href="tel:+19052018005" onclick="return sendPhoneConversion('tel:+19052018005')">(905) 201-8005</a></p>
             <p><a href="mailto:info@sherlaseclinic.com">info@sherlaseclinic.com</a></p>
           </div>
           <div class="contactCard">
@@ -1068,10 +1090,9 @@
   </footer>
 
   <div class="mobileStickyCta" aria-label="Booking actions">
-    <a class="button buttonPrimary" href="https://buy.stripe.com/6oUdR904p7zJ9xh1wSbEA05"
-       onclick="return sendConversion('AW-17719269754/cUckCIHl8L4bEPqymoFC', this.href, 155)">Book Summer Refresh</a>
+    <a class="button buttonPrimary" href="#busy-beauty-menu">Book Busy Beauty</a>
     <a class="button buttonSecondary" href="tel:+19052018005"
-       onclick="return sendConversion('AW-17719269754/x8k7CLLBx74bEPqymoFC', 'tel:+19052018005', 155)">Call</a>
+       onclick="return sendPhoneConversion('tel:+19052018005')">Call</a>
   </div>
 
   <script>
